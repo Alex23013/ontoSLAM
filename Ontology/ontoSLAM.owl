@@ -1,0 +1,847 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+<!ENTITY CORA "http://www.semanticweb.org/ontologies/2013/7/CORA.owl#" >
+<!ENTITY OS "http://github.com/Alex23013/slam-up/OntoSLAM.owl#OS" >
+<!ENTITY ISRO "http://github.com/Alex23013/slam-up/ISRO.owl#ISRO" >
+<!ENTITY FR "http://github.com/Alex23013/slam-up/FortesRey.owl#FR" >
+]>
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2013/7/CORA.owl#"
+xml:base="http://www.semanticweb.org/ontologies/2013/7/CORA.owl"
+xmlns:CORA="http://www.semanticweb.org/ontologies/2013/7/CORA.owl#"
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+xmlns:owl="http://www.w3.org/2002/07/owl#"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:OS="http://github.com/Alex23013/slam-up/OntoSLAM.owl#"
+xmlns:kn="http://knowrob.org/kb/knowrob.owl#"
+xmlns:ISRO="http://github.com/Alex23013/slam-up/ISRO.owl#"
+xmlns:FR="http://github.com/Alex23013/slam-up/FortesRey.owl#"
+xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+<owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2013/7/CORA.owl">
+	<dc:contributor xml:lang="en">Maria Cornejo-Lupa</dc:contributor>
+</owl:Ontology>
+
+<!--concepts inherited from CORA and FR2013 ontology -->
+
+	<!--Category1: Robot Information -->
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#AutonomousRobot -->
+		<owl:Class rdf:about="&CORA;AutonomousRobot">
+		<rdfs:subClassOf rdf:resource="&CORA;Robot"/>
+		</owl:Class>
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#Semi-AutonomousRobot -->
+		<owl:Class rdf:about="&CORA;Semi-AutonomousRobot">
+		<rdfs:subClassOf rdf:resource="&CORA;Robot"/>
+		</owl:Class>
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#Non-AutonomousRobot -->
+		<owl:Class rdf:about="&CORA;Non-AutonomousRobot">
+		<rdfs:subClassOf rdf:resource="&CORA;Robot"/>
+		</owl:Class>
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#Robot -->
+		<owl:Class rdf:about="&CORA;Robot">
+		    <rdfs:subClassOf rdf:resource="ISRO:Agent"/>
+		</owl:Class>
+
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#RobotGroup -->
+		<owl:Class rdf:about="&CORA;RobotGroup" />
+
+		<!-- http://purl.org/ieee1872-owl/pos#OrientationValue -->
+		<owl:Class rdf:about="&CORA;OrientationValue">
+		    <rdfs:subClassOf rdf:resource="&CORA;OrientationMeasure"/>
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#Vector"/>
+		    <rdfs:subClassOf>
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="&CORA;componentX"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&owl;real"/>
+				</owl:Restriction>
+			</rdfs:subClassOf>
+			<rdfs:subClassOf>
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="&CORA;componentY"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&owl;real"/>
+				</owl:Restriction>
+			</rdfs:subClassOf>
+			<rdfs:subClassOf>
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="&CORA;componentZ"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&owl;real"/>
+				</owl:Restriction>
+			</rdfs:subClassOf>
+			<rdfs:subClassOf>
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="&CORA;componentW"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&owl;real"/>
+				</owl:Restriction>
+			</rdfs:subClassOf>
+			<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			This represents the orientation of the position of a structural model or one of its parts, in a free space in quaternion form.
+			</rdfs:comment>
+		</owl:Class>
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#CartesianPositionPoint -->
+		<owl:Class rdf:about="FR:CartesianPositionPoint">
+			<rdfs:subClassOf rdf:resource="OS:TranslationMeasure"/>
+			<rdfs:subClassOf rdf:resource="&CORA;PositionPoint"/>
+			<rdfs:subClassOf>
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="FR:cartesianX"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&owl;real"/>
+				</owl:Restriction>
+			</rdfs:subClassOf>
+			<rdfs:subClassOf>
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="FR:cartesianY"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&owl;real"/>
+				</owl:Restriction>
+			</rdfs:subClassOf>
+			<rdfs:subClassOf>
+				<owl:Restriction>
+				<owl:onProperty rdf:resource="FR:cartesianZ"/>
+				<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:onDataRange rdf:resource="&owl;real"/>
+				</owl:Restriction>
+			</rdfs:subClassOf>
+		</owl:Class>
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#CartesianPositionRegion -->
+		<owl:Class rdf:about="FR:CartesianPositionRegion">
+		    <rdfs:subClassOf rdf:resource="&CORA;PositionRegion"/>
+		</owl:Class>
+
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#PositionPoint -->
+		<owl:Class rdf:about="&CORA;PositionPoint">
+			<rdfs:subClassOf rdf:resource="OS:PositionalThing"/>
+			<rdfs:subClassOf>
+			<owl:Restriction>
+			<owl:onProperty rdf:resource="&CORA;in"/>
+			<owl:onClass rdf:resource="&CORA;CoordinateSystem"/>
+			<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+			</owl:Restriction>
+			</rdfs:subClassOf>
+		</owl:Class>
+			<owl:Axiom>
+			    <owl:annotatedSource rdf:resource="&CORA;OrientationValue"/>
+			    <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+			    <owl:annotatedTarget rdf:resource="&CORA;OrientationMeasure"/>
+			</owl:Axiom>
+	<!--Category2: Environment Mapping-->
+		<owl:Class rdf:about="&CORA;CoordinateSystem">
+	        <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#FrameOfReference"/>
+	        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+	        	A specialization of FrameOfReference. This is the collection of systems with respect to which the locations of SpatialThings can be specified.The two most common types of coordinate systems are CartesianCoordinateSystems and PolarCoordinateSystems.
+	        </rdfs:comment>
+	    </owl:Class>    
+
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#CartesianCoordinateSystem -->
+		<owl:Class rdf:about="FR:CartesianCoordinateSystem">
+		<rdfs:subClassOf rdf:resource="&CORA;CoordinateSystem"/>
+		<rdfs:subClassOf>
+		<owl:Restriction>
+		<owl:onProperty rdf:resource="&CORA;ofCS"/>
+		<owl:allValuesFrom rdf:resource="FR:CartesianPositionPoint"/>
+		</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A specialization of CoordinateSystem. Each instance of CartesianCoordinateSystem is based on two or three perpendicular axes that intersect at a point, called the origin. Two axes are used for coordinating a two-dimensional space; three axes are used for coordinating a three-dimensional space. Any point in the space coordinated by the system can be specified by a pair (or triple) of Distances, representing distances from the origin along each of the two (or three) axes.</rdfs:comment>
+		</owl:Class>
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#CartesianOperator -->
+		<owl:Class rdf:about="FR:CartesianOperator">
+		<rdfs:subClassOf rdf:resource="&CORA;Operator"/>
+		<rdfs:subClassOf>
+		<owl:Restriction>
+		<owl:onProperty rdf:resource="&CORA;operatorGenerates"/>
+		<owl:allValuesFrom rdf:resource="FR:CartesianPositionRegion"/>
+		</owl:Restriction>
+		</rdfs:subClassOf>
+		</owl:Class>
+		<owl:Class rdf:about="&CORA;Environment">
+		    <rdfs:subClassOf rdf:resource="OS:PhysicalThing"/>
+		</owl:Class>
+		<!-- http://www.semanticweb.org/ontologies/2013/7/CORA.owl#PositionRegion -->
+		<owl:Class rdf:about="&CORA;PositionRegion">
+			<rdfs:subClassOf rdf:resource="OS:PositionalThing"/>
+		</owl:Class>
+
+<!--Classes inherited from ISRO Ontology -->
+	<!--Category1: Robot Information-->
+		<owl:Class rdf:about="ISRO:Person">
+		    <rdfs:subClassOf rdf:resource="ISRO:Agent"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="ISRO:Agent">
+		    <rdfs:subClassOf rdf:resource="OS:PhysicalThing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="ISRO:RotationMatrix">
+		    <rdfs:subClassOf rdf:resource="&CORA;OrientationMeasure"/>
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#Matrix"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			This represents the orientation of the position of a structural model or one of its parts, according to the rotation of each of its axes.
+			</rdfs:comment>
+		</owl:Class>
+	<!--Category2: Environment Mapping-->
+		<owl:Class rdf:about="ISRO:Room">
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#SpaceRegion"/>
+		</owl:Class>
+		<owl:Class rdf:about="ISRO:Hallway">
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#SpaceRegion"/>
+		</owl:Class>
+		<owl:Class rdf:about="ISRO:Building">
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#SpaceRegion"/>
+		</owl:Class>
+	<!--Category3: Timely Information-->
+		<owl:Class rdf:about="ISRO:TemporalThing">
+		    <rdfs:subClassOf rdf:resource="OS:AbstractThing"/>
+		</owl:Class>
+		<owl:Class rdf:about="ISRO:TimePoint">
+		    <rdfs:subClassOf rdf:resource="OS:TemporalThing"/>
+		</owl:Class>
+
+<!--Classes inherited from KnowRobo Ontology -->
+	<!--General Classes-->
+		<owl:Class rdf:about="http://knowrob.org/kb/knowrob.owl#MathematicalThing">
+		    <rdfs:subClassOf rdf:resource="OS:AbstractThing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="http://knowrob.org/kb/knowrob.owl#Vector">
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#MathematicalThing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="http://knowrob.org/kb/knowrob.owl#Matrix">
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#MathematicalThing"/>
+		</owl:Class>
+		<owl:Class rdf:about="http://knowrob.org/kb/knowrob.owl#Polygon">
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#MathematicalThing"/>
+		</owl:Class>
+	<!--Category2: Environment Mapping-->
+		<owl:Class rdf:about="http://knowrob.org/kb/knowrob.owl#FrameOfReference">
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#MathematicalThing"/>
+		</owl:Class>
+		<owl:Class rdf:about="http://knowrob.org/kb/knowrob.owl#SpaceRegion">
+		    <rdfs:subClassOf rdf:resource="&CORA;Environment"/>
+		</owl:Class>
+
+<!--Classes developed in OntoSLAM-->
+	<!--Main Classes-->
+		<owl:Class rdf:about="OS:PhysicalThing">
+		    <rdfs:subClassOf rdf:resource="OS:Thing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:AbstractThing">
+		    <rdfs:subClassOf rdf:resource="OS:Thing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:PositionalThing">
+		    <rdfs:subClassOf rdf:resource="OS:AbstractThing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:StructuralModel">
+		    <rdfs:subClassOf rdf:resource="OS:AbstractThing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:FeatureThing">
+		    <rdfs:subClassOf rdf:resource="OS:AbstractThing"/>
+		</owl:Class>
+
+	<!--Category 1: Robot Information-->
+		<owl:Class rdf:about="OS:Part">
+		    <rdfs:subClassOf rdf:resource="OS:PhysicalThing"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			Denotes all things that occupy a physical space in the environment. It can be of the following types: Agent, Party, Joint and environment.
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Joint">
+		    <rdfs:subClassOf rdf:resource="OS:PhysicalThing"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			This represents the union between two parts, and can be of several types: fixed, prismatic, revoluted, among others.
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:ContinuosJoint">
+		    <rdfs:subClassOf rdf:resource="OS:Joint"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		    This represents a continuous hinge joint that rotates around the axis and has no upper and lower limits.
+		    </rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:PrysmaticJoint">
+		    <rdfs:subClassOf rdf:resource="OS:Joint"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		    This represents a  sliding joint that slides along the axis, and has a limited range specified by the upper and lower limits.
+		    </rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:FixedJoint">
+		    <rdfs:subClassOf rdf:resource="OS:Joint"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+				This represents a union that does not allow rotations on any axis. All degrees of freedom are locked. This is the default union between two parts.
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:RevoluteJoint">
+		    <rdfs:subClassOf rdf:resource="OS:Joint"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		    This represents a hinge union that rotates along the axis and has a limited range specified by the upper and lower limits.
+		    </rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:PlanarJoint">
+		    <rdfs:subClassOf rdf:resource="OS:Joint"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		    This represents a joint which allows motion in a plane perpendicular to the axis.
+		    </rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:FloatingJoint">
+		    <rdfs:subClassOf rdf:resource="OS:Joint"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		    This represents a joint which allows motion for all 6 degrees of freedom.
+		    </rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:ContinuosJoint">
+		    <rdfs:subClassOf rdf:resource="OS:Joint"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		    This represents a continuous hinge joint that rotates around the axis and has no upper and lower limits.
+		    </rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:AtomicPart">
+		    <rdfs:subClassOf rdf:resource="OS:Part"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It is a part that cannot be decomposed in other parts.
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:ComposedPart">
+		    <rdfs:subClassOf rdf:resource="OS:Part"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		    	Refers to a Part that it can be decompsed in smaller parts.
+		    </rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:RegularPart">
+		    <rdfs:subClassOf rdf:resource="OS:ComposedPart"/>
+		    <rdfs:subClassOf rdf:resource="OS:AtomicPart"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			Refers to all parts that are not the BasePart of the StructuralModel.
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:BasePart">
+		    <rdfs:subClassOf rdf:resource="OS:AtomicPart"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It is the BasePart of the StructuralModel. It can be only one BasePart for each StructuralModel because the position of this Part determine the position of the StructuralModel.
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Actuator">
+		    <rdfs:subClassOf rdf:resource="OS:RegularPart"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Sensor">
+		    <rdfs:subClassOf rdf:resource="OS:RegularPart"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Pose">
+		    <rdfs:subClassOf rdf:resource="OS:AbstractThing"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It is composed by the state of te DOF of the Physical Thing
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Position">
+		    <rdfs:subClassOf rdf:resource="OS:AbstractThing"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It is composed of the orientation and translation of the structural model or part to which it is related
+			</rdfs:comment>
+		</owl:Class>
+		<owl:Class rdf:about="OS:Axis">
+		    <rdfs:subClassOf rdf:resource="OS:AbstractThing"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+				The joint axis specified in the joint frame. This is the axis of rotation for revolute joints, the axis of translation for prismatic joints, and the surface normal for planar joints. The axis is specified in the joint frame of reference. Fixed and floating joints do not use the axis field.
+			</rdfs:comment>
+		</owl:Class>
+		<owl:Class rdf:about="OS:Color">
+		    <rdfs:subClassOf rdf:resource="OS:FeatureThing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Shape">
+		    <rdfs:subClassOf rdf:resource="OS:FeatureThing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Dimension">
+		    <rdfs:subClassOf rdf:resource="OS:FeatureThing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Height">
+		    <rdfs:subClassOf rdf:resource="OS:Dimension"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Width">
+		    <rdfs:subClassOf rdf:resource="OS:Dimension"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Depth">
+		    <rdfs:subClassOf rdf:resource="OS:Dimension"/>
+		</owl:Class>
+		<owl:Class rdf:about="OS:Mobile">
+		    <rdfs:subClassOf rdf:resource="OS:FeatureThing"/>
+		</owl:Class>
+		<owl:Class rdf:about="OS:Reconfigurable">
+		    <rdfs:subClassOf rdf:resource="OS:FeatureThing"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:State">
+		    <rdfs:subClassOf rdf:resource="OS:FeatureThing"/>
+		</owl:Class>
+	<!--Category 2: Environment Mapping-->
+		<owl:Class rdf:about="OS:Box">
+		    <rdfs:subClassOf rdf:resource="OS:Shape"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Cylinder">
+		    <rdfs:subClassOf rdf:resource="OS:Shape"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Plane">
+		    <rdfs:subClassOf rdf:resource="OS:Shape"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Sphere">
+		    <rdfs:subClassOf rdf:resource="OS:Shape"/>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:UndefinedShape">
+		    <rdfs:subClassOf rdf:resource="OS:Shape"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It is use when it is not possible to relate the shape of the visual to a common shape like box or sphere. It can be represented by a HeightMap or an OccupancyGrid.
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:HeightMap">
+		    <rdfs:subClassOf rdf:resource="OS:UndefinedShape"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It is a numeric matrix, where each cell contains the distance to an obstacle.
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:OccupancyGrid">
+		    <rdfs:subClassOf rdf:resource="OS:UndefinedShape"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It is a probability matrix, where each cell contains the probability of an obstacle.
+			</rdfs:comment>
+		</owl:Class>
+	<!--Additional Mathemathical Classes-->
+		<owl:Class rdf:about="OS:CovarianceMatrix">
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#Matrix"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It is a common way in robotics to represent the uncertainty of the axes position.
+			</rdfs:comment>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:MatrixElement"> 
+		<rdfs:subClassOf rdf:resource="OS:CovarianceMatrix"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+			<owl:onProperty rdf:resource="OS:componentRow"/>
+			<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+			<owl:onDataRange rdf:resource="&xsd;nonNegativeInteger"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+			<owl:onProperty rdf:resource="OS:componentCol"/>
+			<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+			<owl:onDataRange rdf:resource="&xsd;nonNegativeInteger"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+			<owl:onProperty rdf:resource="OS:componentValue"/>
+			<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+			<owl:onDataRange rdf:resource="&owl;real"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		</owl:Class>
+
+		<owl:Class rdf:about="OS:Probability">
+		    <rdfs:subClassOf rdf:resource="http://knowrob.org/kb/knowrob.owl#MathematicalThing"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It is a numerical value that represents the certainty with which a characteristic is known. In OntoSLAM it is associated to the certainty with which the position and shape of a physical thing is known.
+			</rdfs:comment>
+		</owl:Class>
+		
+
+<!--owl:ObjectProperty -->
+	<!--Category 1: Robot Information-->
+		<owl:ObjectProperty rdf:about="&CORA;workIn">
+			<rdfs:domain rdf:resource="&CORA;Robot"/>
+			<rdfs:range rdf:resource="&CORA;RobotGroup"/>
+		</owl:ObjectProperty>
+		<owl:ObjectProperty rdf:about="OS:hasAxis">
+		    <rdfs:domain rdf:resource="OS:Joint"/>
+		    <rdfs:range rdf:resource="OS:Axis"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasParent">
+		    <rdfs:domain rdf:resource="OS:Joint"/>
+		    <rdfs:range rdf:resource="OS:Part"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+				Used to connect a part with the part that is the parent of this part in the structure of the robot tree.
+			</rdfs:comment>    
+		</owl:ObjectProperty>
+		<owl:ObjectProperty rdf:about="OS:hasProbability">
+		    <rdfs:domain rdf:resource="OS:Position"/>
+		    <rdfs:range rdf:resource="OS:Probability"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasProbability">
+		    <rdfs:domain rdf:resource="OS:Shape"/>
+		    <rdfs:range rdf:resource="OS:Probability"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasPosition">
+		    <rdfs:domain rdf:resource="OS:StructuralModel"/>
+		    <rdfs:range rdf:resource="OS:Position"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasPosition">
+		    <rdfs:domain rdf:resource="OS:Part"/>
+		    <rdfs:range rdf:resource="OS:Position"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasPart">
+		    <rdfs:domain rdf:resource="OS:StructuralModel"/>
+		    <rdfs:range rdf:resource="OS:Part"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasJoint">
+		    <rdfs:domain rdf:resource="OS:StructuralModel"/>
+		    <rdfs:range rdf:resource="OS:Joint"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:isComposedBy">
+		    <rdfs:domain rdf:resource="OS:ComposedPart"/>
+		    <rdfs:range rdf:resource="OS:AtomicPart"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasModel">
+		    <rdfs:domain rdf:resource="OS:PhysicalThing"/>
+		    <rdfs:range rdf:resource="OS:StructuralModel"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasPose">
+		    <rdfs:domain rdf:resource="OS:PhysicalThing"/>
+		    <rdfs:range rdf:resource="OS:Pose"/>
+		</owl:ObjectProperty>
+
+		
+		<owl:ObjectProperty rdf:about="OS:hasVisual">
+		    <rdfs:domain rdf:resource="OS:Part"/>
+		    <rdfs:range rdf:resource="OS:Visual"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasColor">
+		    <rdfs:domain rdf:resource="OS:Visual"/>
+		    <rdfs:range rdf:resource="OS:Color"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasRGBAValue">
+		    <rdfs:domain rdf:resource="OS:Color"/>
+		    <rdfs:range rdf:resource="http://knowrob.org/kb/knowrob.owl#Vector"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasShape">
+		    <rdfs:domain rdf:resource="OS:Visual"/>
+		    <rdfs:range rdf:resource="OS:Shape"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasDimension">
+		    <rdfs:domain rdf:resource="OS:Visual"/>
+		    <rdfs:range rdf:resource="OS:Dimension"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasAction">
+		    <rdfs:domain rdf:resource="OS:Visual"/>
+		    <rdfs:range rdf:resource="OS:Dimension"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		    	We add this value in order to fully model the point markers needed by the octomap mapping algorithm. Represents if the marker going to be redraw or not.
+		    </rdfs:comment>
+		</owl:ObjectProperty>
+		<owl:ObjectProperty rdf:about="OS:hasState">
+		    <rdfs:domain rdf:resource="OS:PhysicalThing"/>
+		    <rdfs:range rdf:resource="OS:State"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasTranslation">
+		    <rdfs:domain rdf:resource="OS:Position"/>
+		    <rdfs:range rdf:resource="OS:TranslationMeasure"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasOrientation">
+		    <rdfs:domain rdf:resource="OS:Position"/>
+		    <rdfs:range rdf:resource="&CORA;OrientationMeasure"/>
+		</owl:ObjectProperty>
+		<owl:ObjectProperty rdf:about="OS:hasMatrixValue">
+			<rdfs:domain rdf:resource="OS:Probability"/>
+			<rdfs:range rdf:resource="OS:CovarianceMatrix"/>
+			<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+				We use this triple when the probability is related to a matrix value, like the covariance matrix to represent the uncertainty of the robot position.
+			</rdfs:comment>
+		</owl:ObjectProperty>
+	<!--Category 2: Environment Mapping-->
+		<owl:ObjectProperty rdf:about="OS:inEnvironment">
+		    <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+		    <rdfs:domain rdf:resource="ISRO:Agent"/>
+		    <rdfs:range rdf:resource="&CORA;Environment"/>
+		    <owl:inverseOf rdf:resource="OS:hasAgent"/>
+		</owl:ObjectProperty>
+		<owl:ObjectProperty rdf:about="OS:hasCartesianPositionRegion">
+		    <rdfs:domain rdf:resource="http://knowrob.org/kb/knowrob.owl#SpaceRegion"/>
+		    <rdfs:range rdf:resource="FR:CartesianPositionRegion"/>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:hasAgent">
+		    <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+		    <rdfs:domain rdf:resource="&CORA;Environment"/>
+		    <rdfs:range rdf:resource="ISRO:Agent"/>
+		</owl:ObjectProperty>
+		<!--relative position-->
+		    <owl:ObjectProperty rdf:about="OS:hasRelativePosition"/>
+
+			<owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isAboveOf">
+		        <rdfs:subPropertyOf rdf:resource="OS:hasRelativePosition"/>
+		        <owl:inverseOf rdf:resource="http://knowrob.org/kb/knowrob.owl#isBelowOf"/>
+		    </owl:ObjectProperty>
+
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isBehindOf">
+		        <rdfs:subPropertyOf rdf:resource="OS:hasRelativePosition"/>
+		        <owl:inverseOf rdf:resource="http://knowrob.org/kb/knowrob.owl#isInFrontOf"/>
+		    </owl:ObjectProperty>
+
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isBelowOf">
+		        <rdfs:subPropertyOf rdf:resource="OS:hasRelativePosition"/>
+		    </owl:ObjectProperty>
+		    
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isInCenterOf">
+		        <rdfs:subPropertyOf rdf:resource="OS:hasRelativePosition"/>
+		    </owl:ObjectProperty>
+
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isInFrontOf">
+		        <rdfs:subPropertyOf rdf:resource="OS:hasRelativePosition"/>
+		    </owl:ObjectProperty>
+	
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isInsideOf">
+		        <rdfs:subPropertyOf rdf:resource="OS:hasRelativePosition"/>
+		    </owl:ObjectProperty>
+
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isLeftOf">
+		        <rdfs:subPropertyOf rdf:resource="http://knowrob.org/kb/knowrob.owl#isNextTo"/>
+		        <owl:inverseOf rdf:resource="http://knowrob.org/kb/knowrob.owl#isRightOf"/>
+		    </owl:ObjectProperty>
+		    
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isNextTo">
+		        <rdfs:subPropertyOf rdf:resource="OS:hasRelativePosition"/>
+		    </owl:ObjectProperty>    
+
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isOntopOf">
+		        <rdfs:subPropertyOf rdf:resource="OS:hasRelativePosition"/>
+		    </owl:ObjectProperty>
+
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#isRightOf">
+		        <rdfs:subPropertyOf rdf:resource="http://knowrob.org/kb/knowrob.owl#isNextTo"/>
+		    </owl:ObjectProperty>
+
+		    <owl:ObjectProperty rdf:about="http://knowrob.org/kb/knowrob.owl#near">
+		        <rdfs:subPropertyOf rdf:resource="OS:hasRelativePosition"/>
+		        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This intentionally-vague predicate relates spatial things that are relatively near each other. (near THIS THAT) means that the distance between THIS and THAT is such that -- given the situation at hand and the sorts of things that THIS and THAT are -- they would be considered near each other by most observers. Note that an object is near itself, anything it touches, and any part of itself. When appropriate, use a more precisely-defined predicate such as nearToDegree, nearRelativeTo, nearForRolesInEventType, nearnessForRolesInEventType, touches_Directly, or physicalParts.</rdfs:comment>
+		    </owl:ObjectProperty>
+
+		    <owl:ObjectProperty rdf:about="OS:isRepresentedBy">
+			    <rdfs:domain rdf:resource="OS:Axis"/>
+			    <rdfs:range rdf:resource="http://knowrob.org/kb/knowrob.owl#Vector"/>
+			</owl:ObjectProperty>
+
+			<owl:ObjectProperty rdf:about="OS:isRepresentedBy">
+			    <rdfs:domain rdf:resource="FR:CartesianPositionRegion"/>
+			    <rdfs:range rdf:resource="http://knowrob.org/kb/knowrob.owl#Polygon"/>
+			</owl:ObjectProperty>
+			<owl:ObjectProperty rdf:about="&CORA;ptsOfPR">
+				<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+				<rdfs:range rdf:resource="&CORA;PositionPoint"/>
+				<rdfs:domain rdf:resource="&CORA;PositionRegion"/>
+				<owl:inverseOf rdf:resource="&CORA;inPR"/>
+			</owl:ObjectProperty>
+			<owl:ObjectProperty rdf:about="&CORA;in">
+				<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+				<rdfs:domain rdf:resource="&CORA;PositionPoint"/>
+				<rdfs:range rdf:resource="&CORA;CoordinateSystem"/>	
+				<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+				Use this to connect a PositionPoint with a CoordinateSystem. 
+				</rdfs:comment>
+			</owl:ObjectProperty>
+
+			<owl:ObjectProperty rdf:about="&CORA;inPR">
+				<rdfs:domain rdf:resource="&CORA;PositionPoint"/>
+				<rdfs:range rdf:resource="&CORA;PositionRegion"/>
+			</owl:ObjectProperty>
+			
+			<owl:ObjectProperty rdf:about="&CORA;ofCS">
+				<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+				<rdfs:domain rdf:resource="&CORA;CoordinateSystem"/>
+				<rdfs:range rdf:resource="&CORA;PositionPoint"/>
+				<owl:inverseOf rdf:resource="&CORA;in"/>
+			</owl:ObjectProperty>
+
+			<owl:ObjectProperty rdf:about="&CORA;operatorGenerates">
+				<rdfs:domain rdf:resource="&CORA;Operator"/>
+				<rdfs:range rdf:resource="&CORA;PositionRegion"/>
+			</owl:ObjectProperty>
+	<!--Category 3: Timely Information-->
+		<owl:ObjectProperty rdf:about="OS:isMobile">
+		    <rdfs:domain rdf:resource="OS:PhysicalThing"/>
+		    <rdfs:range rdf:resource="OS:Mobile"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It denotes the mobility of the physical thing, whether it can move by itself or not
+			</rdfs:comment>
+		</owl:ObjectProperty>
+
+		<owl:ObjectProperty rdf:about="OS:isReconfigurable">
+		    <rdfs:domain rdf:resource="OS:PhysicalThing"/>
+		    <rdfs:range rdf:resource="OS:Reconfigurable"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			Denotes if the physical thing can change its pose.
+			</rdfs:comment>
+		</owl:ObjectProperty>
+		<owl:ObjectProperty rdf:about="FR:posAtTime">
+		    <rdfs:domain rdf:resource="OS:Position"/>
+		    <rdfs:range rdf:resource="ISRO:TimePoint"/>
+		    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+			It can be the time in seconds, microseconds or other time unit. In our case we use the timestamp on seconds given by ROS topics.
+			</rdfs:comment>
+		</owl:ObjectProperty>
+		<owl:ObjectProperty rdf:about="OS:hasState">
+		    <rdfs:domain rdf:resource="OS:PhysicalThing"/>
+		    <rdfs:range rdf:resource="OS:State"/>
+		</owl:ObjectProperty>
+
+<!--owl:DatatypeProperty-->
+	<!--Category 1: Robot Information-->
+		<owl:DatatypeProperty rdf:about="OS:componentRow">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="OS:MatrixElement"/>
+			<rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+		</owl:DatatypeProperty>
+
+		<owl:DatatypeProperty rdf:about="OS:componentCol">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="OS:MatrixElement"/>
+			<rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+		</owl:DatatypeProperty>
+
+		<owl:DatatypeProperty rdf:about="OS:componentValue">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="OS:MatrixElement"/>
+			<rdfs:range rdf:resource="&xsd;double"/>
+		</owl:DatatypeProperty>
+
+		<owl:DatatypeProperty rdf:about="OS:hasValue">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="OS:Height"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+
+		<owl:DatatypeProperty rdf:about="OS:hasValue">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="OS:Width"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+
+		<owl:DatatypeProperty rdf:about="OS:hasValue">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="OS:Depth"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+
+		<owl:DatatypeProperty rdf:about="OS:hasValue">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="OS:Action"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+		
+		<owl:DatatypeProperty rdf:about="FR:cartesianX">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="FR:CartesianPositionPoint"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+		
+		<owl:DatatypeProperty rdf:about="FR:cartesianY">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="FR:CartesianPositionPoint"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+			<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+		</owl:DatatypeProperty>
+
+		<owl:DatatypeProperty rdf:about="FR:cartesianZ">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="FR:CartesianPositionPoint"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+		<owl:DatatypeProperty rdf:about="OS:hasNumberValue">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="OS:Probability"/>
+			<rdfs:range rdf:resource="&xsd;double"/>
+			<rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+				We use this triple when the probability is related to a numerical value, like a float or integer value.	
+			</rdfs:comment>
+		</owl:DatatypeProperty>
+		<owl:DatatypeProperty rdf:about="&CORA;componentX">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="&CORA;OrientationValue"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+
+
+		<owl:DatatypeProperty rdf:about="&CORA;componentY">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="&CORA;OrientationValue"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+
+		<owl:DatatypeProperty rdf:about="&CORA;componentZ">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="&CORA;OrientationValue"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+
+		<owl:DatatypeProperty rdf:about="&CORA;componentW">
+			<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+			<rdfs:domain rdf:resource="&CORA;OrientationValue"/>
+			<rdfs:range rdf:resource="&owl;real"/>
+		</owl:DatatypeProperty>
+	<!--Category 3: Timely Information-->
+		<owl:DatatypeProperty rdf:ID="mobileValue">
+		  <rdfs:domain rdf:resource="OS:Mobile" />    
+		  <rdfs:range  rdf:resource="&xsd;boolean"/>
+		</owl:DatatypeProperty>
+		<owl:DatatypeProperty rdf:ID="reconfigurableValue">
+		  <rdfs:domain rdf:resource="OS:Reconfigurable" />    
+		  <rdfs:range  rdf:resource="&xsd;boolean"/>
+		</owl:DatatypeProperty>
+		<owl:DatatypeProperty rdf:ID="stateValue">
+		  <rdfs:domain rdf:resource="OS:State" />    
+		  <rdfs:range  rdf:resource="&xsd;string"/>
+		  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		    It could be one of the following states: "isMoved", "isNotMoved", "isReconfigured" and "isNotReconfigured"
+		  </rdfs:comment>
+		</owl:DatatypeProperty>
+</rdf:RDF>
