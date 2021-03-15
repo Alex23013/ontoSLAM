@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionRegion">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="N8d517702540846199a86718e29967400"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#inPR">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Agent"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Device"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ref">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator">
+    <rdfs:subClassOf rdf:nodeID="N66f25aff4036416996f9beaaed5f45b1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#equippedWith">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticSystem"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticEnvironment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticEnvironment">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#AutomatedEnvironment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#cartesianX">
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianBackOf">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianLeftOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#pos">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="Ne04fd6ec4bdb4e7298463356d3970ced"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Device"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:properPart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:part"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:PhysicalQuantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Quantity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#AutonomousRobot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#workIn">
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotGroup"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianCoordinateSystem">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem"/>
+    <rdfs:subClassOf rdf:nodeID="N57c8cbbcc11b4589a432faaa5f1e43b7"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#operatorRange">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ArtificialSystem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CollectiveRoboticSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticSystem"/>
+    <rdfs:subClassOf rdf:nodeID="N70af29f921854431a28cec13a3617717"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8d517702540846199a86718e29967400">
+    <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ptsOfPR"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N66f25aff4036416996f9beaaed5f45b1">
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#operatorGenerates"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionRegion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#cartesianY">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#transformationMapsFrom">
+    <rdfs:range rdf:nodeID="N717d42402e884abd9ec756949c25d539"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Transformation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Function"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianRightOf">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint">
+    <rdfs:subClassOf rdf:nodeID="N17be2ac72c7d4bd59dc63ead4279d828"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:part">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nadc2c9b5ea2e4ab4983e918a64021682">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#cartesianX"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb2138f1b6e22401ea59115fb37a64719">
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:properPart"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Abstract">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Entity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N717d42402e884abd9ec756949c25d539">
+    <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#transformationMapsFrom"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Device">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Artifact"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#in">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint">
+    <rdfs:subClassOf rdf:nodeID="Ne0702dba73314bd695dee6a2610441e6"/>
+    <rdfs:subClassOf rdf:nodeID="Nadc2c9b5ea2e4ab4983e918a64021682"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="N82adf9289f0f4cc98335ae03ffbc53f8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6f5d7a1edbab4ed6b4c56a17948a273d">
+    <rdf:rest rdf:nodeID="Nce43e0daa8b146c29b9400666b9b4a1a"/>
+    <rdf:first rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Agent"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N70af29f921854431a28cec13a3617717">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:properPart"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SimpleRoboticSystem">
+    <rdfs:subClassOf rdf:nodeID="Nb2138f1b6e22401ea59115fb37a64719"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticSystem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Agent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotGroup">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Group"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N8e36749bac5e4187bdb8f7d73ebb5179">
+    <owl:intersectionOf rdf:nodeID="N6f5d7a1edbab4ed6b4c56a17948a273d"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne04fd6ec4bdb4e7298463356d3970ced">
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:properPart"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Physical">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Entity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ptsOfPR">
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#inPR"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N17be2ac72c7d4bd59dc63ead4279d828">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#in"/>
+    <owl:onClass rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ofCS">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem"/>
+    <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#in"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#AutomatedEnvironment">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Environment"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Non-AutonomousRobot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Abstract"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N57c8cbbcc11b4589a432faaa5f1e43b7">
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ofCS"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Physical"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne0702dba73314bd695dee6a2610441e6">
+    <owl:onDataRange rdf:resource="http://www.w3.org/2002/07/owl#real"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#cartesianY"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Quantity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Abstract"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimeInterval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimeMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianFrontOf">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Artifact">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Transformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Function"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Semi-AutonomousRobot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nce43e0daa8b146c29b9400666b9b4a1a">
+    <rdf:first rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Collection"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimeMeasure">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:PhysicalQuantity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Group">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="N8e36749bac5e4187bdb8f7d73ebb5179"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Collection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Physical"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N82adf9289f0f4cc98335ae03ffbc53f8">
+    <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianCoordinateSystem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#in"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Function">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Relation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimePoint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimeMeasure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ArtificialSystem">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Artifact"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#transformationMapsTo">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Transformation"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Relation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Abstract"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#memberOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotGroup"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Region">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#operatorGenerates">
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#operatorDomain">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Environment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Region"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionMeasure">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:PhysicalQuantity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>
