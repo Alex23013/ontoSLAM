@@ -1,0 +1,259 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl> a owl:Ontology .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#AutonomousRobot> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianBackOf> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianFrontOf> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianLeftOf> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianRightOf> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CollectiveRoboticSystem> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotGroup> ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:properPart> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticSystem> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Non-AutonomousRobot> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotPart> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:properPart> ;
+            owl:someValuesFrom <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot> ],
+        <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Device> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimeInterval> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimeMeasure> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimePoint> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimeMeasure> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Semi-AutonomousRobot> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SimpleRoboticSystem> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot> ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:properPart> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticSystem> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#equippedWith> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticEnvironment> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticSystem> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#memberOf> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotGroup> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#operatorDomain> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#operatorRange> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#pos> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionMeasure> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ref> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#transformationMapsTo> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Transformation> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#workIn> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotGroup> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ArtificialSystem> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Artifact> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#AutomatedEnvironment> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Environment> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianCoordinateSystem> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint> ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ofCS> ],
+        <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionRegion> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint> ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ptsOfPR> ],
+        <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Environment> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Region> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticEnvironment> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#AutomatedEnvironment> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Collection> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Physical> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Group> a owl:Class ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Agent> <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Collection> ) ] .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Quantity> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Abstract> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Region> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Relation> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Abstract> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:part> a owl:AsymmetricProperty,
+        owl:ObjectProperty,
+        owl:TransitiveProperty .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#cartesianX> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint> ;
+    rdfs:range owl:real .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#cartesianY> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint> ;
+    rdfs:range owl:real ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#inPR> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ofCS> a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint> ;
+    owl:inverseOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#in> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#operatorGenerates> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ptsOfPR> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint> ;
+    owl:inverseOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#inPR> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#transformationMapsFrom> a owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Transformation> ;
+    rdfs:range [ a owl:Restriction ;
+            owl:onClass <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem> ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#transformationMapsFrom> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Agent> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Artifact> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Device> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Artifact> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Entity> a owl:Class .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Function> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Relation> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Physical> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Entity> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:PhysicalQuantity> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Quantity> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:TimeMeasure> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:PhysicalQuantity> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Transformation> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Function> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionMeasure> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:PhysicalQuantity> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RobotGroup> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Group> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#RoboticSystem> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#ArtificialSystem> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Abstract> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Entity> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:properPart> a owl:AsymmetricProperty,
+        owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:subPropertyOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:part> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#in> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint> ;
+    rdfs:range <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianOperator> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionRegion> ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#operatorGenerates> ],
+        <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianPositionPoint> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#cartesianX> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#cartesianY> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CartesianCoordinateSystem> ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#in> ],
+        <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Operator> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Function> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionRegion> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionMeasure> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionPoint> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem> ;
+            owl:onProperty <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#in> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#PositionMeasure> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#CoordinateSystem> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Abstract> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#Robot> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Agent>,
+        <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Device> .
+
+<http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Object> a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:Physical> .
+

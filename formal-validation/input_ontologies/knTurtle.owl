@@ -1,0 +1,1482 @@
+@prefix : <http://knowrob.org/kb/knowrob.owl#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://knowrob.org/kb/actions.owl#Mapping> a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-ACT.owl#Perceiving> .
+
+<http://knowrob.org/kb/knowrob.owl> a owl:Ontology ;
+    rdfs:comment """Copyright © 2007-2011 by
+          Technische Universität München. This work is licensed under
+          CreativeCommons Attribution 3.0, so you are granted to use, copy,
+          distribute, transmit and adapt this work, but you must attribute
+          the work to the original authors.
+
+          Parts of this ontology are based on the OpenCyc ontology. The OpenCyc
+          OWL Ontologies are Copyright © 2001-2009 Cycorp, Inc., Austin, TX,
+          USA. All rights reserved.
+
+          These files contain an OWL representation of information contained
+          in the OpenCyc Knowledge Base. The content of these OWL files are
+          licensed under the Creative Commons Attribution 3.0 license. The
+          content of these OWL files, including the OpenCyc content they
+          represent, constitutes the "Work" referred to in the
+          Creative Commons license. The terms of this license equally apply
+          to, without limitation, renamings and other logically equivalent
+          reformulations of the content of these OWL files (or portions
+          thereof) in any natural or formal language, as well as to derivations
+          of this content or inclusion of it in other ontologies.
+        """^^xsd:string ;
+    owl:imports <package://ease_ontology/owl/EASE-ACT.owl>,
+        <package://ease_ontology/owl/EASE-IO.owl>,
+        <package://ease_ontology/owl/EASE-OBJ.owl>,
+        <package://ease_ontology/owl/EASE-PROC.owl>,
+        <package://ease_ontology/owl/EASE-STATE.owl>,
+        <package://ease_ontology/owl/EASE-WF.owl>,
+        <package://ease_ontology/owl/EASE.owl>,
+        <package://knowrob/owl/URDF.owl> .
+
+:Accuracy a owl:Class ;
+    rdfs:subClassOf dul:PhysicalAttribute .
+
+:AffordanceTransform a owl:Class ;
+    rdfs:subClassOf :StaticTransform .
+
+:AssemblyAffordance a owl:Class ;
+    rdfs:subClassOf :Affordance ;
+    owl:disjointWith :GraspingAffordance .
+
+:Assignment a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :ProcedureArgument ;
+            owl:onProperty dul:includesObject ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        dul:Situation .
+
+:AtomArgument a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty dul:hasDataValue ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        :AtomicArgument .
+
+:AvoidLookingAt a owl:Class ;
+    rdfs:subClassOf :OrientationConstraint .
+
+:B21 a owl:Class ;
+    rdfs:subClassOf :WheeledRobot .
+
+:BottleCap a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#DesignedComponent> .
+
+:Candle a owl:Class ;
+    rdfs:subClassOf dul:DesignedSubstance .
+
+:CeilingLight a owl:Class ;
+    rdfs:comment "The collection of all ceiling lights." ;
+    rdfs:subClassOf :LightFixture .
+
+:CenterOfObject a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#DependentPlace> .
+
+:Chopping a owl:Class ;
+    rdfs:subClassOf :Cutting .
+
+:Cleaning a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-ACT.owl#ModifyingPhysicalObject> .
+
+:Cloth a owl:Class ;
+    rdfs:subClassOf :TextileArtifact .
+
+:Cooling a owl:Class ;
+    rdfs:comment "A specialization of TemperatureChangingProcess. Each instance of CoolingProcess is an event in which the temperature of some object (related to the instance of CoolingProcess by objectOfStateChange) is lowered."^^xsd:string ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-PROC.owl#ProcessType> .
+
+:Date a owl:Class ;
+    rdfs:subClassOf dul:TimeInterval .
+
+:Duration a owl:Class ;
+    rdfs:subClassOf dul:TimeInterval .
+
+:ElectricLamp a owl:Class ;
+    rdfs:comment "The collection for all kinds of freestanding (easily moveable) electrical lamps." ;
+    rdfs:subClassOf :LightFixture .
+
+:ElectricalOutlet a owl:Class ;
+    rdfs:subClassOf :ElectricalDevice .
+
+:ElectricalPlug a owl:Class ;
+    rdfs:subClassOf :ElectricalDevice .
+
+:FaultyHardware a owl:Class ;
+    rdfs:subClassOf :InoperableHardware .
+
+:FinishBefore a owl:Class ;
+    rdfs:subClassOf :TemporalConstraint .
+
+:Flashlight a owl:Class ;
+    rdfs:comment "A small portable electric lamp powered by batteries." ;
+    rdfs:subClassOf :ElectricalLightingDevice,
+        <http://www.ease-crc.org/ont/EASE.owl#DesignedTool> .
+
+:FlatScreenMonitor a owl:Class ;
+    rdfs:subClassOf :Monitor .
+
+:Flipping a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-ACT.owl#Actuating> .
+
+:FloatArgument a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty dul:hasDataValue ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        :NumberArgument .
+
+:FlyingRobot a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/urdf.owl#Robot> .
+
+:Heating a owl:Class ;
+    rdfs:comment "A specialization of TemperatureChangingProcess. During each HeatingProcess event, the temperature of the objectOfStateChange is increased by applying heat to the object. Any instance of IntrinsicStateChangeEvent in which an object temperature is increased is also an instance of this collection."^^xsd:string ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-PROC.owl#ProcessType> .
+
+:Hook a owl:Class ;
+    rdfs:subClassOf :Connector .
+
+:Image a owl:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+:IncompleteModel a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-IO.owl#FaultySoftware> .
+
+:IndexFinger a owl:Class ;
+    rdfs:subClassOf :Finger .
+
+:IndicatorLight a owl:Class ;
+    rdfs:comment "The collection of all indicator lights." ;
+    rdfs:subClassOf :ElectricalLightingDevice .
+
+:IntegerArgument a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty dul:hasDataValue ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        :NumberArgument .
+
+:InvalidArgument a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-IO.owl#FaultySoftware> .
+
+:KBQueryingExecution a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Restriction ;
+                    owl:allValuesFrom :KBQuerying ;
+                    owl:onProperty dul:isExecutedIn ] ;
+            owl:onProperty dul:definesTask ],
+        <http://www.ease-crc.org/ont/EASE.owl#ActionExecutionPlan> .
+
+:KeepAbove a owl:Class ;
+    rdfs:subClassOf :KeepRelativeLocation .
+
+:KeepAtAngle a owl:Class ;
+    rdfs:subClassOf :OrientationConstraint .
+
+:KeepAwayFrom a owl:Class ;
+    rdfs:subClassOf :DistanceConstraint .
+
+:KeepBehind a owl:Class ;
+    rdfs:subClassOf :KeepRelativeLocation .
+
+:KeepBelow a owl:Class ;
+    rdfs:subClassOf :KeepRelativeLocation .
+
+:KeepCloseTo a owl:Class ;
+    rdfs:subClassOf :DistanceConstraint .
+
+:KeepInfront a owl:Class ;
+    rdfs:subClassOf :KeepRelativeLocation .
+
+:KeepLeftOf a owl:Class ;
+    rdfs:subClassOf :KeepRelativeLocation .
+
+:KeepLookingAt a owl:Class ;
+    rdfs:subClassOf :OrientationConstraint .
+
+:KeepRightOf a owl:Class ;
+    rdfs:subClassOf :KeepRelativeLocation .
+
+:KeepStill a owl:Class ;
+    rdfs:subClassOf :LocationConstraint .
+
+:KeepUpright a owl:Class ;
+    rdfs:subClassOf :KeepPerpendicularTo .
+
+:Knedding a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-ACT.owl#Mixing> .
+
+:Lamp-Hanging a owl:Class ;
+    rdfs:comment "The collection of all hanging lamps." ;
+    rdfs:subClassOf :ElectricalLightingDevice .
+
+:LeftArm a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Arm> ;
+    owl:disjointWith :RightArm .
+
+:LeftHand a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Hand> ;
+    owl:disjointWith :RightHand .
+
+:LeftLeg a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Leg> ;
+    owl:disjointWith :RightLeg .
+
+:LeggedRobot a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/urdf.owl#Robot> .
+
+:Lightbulb a owl:Class ;
+    rdfs:comment "A bulb of glass or quartz enclosing material that incandesces or fluoresces when provided with current, thus generating light." ;
+    rdfs:subClassOf :ElectricalDevice .
+
+:LittleFinger a owl:Class ;
+    rdfs:subClassOf :Finger .
+
+:MapFrame a :CartesianCoordinateSystem,
+        owl:NamedIndividual .
+
+:MiddleFinger a owl:Class ;
+    rdfs:subClassOf :Finger .
+
+:MissingArgument a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-IO.owl#FaultySoftware> .
+
+:MobileBase a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#Appliance> .
+
+:MoveCarefully a owl:Class ;
+    rdfs:subClassOf :LocationConstraint .
+
+:NonRechargeableBattery a owl:Class ;
+    rdfs:comment "Batteries which may not be recharged (cf. ChargingABattery)." ;
+    rdfs:subClassOf :Battery .
+
+:ObjectMainAxis a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#DependentPlace> .
+
+:ObjectOverlooked a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#FailedAttempt> .
+
+:OperableHardware a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#HardwareDiagnosis> .
+
+:PR2 a owl:Class ;
+    rdfs:subClassOf :WheeledRobot .
+
+:ParameterInference a owl:Class ;
+    rdfs:comment "A reasoning task where the value of a parameter is determined." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass dul:Parameter ;
+            owl:onProperty :hasInferredParameter ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://www.ease-crc.org/ont/EASE-ACT.owl#Reasoning> .
+
+:PartOffsetAffordance a owl:Class ;
+    rdfs:subClassOf :Affordance .
+
+:PerceptionAffordance a owl:Class ;
+    rdfs:subClassOf :Affordance .
+
+:Pin a owl:Class ;
+    rdfs:subClassOf :Connector .
+
+:Point a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#3DPosition> .
+
+:Pose_MapFrame a :Pose,
+        owl:NamedIndividual ;
+    :quaternion "0.0 0.0 0.0 1.0"^^xsd:string ;
+    :translation "0.0 0.0 0.0"^^xsd:string .
+
+:PouringInto a owl:Class ;
+    rdfs:subClassOf :Pouring .
+
+:PouringOnto a owl:Class ;
+    rdfs:subClassOf :Pouring .
+
+:Precision a owl:Class ;
+    rdfs:subClassOf dul:PhysicalAttribute .
+
+:Proprioception a owl:Class ;
+    rdfs:subClassOf :Perception .
+
+:Query a owl:Class ;
+    rdfs:subClassOf dul:InformationEntity .
+
+:Reasoner a owl:Class ;
+    rdfs:subClassOf dul:Role .
+
+:RechargeableBattery a owl:Class ;
+    rdfs:comment "Batteries which may be recharged (cf. ChargingABattery)." ;
+    rdfs:subClassOf :Battery .
+
+:ResourceMissing a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Infeasibility> .
+
+:ResourceNotFound a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#FailedAttempt> .
+
+:RfidPerception a owl:Class ;
+    rdfs:subClassOf :Perception .
+
+:RingFinger a owl:Class ;
+    rdfs:subClassOf :Finger .
+
+:RobovieMR2 a owl:Class ;
+    rdfs:subClassOf :WheeledRobot .
+
+:Scissors a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#CuttingTool> .
+
+:SemanticEnvironmentMap a owl:Class ;
+    rdfs:subClassOf :Map .
+
+:Sensitivity a owl:Class ;
+    rdfs:subClassOf dul:PhysicalAttribute .
+
+:Serving a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-ACT.owl#Actuating> .
+
+:SideGraspAffordance a owl:Class ;
+    rdfs:subClassOf :GraspingAffordance .
+
+:Slicing a owl:Class ;
+    rdfs:subClassOf :Cutting .
+
+:StampedPose a owl:Class ;
+    rdfs:subClassOf dul:SpatioTemporalRegion .
+
+:Stirring a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-ACT.owl#Mixing> .
+
+:StreetLight a owl:Class ;
+    rdfs:comment "The collection of all streetlights." ;
+    rdfs:subClassOf :ElectricalLightingDevice .
+
+:StringArgument a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty dul:hasDataValue ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        :AtomicArgument .
+
+:TUM_Rosie a owl:Class ;
+    rdfs:subClassOf :WheeledRobot .
+
+:Thumb a owl:Class ;
+    rdfs:subClassOf :Finger .
+
+:TimePoint a owl:Class ;
+    rdfs:comment "An instance of TimePoint is an interval of time that has no duration (or, if you prefer, an infinitely small duration). A time point corresponds to what is colloquially described as an \"instant\" or \"moment\". If time is likened to a (perhaps infinitely long) straight line, then each TimePoint is like a particular point on that line. Given that time intervals are defined purely by their locations in time, no two time intervals can occupy exactly the same times; and since time points are intervals with no duration, no two time points can even overlap."^^xsd:string ;
+    rdfs:subClassOf dul:TimeInterval .
+
+:TopGraspAffordance a owl:Class ;
+    rdfs:subClassOf :GraspingAffordance .
+
+:TouchPerception a owl:Class ;
+    rdfs:subClassOf :Perception .
+
+:Towel a owl:Class ;
+    rdfs:subClassOf :TextileArtifact .
+
+:UndefinedReference a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-IO.owl#FaultySoftware> .
+
+:Ungraspable a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Inability> .
+
+:Unliftable a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Inability> .
+
+:UnpoweredHardware a owl:Class ;
+    rdfs:subClassOf :InoperableHardware .
+
+:Unreachable a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Inability> .
+
+:VariableArgument a owl:Class ;
+    rdfs:subClassOf :AtomicArgument .
+
+:VisualPerception a owl:Class ;
+    rdfs:subClassOf :Perception .
+
+:WaitUntil a owl:Class ;
+    rdfs:subClassOf :TemporalConstraint .
+
+:WallMirror a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#DesignedFurniture> .
+
+:WasteBasket a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#DesignedFurniture> .
+
+:Water a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Fluid> .
+
+:Wheel a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#DesignedComponent> .
+
+:areaOfObject a owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasShapeParameter> .
+
+:avoidedObject a owl:ObjectProperty ;
+    rdfs:subPropertyOf :preActor .
+
+:causedBy a owl:ObjectProperty ;
+    rdfs:subPropertyOf :preActor .
+
+:connectedTo-Rigidly a owl:ObjectProperty ;
+    rdfs:subPropertyOf :connectedTo .
+
+:dangerousPart a owl:ObjectProperty ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE.owl#hasPhysicalComponent> .
+
+:depthOfObject a owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasDepth> .
+
+:describedInMap a owl:ObjectProperty ;
+    rdfs:range :Map ;
+    rdfs:subPropertyOf dul:isPartOf .
+
+:detectedArtifact a owl:ObjectProperty ;
+    rdfs:subPropertyOf :detectedObject,
+        <http://www.ease-crc.org/ont/EASE.owl#involvesArtifact> .
+
+:detectedPerson a owl:ObjectProperty ;
+    rdfs:subPropertyOf :detectedAgent .
+
+:deviceUsed a owl:ObjectProperty ;
+    rdfs:subPropertyOf :preActor,
+        <http://www.ease-crc.org/ont/EASE.owl#involvesArtifact> .
+
+:doorHingedTo a owl:ObjectProperty ;
+    rdfs:subPropertyOf :hingedTo .
+
+:duration a owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE.owl#hasEventTime> .
+
+:electricalPart a owl:ObjectProperty ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE.owl#hasPhysicalComponent> .
+
+:endTime a owl:DatatypeProperty ;
+    rdfs:range xsd:double ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE.owl#hasEventEnd> .
+
+:firstName a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :nameString .
+
+:floorNumber a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :buildingParameter .
+
+:frameName a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :nameString .
+
+:fromLocation a owl:ObjectProperty ;
+    rdfs:subPropertyOf :preActor,
+        <http://www.ease-crc.org/ont/EASE.owl#involvesPlace> .
+
+:fromState a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+:fullName a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :nameString .
+
+:goalLocation a owl:ObjectProperty ;
+    rdfs:subPropertyOf :eventOccursAt .
+
+:hasAffordance a owl:AsymmetricProperty,
+        owl:InverseFunctionalProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:range :Affordance ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+:hasFirstProcedureArgument a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :CompoundArgument :ComputationalPredicate ) ] ;
+    rdfs:range :ProcedureArgument ;
+    rdfs:subPropertyOf :hasProcedureArgument .
+
+:hasLifetime a owl:ObjectProperty .
+
+:hasModulePath a owl:DatatypeProperty ;
+    rdfs:label "has module path" ;
+    rdfs:domain :ComputationalPredicate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dul:hasDataValue .
+
+:hasPoseData a owl:DatatypeProperty ;
+    rdfs:label "has pose data" ;
+    rdfs:domain dul:SpaceRegion ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasLocalizationParameter> .
+
+:hasVisual a owl:DatatypeProperty ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf :visualHint .
+
+:hasXScale a owl:DatatypeProperty ;
+    rdfs:range xsd:double ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasShapeParameter> .
+
+:hasYScale a owl:DatatypeProperty ;
+    rdfs:range xsd:double ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasShapeParameter> .
+
+:hasZScale a owl:DatatypeProperty ;
+    rdfs:range xsd:double ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasShapeParameter> .
+
+:heightOfObject a owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasHeight> .
+
+:inFieldOfView a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:inReachOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:inputsDestroyed a owl:ObjectProperty ;
+    rdfs:subPropertyOf :objectActedOn .
+
+:inputsRemaining a owl:ObjectProperty ;
+    rdfs:subPropertyOf :objectActedOn .
+
+:isAboveOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation ;
+    owl:inverseOf :isBelowOf .
+
+:isBehindOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation ;
+    owl:inverseOf :isInFrontOf .
+
+:isInCenterOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:isInsideOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:isLeftOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf :isNextTo ;
+    owl:inverseOf :isRightOf .
+
+:isOntopOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:lastName a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :nameString .
+
+:lightConeAngle a owl:DatatypeProperty ;
+    rdfs:comment "The opening angle of spot lights. Must be below or equal pi/2. Default is pi/3." ;
+    rdfs:range xsd:double ;
+    rdfs:subPropertyOf :lightParameter .
+
+:lightDirection a owl:DatatypeProperty ;
+    rdfs:comment "determines orientation of spot lights." ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :lightParameter .
+
+:lightDistance a owl:DatatypeProperty ;
+    rdfs:comment "determines light attenuation. I guess threejs interprets this as \"the light shines lightDistance meters\" (or so)" ;
+    rdfs:subPropertyOf :lightParameter .
+
+:lightExponent a owl:DatatypeProperty ;
+    rdfs:comment "Used as exponent in spot effect computation: effect=x^exponent. Exponents below 1 make light brighter, above darker. Default value is 10. Only meaningful for spotlights." ;
+    rdfs:range xsd:double ;
+    rdfs:subPropertyOf :lightParameter .
+
+:lightIntensity a owl:DatatypeProperty ;
+    rdfs:comment "numeric value of the light's strength/intensity. Default is 1." ;
+    rdfs:range xsd:double ;
+    rdfs:subPropertyOf :lightParameter .
+
+:lightTarget a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+:lightType a owl:DatatypeProperty ;
+    rdfs:comment "One of 'spot', 'point', or 'directional'. Corresponds to different light types used in Computer Graphics." ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:oneOf [ a rdf:List ;
+                    rdf:first "directional" ;
+                    rdf:rest [ a rdf:List ;
+                            rdf:first "point" ;
+                            rdf:rest [ a rdf:List ;
+                                    rdf:first "spot" ;
+                                    rdf:rest () ] ] ] ] ;
+    rdfs:subPropertyOf :lightParameter .
+
+:linkToImageFile a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dul:hasDataValue .
+
+:mainColorOfObject a owl:DatatypeProperty ;
+    rdfs:range <http://www.ease-crc.org/ont/EASE.owl#array_double> ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasRGBValue> .
+
+:maxJointValue a owl:DatatypeProperty ;
+    rdfs:subPropertyOf :jointLimitParameters .
+
+:minJointValue a owl:DatatypeProperty ;
+    rdfs:subPropertyOf :jointLimitParameters .
+
+:near a owl:ObjectProperty ;
+    rdfs:comment "This intentionally-vague predicate relates spatial things that are relatively near each other. (near THIS THAT) means that the distance between THIS and THAT is such that -- given the situation at hand and the sorts of things that THIS and THAT are -- they would be considered near each other by most observers. Note that an object is near itself, anything it touches, and any part of itself. When appropriate, use a more precisely-defined predicate such as nearToDegree, nearRelativeTo, nearForRolesInEventType, nearnessForRolesInEventType, touches_Directly, or physicalParts."^^xsd:string ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:numberOfLevels a owl:DatatypeProperty ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:subPropertyOf :buildingParameter .
+
+:numberOfStories a owl:DatatypeProperty ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:subPropertyOf :buildingParameter .
+
+:objectID a owl:DatatypeProperty ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf dul:hasDataValue .
+
+:objectOfStateChange a owl:ObjectProperty ;
+    rdfs:subPropertyOf :objectActedOn .
+
+:objectRemoved a owl:ObjectProperty ;
+    rdfs:subPropertyOf :objectActedOn .
+
+:objectTransported a owl:ObjectProperty ;
+    rdfs:subPropertyOf :objectActedOn .
+
+:outputsCreated a owl:ObjectProperty ;
+    rdfs:subPropertyOf :postActor .
+
+:pathToCadModel a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasFilePath> .
+
+:performedInMap a owl:ObjectProperty ;
+    rdfs:range :Map ;
+    rdfs:subPropertyOf :preActor .
+
+:prismaticallyConnectedTo a owl:ObjectProperty ;
+    rdfs:subPropertyOf :connectedTo .
+
+:processStarted a owl:ObjectProperty ;
+    rdfs:domain dul:Event ;
+    rdfs:range dul:Process ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+:processStopped a owl:ObjectProperty ;
+    rdfs:domain dul:Event ;
+    rdfs:range dul:Process ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+:quaternion a owl:DatatypeProperty ;
+    rdfs:range <http://www.ease-crc.org/ont/EASE.owl#array_double> ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasOrientationVector> .
+
+:relativeTo a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+:roomNumber a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :buildingParameter .
+
+:scale a owl:DatatypeProperty ;
+    rdfs:range :vec3 ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasShapeParameter> .
+
+:startTime a owl:DatatypeProperty ;
+    rdfs:range xsd:double ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE.owl#hasEventBegin> .
+
+:storedAtPlace a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:streetNumber a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :buildingParameter .
+
+:temperatureOfObject a owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf dul:hasRegionDataValue .
+
+:thermicallyConnectedTo a owl:ObjectProperty ;
+    rdfs:subPropertyOf :connectedTo .
+
+:toLocation a owl:ObjectProperty ;
+    rdfs:subPropertyOf :preActor,
+        <http://www.ease-crc.org/ont/EASE.owl#involvesPlace> .
+
+:toState a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+:todo a owl:AnnotationProperty ;
+    rdfs:range xsd:string .
+
+:toolUsed a owl:ObjectProperty ;
+    rdfs:subPropertyOf :preActor .
+
+:trajectory-Arm a owl:ObjectProperty ;
+    rdfs:subPropertyOf :trajectory-Complete .
+
+:trajectory-Mean a owl:ObjectProperty ;
+    rdfs:range :Trajectory ;
+    rdfs:subPropertyOf :trajectory-Complete .
+
+:trajectory-RobotBase a owl:ObjectProperty ;
+    rdfs:subPropertyOf :trajectory-Complete .
+
+:translation a owl:DatatypeProperty ;
+    rdfs:range <http://www.ease-crc.org/ont/EASE.owl#array_double> ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasPositionVector> .
+
+:typePrimaryFunction-StoragePlaceFor a owl:ObjectProperty .
+
+:userOfAffordance a owl:ObjectProperty ;
+    rdfs:domain :Affordance ;
+    rdfs:subPropertyOf dul:isRelatedToConcept .
+
+:vec4 a rdfs:Datatype .
+
+:volumeOfObject a owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasShapeParameter> .
+
+:widthOfObject a owl:DatatypeProperty ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#hasWidth> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#BeaconMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#TopologicalMap> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#CollisionMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#EnvironmentMap> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#LaserScannerMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#MapBuiltFromSensorData> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#OccupancyGridMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#MetricMap> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#PointMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#MetricMap> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#SemanticEnvironmentMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#ObjectMap> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#SonarMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#MapBuiltFromSensorData> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#StereoCameraMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#MapBuiltFromSensorData> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#ThreeDimensionalMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#EnvironmentMap> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#TwoDimensionalMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#EnvironmentMap> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#VisualSlamMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#MapBuiltFromSensorData> .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#Localization> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasDesign> a owl:ObjectProperty .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasSpaceRegion> a owl:ObjectProperty .
+
+<http://www.ease-crc.org/ont/EASE-WF.owl#OGPWorkflow> a owl:Class ;
+    rdfs:comment """A natural exit of an OGPWorkflow is the arrival at an ExitOGPWorkflow task.
+
+A premature exit will however happen when an OGPTask is completed, which is not an ExitOGPWorkflow, and which has no triggerable ConditionalSuccedence relations for which it is the predecessor task.
+
+This situation can occur when
+
+-- the OGPTask in question is not a predecessor task for any ConditionalSuccedence in the workflow;
+-- none of the ConditionalSuccedence relations that have the task as predecessor can fire, because neither of their conditions are met.
+
+Both of these situations are errors: they signal that the workflow is incompletely described.""",
+        """A workflow meant to guide the action of a robot agent and interpreted by the KnowRob workflow interpreter.
+
+It is a workflow for exactly one OGPTask, but may contain several invocations of OGPTasks linked by ConditionalSuccedence relations.
+
+It has at most one entry point, which is the first OGPTask to execute when enacting the Workflow. If no first task is present, then the Workflow is empty.
+
+It may have several exit points. When an exit point is reached, the Workflow execution has completed. They result in a termination of the workflow, and a return to its invoker, with a special error status and a record of the output of the last task.""",
+        """WARNING: not all constraints are easy to enforce in OWL Tboxes; in particular, the following constraints have not been modelled in the Tbox. It is required however that OGPWorkflows obey them.
+
+-- the input parameters of the OGPTask defined by the OGPWorkflow are exactly the same as the input parameters of the EntryOGPWorkflow belonging to the OGPWorkflow;
+-- the output parameters of the OGPTask defined by the OGPWorkflow are exactly the same as the output parameters defined by every ExitOGPWorkflow belonging to the OGPWorkflow.""" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://www.ease-crc.org/ont/EASE-WF.owl#ConditionalSuccedence> ;
+            owl:onProperty <http://www.ease-crc.org/ont/EASE-WF.owl#hasSuccedence> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://www.ease-crc.org/ont/EASE-WF.owl#OGPTask> ;
+            owl:onProperty dul:definesTask ],
+        [ a owl:Restriction ;
+            owl:onClass <http://www.ease-crc.org/ont/EASE-WF.owl#EntryOGPWorkflow> ;
+            owl:onProperty dul:definesTask ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass <http://www.ease-crc.org/ont/EASE-WF.owl#OGPTask> ;
+            owl:onProperty <http://www.ease-crc.org/ont/EASE.owl#isPlanFor> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onProperty dul:definesTask ;
+            owl:someValuesFrom <http://www.ease-crc.org/ont/EASE-WF.owl#ExitOGPWorkflow> ],
+        dul:Workflow .
+
+<http://www.ease-crc.org/ont/EASE.owl#Condensing> a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-PROC.owl#PhaseTransition> .
+
+<http://www.ease-crc.org/ont/EASE.owl#DesignedContainer> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#Freezing> a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-PROC.owl#PhaseTransition> .
+
+<http://www.ease-crc.org/ont/EASE.owl#Melting> a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-PROC.owl#PhaseTransition> .
+
+<http://www.ease-crc.org/ont/EASE.owl#SoftwareDiagnosis> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#Status> a owl:Class .
+
+dul:Action a owl:Class .
+
+dul:Agent a owl:Class .
+
+dul:Object a owl:Class .
+
+dul:Organization a owl:Class .
+
+dul:PhysicalAgent a owl:Class .
+
+dul:Plan a owl:Class .
+
+dul:Region a owl:Class .
+
+dul:Substance a owl:Class .
+
+dul:isParticipantIn a owl:ObjectProperty .
+
+rdfs:comment a owl:AnnotationProperty .
+
+rdfs:label a owl:AnnotationProperty .
+
+owl:topDataProperty a owl:DatatypeProperty .
+
+owl:topObjectProperty a owl:ObjectProperty .
+
+:CartesianCoordinateSystem a owl:Class ;
+    rdfs:comment "A specialization of CoordinateSystem. Each instance of CartesianCoordinateSystem is based on two or three perpendicular axes that intersect at a point, called the origin. Two axes are used for coordinating a two-dimensional space; three axes are used for coordinating a three-dimensional space. Any point in the space coordinated by the system can be specified by a pair (or triple) of Distances, representing distances from the origin along each of the two (or three) axes."^^xsd:string ;
+    rdfs:subClassOf :CoordinateSystem .
+
+:ComputationalProcedure a owl:Class ;
+    rdfs:label "Computational procedure" ;
+    rdfs:comment "An implemented procedure with specific functor and arity that can be computed by calling it with appropiate arguments possibly yielding one or more outputs." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty :hasArity ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :ProcedureArgument ;
+            owl:onProperty dul:hasPart ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :hasFunctor ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://www.ease-crc.org/ont/EASE-IO.owl#DigitalObject> .
+
+:CoordinateSystem a owl:Class ;
+    rdfs:comment """A specialization of FrameOfReference. This is the collection of systems with respect to which the locations of SpatialThings can be specified.
+The two most common types of coordinate systems are CartesianCoordinateSystems and PolarCoordinateSystems."""^^xsd:string ;
+    rdfs:subClassOf :FrameOfReference .
+
+:Destructing a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-ACT.owl#PhysicalTask> .
+
+:FrameOfReference a owl:Class ;
+    rdfs:comment "Each instance of FrameOfReference is a representation of the context in which certain data are to be interpreted. Such contexts are typically physical, but may be purely mathematical. For example, a CartesianCoordinateSystem can be used to represent the positions of things on the surface of the Eath, but can also be used to represent an abstract gepometric space."^^xsd:string ;
+    rdfs:subClassOf dul:FormalEntity .
+
+:KBQuerying a owl:Class ;
+    rdfs:comment "A querying action where some predicate of the KB is called." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :ComputationalPredicate ;
+            owl:onProperty dul:hasParticipant ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass <http://www.ease-crc.org/ont/EASE-ACT.owl#ExecutionStateRegion> ;
+            owl:onProperty dul:hasRegion ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://www.ease-crc.org/ont/EASE-ACT.owl#Querying> .
+
+:KeepPerpendicularTo a owl:Class ;
+    rdfs:subClassOf :OrientationConstraint .
+
+:Monitor a owl:Class ;
+    rdfs:subClassOf :VideoScreen .
+
+:Pose a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#6DPose> .
+
+:RightArm a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Arm> .
+
+:RightHand a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Hand> .
+
+:RightLeg a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#Leg> .
+
+:StaticTransform a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#6DPose> .
+
+:VideoScreen a owl:Class ;
+    rdfs:subClassOf :ElectricalDevice .
+
+:constrains a owl:ObjectProperty ;
+    rdfs:domain dul:Concept ;
+    rdfs:range dul:Concept ;
+    rdfs:subPropertyOf dul:isRelatedToConcept .
+
+:dependsOnConcept a owl:ObjectProperty ;
+    rdfs:label "depends on concept" ;
+    rdfs:domain dul:Concept ;
+    rdfs:range dul:Concept ;
+    rdfs:subPropertyOf dul:isRelatedToConcept .
+
+:detectedAgent a owl:ObjectProperty ;
+    rdfs:domain :Perception ;
+    rdfs:subPropertyOf :detectedObject,
+        dul:involvesAgent .
+
+:hasInferredParameter a owl:ObjectProperty ;
+    rdfs:domain <http://www.ease-crc.org/ont/EASE-ACT.owl#Reasoning> ;
+    rdfs:range dul:Parameter ;
+    rdfs:subPropertyOf dul:hasParameter .
+
+:hasProcedureArgument a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :CompoundArgument :ComputationalPredicate ) ] ;
+    rdfs:range :ProcedureArgument ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+:hasResolution a owl:ObjectProperty ;
+    rdfs:label "has resolution" ;
+    rdfs:domain dul:PhysicalObject ;
+    rdfs:range :Resolution ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+:hasSamplingRate a owl:ObjectProperty ;
+    rdfs:label "has sampling rate" ;
+    rdfs:domain :SensorDevice ;
+    rdfs:range :SamplingRate ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+:hasSensorRange a owl:ObjectProperty ;
+    rdfs:label "has sensor range" ;
+    rdfs:domain :SensorDevice ;
+    rdfs:range :SensorRange ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+:hingedTo a owl:ObjectProperty ;
+    rdfs:subPropertyOf :rotationallyConnectedTo .
+
+:isBelowOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:isInFrontOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:isRightOf a owl:ObjectProperty ;
+    rdfs:subPropertyOf :isNextTo .
+
+:rotationallyConnectedTo a owl:ObjectProperty ;
+    rdfs:comment "A ConnectionPredicate (q.v.) and thus a specialization of connectedTo (q.v.). (rotationallyConnectedTo OBJ1 OBJ2) means that OBJ1 and OBJ2 are connected in such a way that rotational motion, and only rotational motion, can happen between them. The range of rotational motion possible might be full or partial. Non-rotational movement between two rotationally connected objects can occur only if the connection is broken, deformed, or disassembled. If OBJ1 and OBJ2 do rotate relative to one another, then this may be due to sliding of their surfaces, articulation of some joint part, or deformation of OBJ1 or OBJ2 (so long as that deformation only allows rotation between OBJ1 and OBJ2). Positive examples: Femurs are rotationally connected to hips, doors are rotationally connected to door frames, doorknobs are rotationally connected to doors, and propellers are rotationally connected to airplanes; in computer trackballs the ball is rotationally connected to the housing. Also a book cover is rotationally connected to its binding (but flapHingedTo is even more appropriate for describing such a connection because it is more specific). Negative examples: a planet orbiting a star (they are not connected; cf. MovingInACircle) and a toothpick stuck in a person's leg (although elastic deformation of flesh allows there to be rotational motion between toothpick and leg, it also may allow a small amount of translational motion to occur between them; in-Lodged is more appropriate for describing this case)."^^xsd:string ;
+    rdfs:subPropertyOf :connectedTo .
+
+:vec3 a rdfs:Datatype .
+
+:visualHint a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dul:hasDataValue .
+
+<http://knowrob.org/kb/srdl2-comp.owl#ObjectMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#MetricMap>,
+        <http://knowrob.org/kb/srdl2-comp.owl#TopologicalMap> .
+
+<http://www.ease-crc.org/ont/EASE-ACT.owl#ExecutionStateRegion> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-ACT.owl#MentalAction> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-ACT.owl#ModifyingPhysicalObject> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-ACT.owl#Perceiving> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-ACT.owl#PhysicalTask> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-ACT.owl#Querying> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#3DPosition> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#CuttingTool> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasDepth> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasFilePath> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasHeight> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasLocalizationParameter> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasOrientationVector> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasPositionVector> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasRGBValue> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasWidth> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE-WF.owl#ConditionalSuccedence> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-WF.owl#EntryOGPWorkflow> a owl:Class ;
+    rdfs:comment """Note: equality constraints between parameter sets for Entry/Exit points and the OGPTask defined by a RobotWorkflow might suggest that the OGPTask defined by the workflow can be used as an entry/exit point.
+
+This however is not the case, as these tasks have different meanings for the KnowRob workflow interpreter.
+
+-- work-flow defined task: any general purpose task, such as some robot behavior, described by a workflow. Encountering such a task during a run of the interpreter will evoke the defining workflow.
+-- entry point task: bind roles and parameters in the workflow to values obtained from the evoker of the workflow
+-- exit point task: bind roles and parameters in the workflow to outputs, and return control to the workflow's evoker.""",
+        """The first Task in a RobotWorkflow, which is simply to receive the inputs and bind them to the appropriate roles defined in the workflow.
+
+A RobotWorkflow has only 1 entry point.
+
+This task has no outputs.""",
+        """WARNING: the following constraint was not modelled in the Tbox, but it is expected that RobotWorkflows will implement it.
+
+The EntryRobotWorkflow should have the same inputs as the RobotTask defined by the RobotWorkflow.""" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass dul:Entity ;
+            owl:onProperty <http://www.ease-crc.org/ont/EASE-WF.owl#definesInput> ;
+            owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ],
+        <http://www.ease-crc.org/ont/EASE-WF.owl#OGPTask> ;
+    owl:disjointWith <http://www.ease-crc.org/ont/EASE-WF.owl#ExitOGPWorkflow> .
+
+<http://www.ease-crc.org/ont/EASE-WF.owl#hasSuccedence> a owl:ObjectProperty .
+
+<http://www.ease-crc.org/ont/EASE.owl#ActionExecutionPlan> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#DesignedTool> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#Fluid> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#Infeasibility> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#PhysicalEffector> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#hasEventBegin> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE.owl#hasEventEnd> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE.owl#hasEventTime> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE.owl#hasNameString> a owl:DatatypeProperty .
+
+<http://www.ease-crc.org/ont/EASE.owl#isPlanFor> a owl:ObjectProperty .
+
+dul:DesignedArtifact a owl:Class .
+
+dul:DesignedSubstance a owl:Class .
+
+dul:FormalEntity a owl:Class .
+
+dul:InformationEntity a owl:Class .
+
+dul:InformationObject a owl:Class .
+
+dul:PhysicalArtifact a owl:Class .
+
+dul:PhysicalObject a owl:Class .
+
+dul:Place a owl:Class .
+
+dul:Quality a owl:Class .
+
+dul:Situation a owl:Class .
+
+dul:Task a owl:Class .
+
+dul:Workflow a owl:Class .
+
+dul:hasComponent a owl:ObjectProperty .
+
+dul:hasParameter a owl:ObjectProperty .
+
+dul:hasParticipant a owl:ObjectProperty .
+
+dul:hasQuality a owl:ObjectProperty .
+
+dul:includesObject a owl:ObjectProperty .
+
+dul:involvesAgent a owl:ObjectProperty .
+
+dul:isExecutedIn a owl:ObjectProperty .
+
+dul:isPartOf a owl:ObjectProperty .
+
+dul:isQualityOf a owl:ObjectProperty .
+
+:Battery a owl:Class ;
+    rdfs:comment "providers of DC electricity from chemical reactions" ;
+    rdfs:subClassOf :ElectricalDevice .
+
+:Connector a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#DesignedComponent> .
+
+:Constraint a owl:Class ;
+    rdfs:comment "fixme: there is an issue with the DUL axiom that parameters only classify regions, and 'is constraint for' is a sub-property of classifies with domain Parameter and range Entity. this seems like a bug in DUL." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :constrains ;
+            owl:someValuesFrom dul:Concept ],
+        dul:Parameter .
+
+:Cutting a owl:Class ;
+    rdfs:subClassOf :Destructing .
+
+:DistanceConstraint a owl:Class ;
+    rdfs:subClassOf :SpatialConstraint .
+
+:InoperableHardware a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#HardwareDiagnosis> .
+
+:LightFixture a owl:Class ;
+    rdfs:comment "Light fixtures are lights that are permanently attached as parts of rooms or buildings. e.g. Flourescent light fixtures in office building ceilings." ;
+    rdfs:subClassOf :ElectricalLightingDevice .
+
+:NumberArgument a owl:Class ;
+    rdfs:subClassOf :AtomicArgument .
+
+:Pouring a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-ACT.owl#Actuating> .
+
+:Resolution a owl:Class ;
+    rdfs:subClassOf dul:PhysicalAttribute .
+
+:SamplingRate a owl:Class ;
+    rdfs:comment "The frequency at which a sensor takes measurements." ;
+    rdfs:subClassOf dul:PhysicalAttribute .
+
+:SensorDevice a owl:Class ;
+    rdfs:label "Sensor device" ;
+    rdfs:comment "todo: axiomatize measured quantitiy." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :SamplingRate ;
+            owl:onProperty :hasSamplingRate ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onProperty :hasResolution ;
+            owl:someValuesFrom :Resolution ],
+        [ a owl:Restriction ;
+            owl:onClass :SensorRange ;
+            owl:onProperty :hasSensorRange ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://www.ease-crc.org/ont/EASE-OBJ.owl#Appliance> .
+
+:SensorRange a owl:Class ;
+    rdfs:label "Sensor range" ;
+    rdfs:subClassOf dul:PhysicalAttribute .
+
+:TemporalConstraint a owl:Class ;
+    rdfs:subClassOf :Constraint .
+
+:TextileArtifact a owl:Class ;
+    rdfs:subClassOf dul:DesignedArtifact .
+
+:Trajectory a owl:Class ;
+    rdfs:subClassOf dul:SpatioTemporalRegion .
+
+:actor a owl:ObjectProperty ;
+    rdfs:comment "The most general instance of ActorSlot (q.v.): all other actor slots are specializations of this predicate. Thus actors is a broad relation that holds between a given event and any contemporary existing thing (see SomethingExisting) that is meaningfully involved in the event. (actors EVENT ACTOR) means that ACTOR is somehow saliently (directly or indirectly) involved in EVENT during EVENT. An object's merely being cotemporal (see cotemporal) with an event is obviously not sufficient for being an actor in it, nor is participating (however centrally) in a representation or re-enactment of the event. But note that being an \"actor\" in the relevant sense is not restricted to things that play \"active\" (as opposed to passive or instrumental) roles in a given event."^^xsd:string ;
+    rdfs:subPropertyOf <dul:hasParticipant> .
+
+:detectedObject a owl:ObjectProperty ;
+    rdfs:subPropertyOf :postActor .
+
+:eventOccursAt a owl:ObjectProperty ;
+    rdfs:comment """An ActorSlot and a specialization of inRegion that relates a particular event to the instance of EnduringThing_Localized at which it occurs. (eventOccursAt EVENT LOC) means that the spatial extent of EVENT is within LOC. For example, (eventOccursAt LomaPrietaEarthquake SanFranciscoBayArea).
+
+See also the more general predicate eventPartiallyOccursAt, which relates an event to any instance of SpatialThing_Localized in which some sub-event of it occurs.""" ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:hasArity a owl:DatatypeProperty ;
+    rdfs:label "has arity" ;
+    rdfs:domain :ComputationalPredicate ;
+    rdfs:range xsd:int ;
+    rdfs:subPropertyOf dul:hasDataValue .
+
+:hasFunctor a owl:DatatypeProperty ;
+    rdfs:label "has functor" ;
+    rdfs:domain :ComputationalPredicate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dul:hasDataValue .
+
+:isNextTo a owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:jointLimitParameters a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dul:hasRegionDataValue .
+
+:postActor a owl:ObjectProperty ;
+    rdfs:range owl:Thing ;
+    rdfs:subPropertyOf :actor .
+
+<http://knowrob.org/kb/srdl2-comp.owl#TopologicalMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#EnvironmentMap> .
+
+<http://www.ease-crc.org/ont/EASE-ACT.owl#Mixing> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-ACT.owl#Reasoning> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-IO.owl#DigitalObject> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#6DPose> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#DependentPlace> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-PROC.owl#ProcessType> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-WF.owl#ExitOGPWorkflow> a owl:Class ;
+    rdfs:comment """A final Task in a OGPWorkflow, which is simply to return some information as a "result" of the workflow's execution.
+
+This task only uses outputs. The values for the outputs are calculated by the KnowRob workflow interpreter based on the Bindings between roles that exist in the workflow.""" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass dul:Entity ;
+            owl:onProperty <http://www.ease-crc.org/ont/EASE-WF.owl#definesOutput> ;
+            owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ],
+        <http://www.ease-crc.org/ont/EASE-WF.owl#OGPTask> .
+
+<http://www.ease-crc.org/ont/EASE-WF.owl#definesInput> a owl:ObjectProperty .
+
+<http://www.ease-crc.org/ont/EASE-WF.owl#definesOutput> a owl:ObjectProperty .
+
+<http://www.ease-crc.org/ont/EASE.owl#Arm> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#DesignedFurniture> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#FailedAttempt> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#Hand> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#HardwareDiagnosis> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#Leg> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#hasPhysicalComponent> a owl:ObjectProperty .
+
+<http://www.ease-crc.org/ont/EASE.owl#involvesArtifact> a owl:ObjectProperty .
+
+<http://www.ease-crc.org/ont/EASE.owl#involvesPlace> a owl:ObjectProperty .
+
+dul:Entity a owl:Class .
+
+dul:Event a owl:Class .
+
+dul:Process a owl:Class .
+
+dul:SpaceRegion a owl:Class .
+
+dul:SpatioTemporalRegion a owl:Class .
+
+dul:hasConstituent a owl:ObjectProperty .
+
+:GraspingAffordance a owl:Class ;
+    rdfs:subClassOf :Affordance .
+
+:LocationConstraint a owl:Class ;
+    rdfs:subClassOf :SpatialConstraint .
+
+:SpatialConstraint a owl:Class ;
+    rdfs:subClassOf :Constraint .
+
+:trajectory-Complete a owl:ObjectProperty ;
+    rdfs:range :Trajectory ;
+    rdfs:subPropertyOf :eventOccursAt .
+
+<http://knowrob.org/kb/srdl2-comp.owl#MetricMap> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#EnvironmentMap> .
+
+<http://knowrob.org/kb/urdf.owl#Robot> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-ACT.owl#Actuating> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#Appliance> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#DesignedComponent> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-PROC.owl#PhaseTransition> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#Inability> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE.owl#array_double> a rdfs:Datatype .
+
+dul:TimeInterval a owl:Class .
+
+dul:hasPart a owl:ObjectProperty .
+
+dul:isRelatedToConcept a owl:ObjectProperty .
+
+:CompoundArgument a owl:Class ;
+    rdfs:comment "A compound term in the language in which the procedure is implemented." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:integer ;
+            owl:onProperty :hasArity ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :hasFunctor ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        :ProcedureArgument .
+
+:Map a owl:Class ;
+    rdfs:subClassOf dul:Place .
+
+:OrientationConstraint a owl:Class ;
+    rdfs:subClassOf :SpatialConstraint .
+
+:WheeledRobot a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/urdf.owl#Robot> .
+
+:connectedTo a owl:ObjectProperty ;
+    rdfs:comment "An instance of ConnectionPredicate. (connectedTo OBJ1 OBJ2) means that OBJ1 and OBJ2 are (directly or indirectly) physically connected in a way that allows at most only limited types of relative motion between them. A hinged connection, for example, allows limited rotational motion between OBJ1 and OBJ2. In many cases, being connectedTo implicitly involves another object(s); e.g. a door is connectedTo a door frame by a hinge, which is itself connectedTo_Directly (q.v.) both the door and the frame."^^xsd:string ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+:nameString a owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf <http://www.ease-crc.org/ont/EASE.owl#hasNameString> .
+
+<http://knowrob.org/kb/srdl2-comp.owl#MapBuiltFromSensorData> a owl:Class ;
+    rdfs:subClassOf <http://knowrob.org/kb/srdl2-comp.owl#EnvironmentMap> .
+
+<http://www.ease-crc.org/ont/EASE-IO.owl#FaultySoftware> a owl:Class .
+
+<http://www.ease-crc.org/ont/EASE-WF.owl#OGPTask> a owl:Class ;
+    rdfs:comment """A Task to be interpreted by the KnowRob Workflow interpreter.
+
+Usually, has a non-empty set of input (Role or Parameter)s, and a non-empty set of output (Role or Parameter)s-- however, eiter or both of these sets may be empty in the case of tasks with trivial input/outputs.""" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( dul:Parameter dul:Role ) ] ;
+            owl:onProperty <http://www.ease-crc.org/ont/EASE-WF.owl#definesInput> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( dul:Parameter dul:Role ) ] ;
+            owl:onProperty <http://www.ease-crc.org/ont/EASE-WF.owl#definesOutput> ],
+        dul:Task .
+
+dul:Role a owl:Class .
+
+dul:associatedWith a owl:ObjectProperty .
+
+dul:definesTask a owl:ObjectProperty .
+
+dul:hasRegionDataValue a owl:DatatypeProperty .
+
+:AtomicArgument a owl:Class ;
+    rdfs:comment "An atomic term in the language in which the procedure is implemented." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :ProcedureArgument ;
+            owl:onProperty dul:hasPart ;
+            owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ],
+        :ProcedureArgument ;
+    owl:disjointWith :CompoundArgument .
+
+:ElectricalLightingDevice a owl:Class ;
+    rdfs:comment "Devices that provide light by transforming electrical current into light energy." ;
+    rdfs:subClassOf :ElectricalDevice .
+
+:Finger a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE.owl#PhysicalEffector> .
+
+:Perception a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-ACT.owl#MentalAction> .
+
+:buildingParameter a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dul:hasRegionDataValue .
+
+:objectActedOn a owl:ObjectProperty ;
+    rdfs:subPropertyOf :preActor .
+
+dul:Concept a owl:Class .
+
+dul:Parameter a owl:Class .
+
+dul:hasRegion a owl:ObjectProperty .
+
+:Affordance a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom dul:SpaceRegion ;
+            owl:onProperty dul:hasRegion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom dul:PhysicalArtifact ;
+            owl:onProperty dul:isQualityOf ],
+        dul:Quality .
+
+:ComputationalPredicate a owl:Class ;
+    rdfs:label "Computational predicate" ;
+    rdfs:comment "A boolean procedure yielding true if the fact implied by the predicate can be derived using the argument instantiation provided when the predicate is called. In some implementations arguments may be left without instantiation before a predicate is called in which case the call yields true if an appropiate instantiation could be found." ;
+    rdfs:subClassOf :ComputationalProcedure .
+
+:ElectricalDevice a owl:Class ;
+    rdfs:subClassOf <http://www.ease-crc.org/ont/EASE-OBJ.owl#Appliance> .
+
+:KeepRelativeLocation a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :dependsOnConcept ;
+            owl:someValuesFrom dul:Role ],
+        :LocationConstraint .
+
+:lightParameter a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dul:hasRegionDataValue .
+
+<http://knowrob.org/kb/srdl2-comp.owl#EnvironmentMap> a owl:Class ;
+    rdfs:subClassOf :Map .
+
+<http://www.ease-crc.org/ont/EASE-OBJ.owl#hasShapeParameter> a owl:DatatypeProperty .
+
+dul:PhysicalAttribute a owl:Class .
+
+:ProcedureArgument a owl:Class ;
+    rdfs:label "Procedure argument" ;
+    rdfs:comment "An argument of a procedure. Note that this is *not* the instantiation of the argument but rather a description of it in terms of structure and type. e.g., NumberArgument is used to denote arguments that are a number constant! In most cases VariableArgument should be used." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ProcedureArgument ;
+            owl:onProperty dul:hasPart ],
+        <http://www.ease-crc.org/ont/EASE-IO.owl#DigitalObject> ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( :AtomicArgument :CompoundArgument ) ] .
+
+:preActor a owl:ObjectProperty ;
+    rdfs:comment "An ActorSlot (q.v.) that relates an event to those of its participants that pre-exist it. (preActors EVENT OBJECT) means that OBJECT is a participant (see actors) in EVENT and that OBJECT exists before EVENT begins. Note that OBJECT also exists during at least part of EVENT (as actors generalizes to temporallyIntersects). preActors is a very general actor-slot, subsuming doneBy, objectActedOn, objectMoving, and many others."^^xsd:string ;
+    rdfs:range owl:Thing ;
+    rdfs:subPropertyOf :actor .
+
+dul:hasDataValue a owl:DatatypeProperty .
+
+dul:hasLocation a owl:ObjectProperty .
+

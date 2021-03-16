@@ -1,0 +1,558 @@
+@prefix : <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<FR:CartesianCoordinateSystem> a owl:Class ;
+    rdfs:comment "A specialization of CoordinateSystem. Each instance of CartesianCoordinateSystem is based on two or three perpendicular axes that intersect at a point, called the origin. Two axes are used for coordinating a two-dimensional space; three axes are used for coordinating a three-dimensional space. Any point in the space coordinated by the system can be specified by a pair (or triple) of Distances, representing distances from the origin along each of the two (or three) axes."^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <FR:CartesianPositionPoint> ;
+            owl:onProperty :ofCS ],
+        :CoordinateSystem .
+
+<FR:CartesianOperator> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <FR:CartesianPositionRegion> ;
+            owl:onProperty :operatorGenerates ],
+        :Operator .
+
+<FR:posAtTime> a owl:ObjectProperty ;
+    rdfs:comment """
+	
+	"""^^xsd:string ;
+    rdfs:domain <OS:Position> ;
+    rdfs:range <ISRO:TimePoint> .
+
+<ISRO:Building> a owl:Class ;
+    rdfs:subClassOf <KN:SpaceRegion> .
+
+<ISRO:Hallway> a owl:Class ;
+    rdfs:subClassOf <KN:SpaceRegion> .
+
+<ISRO:Person> a owl:Class ;
+    rdfs:subClassOf <ISRO:Agent> .
+
+<ISRO:Room> a owl:Class ;
+    rdfs:subClassOf <KN:SpaceRegion> .
+
+<ISRO:RotationMatrix> a owl:Class ;
+    rdfs:comment """
+	This represents the orientation of the position of a structural model or one of its parts, according to the rotation of each of its axes.
+	"""^^xsd:string ;
+    rdfs:subClassOf <KN:Matrix>,
+        :OrientationMeasure .
+
+<ISRO:TemporalThing> a owl:Class ;
+    rdfs:subClassOf <OS:AbstractThing> .
+
+<OS:Actuator> a owl:Class ;
+    rdfs:subClassOf <OS:RegularPart> .
+
+<OS:BasePart> a owl:Class ;
+    rdfs:comment """
+	
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:AtomicPart> .
+
+<OS:Box> a owl:Class ;
+    rdfs:subClassOf <OS:Shape> .
+
+<OS:ContinuosJoint> a owl:Class ;
+    rdfs:comment """
+    This represents a continuous hinge joint that rotates around the axis and has no upper and lower limits.
+    """^^xsd:string ;
+    rdfs:subClassOf <OS:Joint> .
+
+<OS:Cylinder> a owl:Class ;
+    rdfs:subClassOf <OS:Shape> .
+
+<OS:Depth> a owl:Class ;
+    rdfs:subClassOf <OS:Dimension> .
+
+<OS:FixedJoint> a owl:Class ;
+    rdfs:comment """
+		This represents a union that does not allow rotations on any axis. All degrees of freedom are locked. This is the default union between two parts.
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:Joint> .
+
+<OS:FloatingJoint> a owl:Class ;
+    rdfs:comment """
+    This represents a joint which allows motion for all 6 degrees of freedom.
+    """^^xsd:string ;
+    rdfs:subClassOf <OS:Joint> .
+
+<OS:Height> a owl:Class ;
+    rdfs:subClassOf <OS:Dimension> .
+
+<OS:HeightMap> a owl:Class ;
+    rdfs:comment """
+	It is a numeric matrix, where each cell contains the distance to an obstacle.
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:UndefinedShape> .
+
+<OS:OccupancyGrid> a owl:Class ;
+    rdfs:comment """
+	It is a probability matrix, where each cell contains the probability of an obstacle.
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:UndefinedShape> .
+
+<OS:PlanarJoint> a owl:Class ;
+    rdfs:comment """
+    This represents a joint which allows motion in a plane perpendicular to the axis.
+    """^^xsd:string ;
+    rdfs:subClassOf <OS:Joint> .
+
+<OS:Plane> a owl:Class ;
+    rdfs:subClassOf <OS:Shape> .
+
+<OS:PrysmaticJoint> a owl:Class ;
+    rdfs:comment """
+    This represents a  sliding joint that slides along the axis, and has a limited range specified by the upper and lower limits.
+    """^^xsd:string ;
+    rdfs:subClassOf <OS:Joint> .
+
+<OS:RevoluteJoint> a owl:Class ;
+    rdfs:comment """
+    This represents a hinge union that rotates along the axis and has a limited range specified by the upper and lower limits.
+    """^^xsd:string ;
+    rdfs:subClassOf <OS:Joint> .
+
+<OS:Sensor> a owl:Class ;
+    rdfs:subClassOf <OS:RegularPart> .
+
+<OS:Sphere> a owl:Class ;
+    rdfs:subClassOf <OS:Shape> .
+
+<OS:Width> a owl:Class ;
+    rdfs:subClassOf <OS:Dimension> .
+
+<OS:hasAxis> a owl:ObjectProperty ;
+    rdfs:domain <OS:Joint> ;
+    rdfs:range <OS:Axis> .
+
+<OS:hasCartesianPositionRegion> a owl:ObjectProperty ;
+    rdfs:domain <KN:SpaceRegion> ;
+    rdfs:range <FR:CartesianPositionRegion> .
+
+<OS:hasColor> a owl:ObjectProperty ;
+    rdfs:domain <OS:Visual> ;
+    rdfs:range <OS:Color> .
+
+<OS:hasDimension> a owl:ObjectProperty ;
+    rdfs:domain <OS:Visual> ;
+    rdfs:range <OS:Dimension> .
+
+<OS:hasJoint> a owl:ObjectProperty ;
+    rdfs:domain <OS:StructuralModel> ;
+    rdfs:range <OS:Joint> .
+
+<OS:hasMatrixValue> a owl:ObjectProperty ;
+    rdfs:comment """
+	
+	"""^^xsd:string ;
+    rdfs:domain <OS:Probability> ;
+    rdfs:range <OS:CovarianceMatrix> .
+
+<OS:hasModel> a owl:ObjectProperty ;
+    rdfs:domain <OS:PhysicalThing> ;
+    rdfs:range <OS:StructuralModel> .
+
+<OS:hasNumberValue> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:comment """
+	
+	"""^^xsd:string ;
+    rdfs:domain <OS:Probability> ;
+    rdfs:range xsd:double .
+
+<OS:hasOrientation> a owl:ObjectProperty ;
+    rdfs:domain <OS:Position> ;
+    rdfs:range :OrientationMeasure .
+
+<OS:hasParent> a owl:ObjectProperty ;
+    rdfs:comment """
+		Used to connect a part with the part that is the parent of this part in the structure of the robot tree.
+	"""^^xsd:string ;
+    rdfs:domain <OS:Joint> ;
+    rdfs:range <OS:Part> .
+
+<OS:hasPart> a owl:ObjectProperty ;
+    rdfs:domain <OS:StructuralModel> ;
+    rdfs:range <OS:Part> .
+
+<OS:hasPosition> a owl:ObjectProperty ;
+    rdfs:domain <OS:StructuralModel> ;
+    rdfs:range <OS:Position> .
+
+<OS:hasProbability> a owl:ObjectProperty ;
+    rdfs:domain <OS:Position>,
+        <OS:Shape> ;
+    rdfs:range <OS:Probability> .
+
+<OS:hasRGBValue> a owl:ObjectProperty ;
+    rdfs:domain <OS:Color> ;
+    rdfs:range <KN:Vector> .
+
+<OS:hasShape> a owl:ObjectProperty ;
+    rdfs:domain <OS:Visual> ;
+    rdfs:range <OS:Shape> .
+
+<OS:hasState> a owl:ObjectProperty ;
+    rdfs:domain <OS:PhysicalThing> ;
+    rdfs:range <OS:State> .
+
+<OS:hasTranslation> a owl:ObjectProperty ;
+    rdfs:domain <OS:Position> ;
+    rdfs:range <OS:TranslationMeasure> .
+
+<OS:hasVisual> a owl:ObjectProperty ;
+    rdfs:domain <OS:Part> ;
+    rdfs:range <OS:Visual> .
+
+<OS:inEnvironment> a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain <ISRO:Agent> ;
+    rdfs:range :Environment ;
+    owl:inverseOf <OS:hasAgent> .
+
+<OS:isComposedBy> a owl:ObjectProperty ;
+    rdfs:domain <OS:ComposedPart> ;
+    rdfs:range <OS:AtomicPart> .
+
+<OS:isMobile> a owl:ObjectProperty ;
+    rdfs:comment """
+	It denotes the mobility of the physical thing, whether it can move by itself or not
+	"""^^xsd:string ;
+    rdfs:domain <OS:PhysicalThing> ;
+    rdfs:range <OS:Mobile> .
+
+<OS:isReconfigurable> a owl:ObjectProperty ;
+    rdfs:comment """
+	Denotes if the physical thing can change its pose.
+	"""^^xsd:string ;
+    rdfs:domain <OS:PhysicalThing> ;
+    rdfs:range <OS:Reconfigurable> .
+
+<OS:isRepresentedBy> a owl:ObjectProperty ;
+    rdfs:domain <FR:CartesianPositionRegion>,
+        <OS:Axis> ;
+    rdfs:range <KN:Polygon>,
+        <KN:Vector> .
+
+<http://www.semanticweb.org/ontologies/2013/7/CORA.owl> a owl:Ontology ;
+    dc:contributor "Maria Cornejo Lupa"@en .
+
+:AutonomousRobot a owl:Class ;
+    rdfs:subClassOf :Robot .
+
+:Non-AutonomousRobot a owl:Class ;
+    rdfs:subClassOf :Robot .
+
+:Semi-AutonomousRobot a owl:Class ;
+    rdfs:subClassOf :Robot .
+
+:mobileValue a owl:DatatypeProperty ;
+    rdfs:domain <OS:Mobile> ;
+    rdfs:range xsd:boolean .
+
+:ptsOfPR a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :PositionRegion ;
+    rdfs:range :PositionPoint ;
+    owl:inverseOf :inPR .
+
+:reconfigurableValue a owl:DatatypeProperty ;
+    rdfs:domain <OS:Reconfigurable> ;
+    rdfs:range xsd:boolean .
+
+:stateValue a owl:DatatypeProperty ;
+    rdfs:comment """
+    It could be one of the following states: "isMoved", "isNotMoved", "isReconfigured" and "isNotReconfigured"
+  """^^xsd:string ;
+    rdfs:domain <OS:State> ;
+    rdfs:range xsd:string .
+
+:workIn a owl:ObjectProperty ;
+    rdfs:domain :Robot ;
+    rdfs:range :RobotGroup .
+
+<FR:cartesianX> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <FR:CartesianPositionPoint> ;
+    rdfs:range owl:real .
+
+<FR:cartesianY> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <FR:CartesianPositionPoint> ;
+    rdfs:range owl:real ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+<FR:cartesianZ> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <FR:CartesianPositionPoint> ;
+    rdfs:range owl:real .
+
+<ISRO:TimePoint> a owl:Class ;
+    rdfs:subClassOf <OS:TemporalThing> .
+
+<KN:FrameOfReference> a owl:Class ;
+    rdfs:subClassOf <KN:MathematicalThing> .
+
+<KN:Polygon> a owl:Class ;
+    rdfs:subClassOf <KN:MathematicalThing> .
+
+<OS:componentCol> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <OS:MatrixElement> ;
+    rdfs:range xsd:nonNegativeInteger .
+
+<OS:componentRow> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <OS:MatrixElement> ;
+    rdfs:range xsd:nonNegativeInteger .
+
+<OS:componentValue> a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain <OS:MatrixElement> ;
+    rdfs:range xsd:double .
+
+<OS:hasAgent> a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :Environment ;
+    rdfs:range <ISRO:Agent> .
+
+:RobotGroup a owl:Class .
+
+:componentW a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :OrientationValue ;
+    rdfs:range owl:real .
+
+:componentX a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :OrientationValue ;
+    rdfs:range owl:real .
+
+:componentY a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :OrientationValue ;
+    rdfs:range owl:real .
+
+:componentZ a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:domain :OrientationValue ;
+    rdfs:range owl:real .
+
+:inPR a owl:ObjectProperty ;
+    rdfs:domain :PositionPoint ;
+    rdfs:range :PositionRegion .
+
+:ofCS a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :CoordinateSystem ;
+    rdfs:range :PositionPoint ;
+    owl:inverseOf :in .
+
+:operatorGenerates a owl:ObjectProperty ;
+    rdfs:domain :Operator ;
+    rdfs:range :PositionRegion .
+
+<KN:Matrix> a owl:Class ;
+    rdfs:subClassOf <KN:MathematicalThing> .
+
+<OS:Axis> a owl:Class ;
+    rdfs:comment """
+		The joint axis specified in the joint frame. This is the axis of rotation for revolute joints, the axis of translation for prismatic joints, and the surface normal for planar joints. The axis is specified in the joint frame of reference. Fixed and floating joints do not use the axis field.
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:AbstractThing> .
+
+<OS:Color> a owl:Class ;
+    rdfs:subClassOf <OS:FeatureThing> .
+
+<OS:ComposedPart> a owl:Class ;
+    rdfs:subClassOf <OS:Part> .
+
+<OS:CovarianceMatrix> a owl:Class ;
+    rdfs:comment """
+	
+	"""^^xsd:string ;
+    rdfs:subClassOf <KN:Matrix> .
+
+<OS:Mobile> a owl:Class ;
+    rdfs:subClassOf <OS:FeatureThing> .
+
+<OS:PositionalThing> a owl:Class ;
+    rdfs:subClassOf <OS:AbstractThing> .
+
+<OS:Reconfigurable> a owl:Class ;
+    rdfs:subClassOf <OS:FeatureThing> .
+
+<OS:RegularPart> a owl:Class ;
+    rdfs:comment """
+	
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:AtomicPart>,
+        <OS:ComposedPart> .
+
+<OS:State> a owl:Class ;
+    rdfs:subClassOf <OS:FeatureThing> .
+
+<OS:UndefinedShape> a owl:Class ;
+    rdfs:comment """
+	It is use when it is not possible to relate the shape of the visual to a common shape like box or sphere. It can be represented by a HeightMap or an OccupancyGrid.
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:Shape> .
+
+:in a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:comment """
+	Use this to connect a PositionPoint with a CoordinateSystem. 
+	"""^^xsd:string ;
+    rdfs:domain :PositionPoint ;
+    rdfs:range :CoordinateSystem .
+
+<FR:CartesianPositionRegion> a owl:Class ;
+    rdfs:subClassOf :PositionRegion .
+
+<KN:Vector> a owl:Class ;
+    rdfs:subClassOf <KN:MathematicalThing> .
+
+<OS:AtomicPart> a owl:Class ;
+    rdfs:comment """
+	
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:Part> .
+
+<OS:MatrixElement> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:nonNegativeInteger ;
+            owl:onProperty <OS:componentCol> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty <OS:componentValue> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:nonNegativeInteger ;
+            owl:onProperty <OS:componentRow> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <OS:CovarianceMatrix> .
+
+<OS:Probability> a owl:Class ;
+    rdfs:comment """
+	It is a numerical value that represents the certainty with which a characteristic is known. In OntoSLAM it is associated to the certainty with which the position and shape of a physical thing is known.
+	"""^^xsd:string ;
+    rdfs:subClassOf <KN:MathematicalThing> .
+
+:Environment a owl:Class ;
+    rdfs:subClassOf <OS:PhysicalThing> .
+
+<FR:CartesianPositionPoint> a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty <FR:cartesianY> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty <FR:cartesianX> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty <FR:cartesianZ> ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <OS:TranslationMeasure>,
+        :PositionPoint .
+
+<ISRO:Agent> a owl:Class ;
+    rdfs:subClassOf <OS:PhysicalThing> .
+
+<KN:SpaceRegion> a owl:Class ;
+    rdfs:subClassOf :Environment .
+
+<OS:Dimension> a owl:Class ;
+    rdfs:subClassOf <OS:FeatureThing> .
+
+<OS:StructuralModel> a owl:Class ;
+    rdfs:subClassOf <OS:AbstractThing> .
+
+:CoordinateSystem a owl:Class ;
+    rdfs:comment """
+        	A specialization of FrameOfReference. This is the collection of systems with respect to which the locations of SpatialThings can be specified.The two most common types of coordinate systems are CartesianCoordinateSystems and PolarCoordinateSystems.
+        """^^xsd:string ;
+    rdfs:subClassOf <KN:FrameOfReference> .
+
+:PositionRegion a owl:Class ;
+    rdfs:subClassOf <OS:PositionalThing> .
+
+:Robot a owl:Class ;
+    rdfs:subClassOf <ISRO:Agent> .
+
+<KN:MathematicalThing> a owl:Class ;
+    rdfs:subClassOf <OS:AbstractThing> .
+
+<OS:Part> a owl:Class ;
+    rdfs:comment """
+	
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:PhysicalThing> .
+
+<OS:Position> a owl:Class ;
+    rdfs:comment """
+	It is composed of the orientation and translation of the structural model or part to which it is related
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:AbstractThing> .
+
+:OrientationValue a owl:Class ;
+    rdfs:comment """
+	This represents the orientation of the position of a structural model or one of its parts, in a free space in quaternion form.
+	"""^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty :componentW ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty :componentX ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty :componentY ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange owl:real ;
+            owl:onProperty :componentZ ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <KN:Vector>,
+        :OrientationMeasure .
+
+:PositionPoint a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :CoordinateSystem ;
+            owl:onProperty :in ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <OS:PositionalThing> .
+
+<OS:FeatureThing> a owl:Class ;
+    rdfs:subClassOf <OS:AbstractThing> .
+
+<OS:AbstractThing> a owl:Class ;
+    rdfs:subClassOf <OS:Thing> .
+
+<OS:Shape> a owl:Class ;
+    rdfs:subClassOf <OS:FeatureThing> .
+
+<OS:PhysicalThing> a owl:Class ;
+    rdfs:subClassOf <OS:Thing> .
+
+<OS:Joint> a owl:Class ;
+    rdfs:comment """
+	This represents the union between two parts, and can be of several types: fixed, prismatic, revoluted, among others.
+	"""^^xsd:string ;
+    rdfs:subClassOf <OS:PhysicalThing> .
+
+[] a owl:Axiom ;
+    owl:annotatedProperty rdfs:subClassOf ;
+    owl:annotatedSource :OrientationValue ;
+    owl:annotatedTarget :OrientationMeasure .
+

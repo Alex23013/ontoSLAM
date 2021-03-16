@@ -82,15 +82,15 @@ DocSim2 = 0.56 #KnowRob/OntoSLAM
 DocSim3 = 0.54 #FR2013/Knoworb
 
 #validate proccess
-onto = getTotalEntities("ontoSLAM.owl")
+onto = getTotalEntities("../input_ontologies/ontoSLAM.owl")
 print("ontoSLAM total entities: ")
 print(len(onto)) 
 
-resFR = getTotalEntities("fortesRey.owl")
+resFR = getTotalEntities("../input_ontologies/fortesRey.owl")
 print("FR2013 total entities: ")
 print(len(resFR)) 
 
-resKNOW = getTotalEntities("knowrob.owl")
+resKNOW = getTotalEntities("../input_ontologies/knowrob.owl")
 print("KNOWROB total entities: ")
 print(len(resKNOW)) 
 

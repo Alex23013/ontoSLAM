@@ -1,6 +1,6 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-text_files = ["ontoSLAM.owl", "fortesRey.owl", "knowrob.owl"]
+text_files = ["../input_ontologies/ontoSLAM.owl", "../input_ontologies/fortesRey.owl", "../input_ontologies/knowrob.owl"]
 documents = [open(f).read() for f in text_files]
 tfidf = TfidfVectorizer().fit_transform(documents)
 # no need to normalize, since Vectorizer will return normalized tf-idf
