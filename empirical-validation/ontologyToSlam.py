@@ -18,20 +18,21 @@ from rdflib.plugins.sparql import prepareQuery
 
 var_m = None
 var_grid_list = None
+flagMap = False
 
 def get_position(g): 
     qpro = prepareQuery("""
-                        PREFIX ns1:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
-                        PREFIX ns2: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
+                        PREFIX ns2:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
+                        PREFIX ns1: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
                         PREFIX ns3:  <http://github.com/Alex23013/slam-up/FortesRey.owl#>
                         SELECT ?link ?rel ?o
                                WHERE {                                     
-                                  ?robot a ns2:Robot .
-                                  ?robot ns1:hasModel ?model .
-                                  ?model ns1:hasPart ?link  .                            
-                                  ?link  a ns1:BasePart .
-                                  ?link ns1:hasPosition ?pos .
-                                  ?pos ns1:hasTranslation ?t .
+                                  ?robot a ns1:Robot .
+                                  ?robot ns2:hasModel ?model .
+                                  ?model ns2:hasPart ?link  .                            
+                                  ?link  a ns2:BasePart .
+                                  ?link ns2:hasPosition ?pos .
+                                  ?pos ns2:hasTranslation ?t .
                                   ?t ?rel ?o   .
                                   FILTER ( ?o != ns3:cartesianPositionPoint )
                         }""" )
@@ -49,19 +50,19 @@ def get_position(g):
     
 def get_orientation(g): 
     qpro = prepareQuery("""
-                        PREFIX ns1:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
-                        PREFIX ns2: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
+                        PREFIX ns2:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
+                        PREFIX ns1: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
                         SELECT ?link ?rel ?o
                                WHERE {    
-                                ?robot a ns2:Robot .
-                                ?robot ns1:hasModel ?model .
-                                ?model ns1:hasPart ?link  .                            
-                                ?link  a ns1:BasePart .
-                                ?link ns1:hasPosition ?pos .
-                                ?pos ns1:hasOrientation ?t .
-                   			    ?t a ns2:OrientationValue .
+                                ?robot a ns1:Robot .
+                                ?robot ns2:hasModel ?model .
+                                ?model ns2:hasPart ?link  .                            
+                                ?link  a ns2:BasePart .
+                                ?link ns2:hasPosition ?pos .
+                                ?pos ns2:hasOrientation ?t .
+                   			    ?t a ns1:OrientationValue .
                                 ?t ?rel ?o  .
-                                FILTER ( ?o != ns2:OrientationValue )
+                                FILTER ( ?o != ns1:OrientationValue )
                         }""" )
     orientation = g.query(qpro)
     for row in orientation:
@@ -79,21 +80,21 @@ def get_orientation(g):
 
 def get_covar_matrix(g):
     qpro = prepareQuery("""
-                        PREFIX ns1:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
-                        PREFIX ns2: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
+                        PREFIX ns2:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
+                        PREFIX ns1: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
                         SELECT ?row ?col ?val
                                WHERE {    
-                                ?robot a ns2:Robot .
-                                ?robot ns1:hasModel ?model .
-                                ?model ns1:hasPart ?link  .                            
-                                ?link  a ns1:BasePart .
-                                ?link ns1:hasPosition ?pos .
-                                ?pos ns1:hasProbability ?t .
-                   			    ?t ns1:hasMatrixValue ?mat .
-                                ?ele ns1:belongs_to ?mat .
-                                ?ele ns1:componentCol ?col .
-                                ?ele ns1:componentRow ?row .
-                                ?ele ns1:componentValue ?val 
+                                ?robot a ns1:Robot .
+                                ?robot ns2:hasModel ?model .
+                                ?model ns2:hasPart ?link  .                            
+                                ?link  a ns2:BasePart .
+                                ?link ns2:hasPosition ?pos .
+                                ?pos ns2:hasProbability ?t .
+                   			    ?t ns2:hasMatrixValue ?mat .
+                                ?ele ns2:belongs_to ?mat .
+                                ?ele ns2:componentCol ?col .
+                                ?ele ns2:componentRow ?row .
+                                ?ele ns2:componentValue ?val 
                         }""" )
     pro = g.query(qpro)
     return pro
@@ -101,31 +102,31 @@ def get_covar_matrix(g):
 
 def get_stamp(g): 
     qpro = prepareQuery("""
-                        PREFIX ns1:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
-                        PREFIX ns2: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
+                        PREFIX ns2:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
+                        PREFIX ns1: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
                         SELECT ?stamp
                                WHERE {    
-                                  ?robot a ns2:Robot .
-                                  ?robot ns1:hasModel ?model .
-                                  ?model ns1:hasPart ?link  .                            
-                                  ?link  a ns1:BasePart .
-                                  ?link ns1:hasPosition ?pos .
-                                  ?pos ns1:posAtTime ?time .
-                                  ?time ns1:hasStamp ?stamp
+                                  ?robot a ns1:Robot .
+                                  ?robot ns2:hasModel ?model .
+                                  ?model ns2:hasPart ?link  .                            
+                                  ?link  a ns2:BasePart .
+                                  ?link ns2:hasPosition ?pos .
+                                  ?pos ns2:posAtTime ?time .
+                                  ?time ns2:hasStamp ?stamp
                         }""" )
     pro = g.query(qpro)
     return pro
 
 def get_map_info(g): 
     qpro = prepareQuery("""
-                        PREFIX ns2: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
-                        PREFIX ns1:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
+                        PREFIX ns1: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
+                        PREFIX ns2:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
                         SELECT ?dim ?type ?val
                                WHERE {    
-                                  ?env a ns2:Environment .
-                                  ?env ns1:hasVisual ?vi .
-                                  ?vi ns1:hasDimension ?dim .
-                                  ?dim ns1:hasValue ?val .
+                                  ?env a ns1:Environment .
+                                  ?env ns2:hasVisual ?vi .
+                                  ?vi ns2:hasDimension ?dim .
+                                  ?dim ns2:hasValue ?val .
                                   ?dim a ?type
                         }""" )
     pro = g.query(qpro)
@@ -133,14 +134,14 @@ def get_map_info(g):
 
 def get_map_resolution(g): 
     qpro = prepareQuery("""
-                        PREFIX ns2: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
-                        PREFIX ns1:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
+                        PREFIX ns1: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
+                        PREFIX ns2:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
                         SELECT ?val
                                WHERE {    
-                                  ?env a ns2:Environment .
-                                  ?env ns1:hasVisual ?vi .
-                                  ?vi ns1:hasShape ?shape .
-                                  ?shape ns1:has_resolution ?val 
+                                  ?env a ns1:Environment .
+                                  ?env ns2:hasVisual ?vi .
+                                  ?vi ns2:hasShape ?shape .
+                                  ?shape ns2:has_resolution ?val 
                         }""" )
     pro = g.query(qpro)
     for row in pro:
@@ -149,17 +150,17 @@ def get_map_resolution(g):
 
 def get_map_objects(g): 
     qpro = prepareQuery("""
-                        PREFIX ns2: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
-                        PREFIX ns1:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
+                        PREFIX ns1: <http://www.semanticweb.org/ontologies/2013/7/CORA.owl#> 
+                        PREFIX ns2:  <http://github.com/Alex23013/slam-up/OntoSLAM.owl#> 
                         SELECT ?obj ?val
                                WHERE {    
-                                  ?env a ns2:Environment .
-                                  ?obj a ns1:AtomicPart .
-                                  ?joint ns1:hasChild ?obj .
-                                  ?joint ns1:hasParent ?env .
-                                  ?obj ns1:hasPosition ?pos .
-                                  ?pos ns1:hasProbability ?prob .
-                                  ?prob ns1:hasNumberValue ?val
+                                  ?env a ns1:Environment .
+                                  ?obj a ns2:AtomicPart .
+                                  ?joint ns2:hasChild ?obj .
+                                  ?joint ns2:hasParent ?env .
+                                  ?obj ns2:hasPosition ?pos .
+                                  ?pos ns2:hasProbability ?prob .
+                                  ?prob ns2:hasNumberValue ?val
                         }""" )
     pro = g.query(qpro)
     return pro
@@ -184,7 +185,7 @@ def talker():
     last_time = rospy.Time.now()
     prefix = "out_turtle_map_"
     ext = ".owl"
-    times = "146819" #TODO::actualizar esto automaticamente?
+    times = "1713" ## update init owl file
     file_input=prefix+times+ext
     
     r = rospy.Rate(1.0)
@@ -250,7 +251,7 @@ def talker():
             odom.pose.covariance = covar_list
 
             # set the velocity
-            vx=vy=0 # TODO:: es relevante enviar la velocidad del robot?
+            vx=vy=0 
             odom.child_frame_id = "base_link1"
             odom.twist.twist = Twist(Vector3(vx, vy, 0), Vector3(0, 0, vth))
 
@@ -320,6 +321,8 @@ def talker():
             var_grid_list = grid_list
 
             map_pub.publish(ogrid)
+            rospy.loginfo("publishing map:") 
+            rospy.loginfo(times)
             last_time = current_time
             
         else:

@@ -237,7 +237,7 @@ class Server:
       g.add( (env_stamp, RDF.type, ISRO.TimePoint))
       g.add( (env_stamp, OS.hasStamp, Literal(stamp, datatype=OWL.real)) )
       for i, val in enumerate(map): 
-       if val != -1 and val != 0:
+       if val != -1:
         row=str(i/height)
         col = str(i%height)    
         obj=URIRef('http://github.com/Alex23013/slam-up/individual/obj/'+row+'_'+col)
