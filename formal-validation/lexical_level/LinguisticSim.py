@@ -2,7 +2,7 @@ from rdflib import Graph, Literal, BNode, Namespace, RDF, XSD, OWL
 import numpy as np
 import editdistance as ed
 import math
-from sklearn.feature_extraction.text import TfidfVectorizer
+#from scikit-learn.feature_extraction.text import TfidfVectorizer
 
 
 #defining functions
@@ -30,8 +30,8 @@ def calcStringSim(list1, list2, ro):
 
 def getEntities(nameOntology, prefix, part):
     g = Graph()
-    g.parse(nameOntology, format="xml")
-    print("Analizing ",part, " in file ", nameOntology)
+    g.parse(nameOntology, format="turtle")
+    #print("Analizing ",part, " in file ", nameOntology)
 
     subjects =[]
     
@@ -81,21 +81,86 @@ DocSim1 = 0.64 #FR2013/OntoSLAM
 DocSim2 = 0.56 #KnowRob/OntoSLAM
 DocSim3 = 0.54 #FR2013/Knoworb
 
+#variables from the tfidf.py file
+doc_sim_seas_ssn = 0.3727961
+doc_sim_seas_colpri = 0.2346912
+doc_sim_seas_ds4iot = 0.1967611
+doc_sim_ssn_colpri = 0.2346912
+doc_sim_ssn_ds4iot = 0.2064308
+doc_sim_colpri_ds4iot = 0.6278204
+
+folderName = "iot_ontologies"
+
+text_files = [
+    "../"+folderName+"/seas_final.ttl",
+    "../"+folderName+"/ssn_sosa_final.ttl",
+    "../"+folderName+"/colpri.ttl",
+    "../"+folderName+"/ds4iot.ttl"
+    ]
+
 #validate proccess
-onto = getTotalEntities("../input_ontologies/ontoSLAM.owl")
-print("ontoSLAM total entities: ")
+extracted_entities = {}
+numberOfEntities = {}
+
+for document in text_files:
+    ontology = document.split("/")[-1].split(".")[0]
+    extracted_entities[ontology]  = getTotalEntities(document)
+    numberOfEntities[ontology]  = len(getTotalEntities(document))
+
+#{'seas_final': 44, 'ssn_sosa_final': 35, 'colpri': 18, 'ds4iot': 15}
+
+fin_sim_seas_ssn = calcStringSim(extracted_entities['seas_final'], extracted_entities['ssn_sosa_final'], ro_value)
+fin_sim_seas_colpri = calcStringSim(extracted_entities['seas_final'], extracted_entities['colpri'], ro_value)
+fin_sim_seas_ds4iot = calcStringSim(extracted_entities['seas_final'], extracted_entities['ds4iot'], ro_value)
+
+fin_sim_ssn_colpri = calcStringSim(extracted_entities['ssn_sosa_final'], extracted_entities['colpri'], ro_value)
+fin_sim_ssn_ds4iot = calcStringSim(extracted_entities['ssn_sosa_final'], extracted_entities['ds4iot'], ro_value)
+fin_sim_colpri_ds4iot = calcStringSim(extracted_entities['colpri'], extracted_entities['ds4iot'], ro_value)
+
+print("StringSimm seas_ssn:", fin_sim_seas_ssn)
+print("StringSimm seas_colpri:", fin_sim_seas_colpri)
+print("StringSimm seas_ds4iot:", fin_sim_seas_ds4iot)
+print("StringSimm ssn_colpri:",    fin_sim_ssn_colpri)
+print("StringSimm ssn_ds4iot:",    fin_sim_ssn_ds4iot)
+print("StringSimm colpri_ds4iot:", fin_sim_colpri_ds4iot)
+
+sim1 = alfa* doc_sim_seas_ssn + beta*fin_sim_seas_ssn
+print ("\nLinguisticSimm[seas, ssn]: "+str(sim1))
+
+sim2 = alfa* doc_sim_seas_colpri + beta*fin_sim_seas_colpri
+print ("LinguisticSimm[seas, colpri]: "+str(sim2))
+
+sim3 = alfa* doc_sim_seas_ds4iot + beta*fin_sim_seas_ds4iot
+print ("LinguisticSimm[seas, ds4iot]: "+str(sim3))
+
+sim4 = alfa* doc_sim_ssn_colpri + beta*fin_sim_ssn_colpri
+print ("LinguisticSimm[ssn, colpri]: "+str(sim4))
+
+sim5 = alfa* doc_sim_ssn_ds4iot + beta*fin_sim_ssn_ds4iot
+print ("LinguisticSimm[ssn, ds4iot]: "+str(sim5))
+
+sim6 = alfa* doc_sim_colpri_ds4iot + beta*fin_sim_colpri_ds4iot
+print ("LinguisticSimm[colpri, ds4iot]: "+str(sim6))
+
+'''
+#validate proccess
+entities_from_seas  = getTotalEntities("../iot_ontologies/seas.ttl")
+print("Sosa total entities: ")
 print(len(onto)) 
 
-resFR = getTotalEntities("../input_ontologies/fortesRey.owl")
-print("FR2013 total entities: ")
+resFR = getTotalEntities("../iot_ontologies/ssn.ttl")
+print("SSN total entities: ")
 print(len(resFR)) 
 
 resKNOW = getTotalEntities("../input_ontologies/knowrob.owl")
 print("KNOWROB total entities: ")
-print(len(resKNOW)) 
+print(len(resKNOW))
+
 
 finSimm1 = calcStringSim(resFR, onto, ro_value )
 print("StringSimm [FR2013, ontoSLAM]:", finSimm1)
+
+
 finSimm2 = calcStringSim(onto, resKNOW, ro_value  )
 print("StringSimm [ontoSLAM, knowrob] :", finSimm2)
 finSimm3 = calcStringSim(resFR, resKNOW, ro_value  )
@@ -104,10 +169,11 @@ print("StringSimm [FR2013, knowrob] :", finSimm3)
 sim1 = alfa* DocSim1 + beta*finSimm1
 print ("\nLinguisticSimm[FR2013, ontoSLAM]: "+str(sim1))
 
+
 sim2 = alfa* DocSim2 + beta*finSimm2
 print ("LinguisticSimm[ontoSLAM, knowrob]: "+str(sim2))
 
 sim3 = alfa* DocSim3 + beta*finSimm3
 print ("LinguisticSimm[FR2013, knowrob] : "+str(sim3))
-
+'''
 
