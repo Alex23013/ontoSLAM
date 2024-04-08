@@ -7,6 +7,8 @@ import queue
 os = Namespace("OS:")
 fr = Namespace("http://www.semanticweb.org/ontologies/2013/7/RobotsAutomation.owl#SUMO:")
 kn = Namespace("http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#")
+skos = Namespace("http://www.w3.org/2004/02/skos/core#")
+sosa = Namespace("http://www.w3.org/ns/sosa/#")
 class Metricas:
 
     def __init__(self, file):
@@ -33,17 +35,18 @@ class Metricas:
 
     def levelConcept(self):
         #Create a dictionary concept-level
-        print("root: ",os.Thing)
+        ##print("root: ",sosa.FeatureOfInterest)
+        print("root", OWL.Thing)
         current = [] #current list to iterate
         prox = [] #next list
-        current = [os.Thing] # OntoSLAM
-#        current = [fr.Entity] # fr2013
-#        current = [kn.PhysicalAttribute] # kn
-        
+        current = [OWL.Thing] # OntoSLAM
+        #current = [fr.Entity] # fr2013
+        ##current = [sosa.FeatureOfInterest] #sosa
         level = 0
         while ( len(current) != 0):
             for child in current:
                 temp = [i for i in self.g.subjects(RDFS.subClassOf, child)]
+                #print(temp)
                 prox.extend(temp)
                 try:
                     self.level_dic[child].append(level)
@@ -53,6 +56,7 @@ class Metricas:
             current, prox = prox, current
             level += 1
         print("len de level_dic:")
+        #print(self.level_dic)
         print(len(self.level_dic))
     
     def getClasses(self):
@@ -193,6 +197,12 @@ class Metricas:
                 for path in self.level_dic[i]:            
                     total_path += 1
                     sum_len_path += path
+        '''
+        print("sum_len_path")
+        print(sum_len_path)
+        print("total_path")
+        print(total_path)
+        '''
         return sum_len_path, total_path
 
     def LCOMOnto(self):
@@ -317,28 +327,164 @@ class Metricas:
         ancestor = self.numberAllAncestors() #number of ancestors per class
         return ancestor/ len(self.classes)
 
+import math
+#oquare_value = math.floor(float(value) * 10 ** 2) / 10 ** 2  
 
+
+class ScaledMetrics:
+    def __init__(self, raw_metrics):
+        self.scaled = {}
+        self.raw_metrics = raw_metrics
+    
+    def evaluate_pair_thresholds(self, list_thresholds, raw_value):
+        if raw_value > list_thresholds[0]:
+            return 1
+        if raw_value > list_thresholds[1] and raw_value <= list_thresholds[0]:
+            return 2
+        if raw_value > list_thresholds[2] and raw_value <= list_thresholds[1]:
+            return 3
+        if raw_value > list_thresholds[3] and raw_value <= list_thresholds[2]:
+            return 4
+        if raw_value > list_thresholds[4] and raw_value <= list_thresholds[3]:
+            return 5
+        return 0
+    
+    def evaluate_last_single_thresholds(self, list_thresholds, raw_value):
+        if raw_value > list_thresholds[0]:
+            return 1
+        if raw_value > list_thresholds[1] and raw_value <= list_thresholds[0]:
+            return 2
+        if raw_value > list_thresholds[2] and raw_value <= list_thresholds[1]:
+            return 3
+        if raw_value > list_thresholds[3] and raw_value <= list_thresholds[2]:
+            return 4
+        if raw_value <= list_thresholds[3]:
+            return 5
+        return 0
+
+    def evaluate_percentage(self, raw_value):
+        if raw_value <= 0.2:
+            return 1
+        if raw_value <= 0.4 and raw_value > 0.2:
+            return 2
+        if raw_value <= 0.6 and raw_value > 0.4:
+            return 3
+        if raw_value <= 0.8 and raw_value > 0.6:
+            return 4
+        if raw_value > 0.8:
+            return 5
+
+    
+    def LCOMOnto(self):
+        #Lack of Cohesion in Methods
+        raw_value = self.raw_metrics["LCOMOnto"]
+        return self.evaluate_last_single_thresholds([8,6,4,2], raw_value)
+            
+    def WMCOnto2(self):
+        #Weight method per class
+        raw_value = self.raw_metrics["WMCOnto2"]
+        return self.evaluate_last_single_thresholds([15,11,8,5], raw_value)
+
+    def DITOnto(self):
+        #Depth of subsumption hierarchy
+        raw_value = self.raw_metrics["DITOnto"]
+        return self.evaluate_pair_thresholds([8, 6, 4, 2, 1], raw_value)
+
+    def NACOnto(self):
+        #Number of Ancestor Classes
+        raw_value = self.raw_metrics["NACOnto"]
+        return self.evaluate_pair_thresholds([8, 6, 4, 2, 1], raw_value)
+
+    def NOCOnto(self):
+        #Number of Children Concepts
+        raw_value = self.raw_metrics["NOCOnto"]
+        return self.evaluate_pair_thresholds([12, 8, 6, 3, 1], raw_value)
+    
+    def CBOOnto(self):
+        #Coupling between objects
+        raw_value = self.raw_metrics["CBOOnto"]
+        return self.evaluate_pair_thresholds([8, 6, 4, 2, 1], raw_value)
+
+    def RFCOnto(self):
+        raw_value = self.raw_metrics["RFCOnto"]
+        return self.evaluate_pair_thresholds([12, 8, 6, 3, 1], raw_value)
+    
+    def NOMOnto(self):
+        raw_value = self.raw_metrics["NOMOnto"]
+        return self.evaluate_last_single_thresholds([8,6,4,2], raw_value)
+
+    def TMOnto2(self):
+        raw_value = self.raw_metrics["TMOnto2"]
+        return self.evaluate_pair_thresholds([8, 6, 4, 2, 1], raw_value)
+
+    #Percetage driven metrics
+    def RROnto(self):
+        raw_value = self.raw_metrics["RROnto"]
+        return self.evaluate_percentage(raw_value)
+
+    def PROnto(self):
+        raw_value = self.raw_metrics["PROnto"]
+        return self.evaluate_percentage(raw_value)
+
+    def AROnto(self):
+        raw_value = self.raw_metrics["AROnto"]
+        return self.evaluate_percentage(raw_value)
+    
+    def INROnto(self):
+        raw_value = self.raw_metrics["INROnto"]
+        return self.evaluate_percentage(raw_value)
+
+    def ANOnto(self):
+        raw_value = self.raw_metrics["ANOnto"]
+        return self.evaluate_percentage(raw_value)
+
+    def scalate_raw_metrics(self):
+        self.scaled["LCOMOnto"] = self.LCOMOnto()
+        self.scaled["WMCOnto2"] = self.WMCOnto2()
+        self.scaled["DITOnto"] = self.DITOnto()
+        self.scaled["NACOnto"] = self.NACOnto()
+        self.scaled["NOCOnto"] = self.NOCOnto()
+        self.scaled["CBOOnto"] = self.CBOOnto()
+        self.scaled["RFCOnto"] = self.RFCOnto()
+        self.scaled["NOMOnto"] = self.NOMOnto()
+        self.scaled["TMOnto2"] = self.TMOnto2()
+        self.scaled["RROnto"] = self.RROnto()
+        self.scaled["PROnto"] = self.PROnto()
+        self.scaled["AROnto"] = self.AROnto()
+        self.scaled["INROnto"] = self.INROnto()
+        self.scaled["ANOnto"] = self.ANOnto()
+        return self.scaled
 
 if __name__ == "__main__":
 
     #replace this path for other ontologies in Turtle format
-    M = Metricas("../input_ontologies/propuestaTurtle.owl")
+    nameOntology = "ds4iot"
+    M = Metricas("../iot_ontologies/"+nameOntology+".ttl")
     
-    print("LCOMOnto" , M.LCOMOnto())
-    print("WMCOnto2" , M.WMCOnto2())
-    print("DITOnto", M.DITOnto())
-    print("NACOnto", M.NACOnto())
-    print("NOCOnto", M.NOCOnto())
+    raw_metrics = {
+    "LCOMOnto": M.LCOMOnto(),
+    "WMCOnto2": M.WMCOnto2(),
+    "DITOnto": M.DITOnto(),
+    "NACOnto": M.NACOnto(),
+    "NOCOnto": M.NOCOnto(),
+    "CBOOnto": M.CBOOnto(),
+    "RFCOnto": M.RFCOnto(),
+    "NOMOnto": M.NOMOnto(),
+    "RROnto": M.RROnto(),
+    "PROnto": M.PROnto(),
+    "AROnto": M.AROnto(),
+    "INROnto": M.INROnto(),
+    "ANOnto": M.ANOnto(),
+    "TMOnto2": M.TMOnto2(),
+    }
+
+    print("raw values")
+    print(raw_metrics)
+
+    print("scaled values")
+    S = ScaledMetrics(raw_metrics)
+    print(S.scalate_raw_metrics())
     
-    print("CBOOnto", M.CBOOnto())
-    print("RFCOnto", M.RFCOnto())
-    print("NOMOnto", M.NOMOnto())
-    print("RROnto", M.RROnto())
-    print("PROnto", M.PROnto())
-    print ("AROnto", M.AROnto())
-    print ("INROnto", M.INROnto())
-    print("ANOnto", M.ANOnto())
-    print("TMOnto2", M.TMOnto2())
     
 
     
