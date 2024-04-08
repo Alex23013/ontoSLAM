@@ -1,0 +1,3482 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/seas/PeriodicSignalOntology#"
+     xml:base="https://w3id.org/seas/PeriodicSignalOntology"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ssn="http://www.w3.org/ns/ssn/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:qudt="http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sdmx="http://purl.org/linked-data/sdmx#"
+     xmlns:seas="https://w3id.org/seas/"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:saref="http://ontology.tno.nl/saref#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:qudt-unit="http://data.qudt.org/qudt/owl/1.0.0/unit.owl#">
+    <owl:Ontology rdf:about="https://w3id.org/seas/PeriodicSignalOntology">
+        <owl:imports rdf:resource="https://w3id.org/seas/EvaluationOntology"/>
+        <owl:imports rdf:resource="https://w3id.org/seas/PeriodicSignalOntology"/>
+        <owl:imports rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <dcterms:contributor>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+                <foaf:name>Gabriel Santos</foaf:name>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:contributor>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+                <foaf:name>Lynda TEMAL</foaf:name>
+            </rdf:Description>
+        </dcterms:contributor>
+        <dcterms:creator rdf:resource="http://www.maxime-lefrancois.info/me#"/>
+        <dcterms:description xml:lang="en">The SEAS Electric Power System Vocabulary defines:
+
+1. Electric power systems that consume, produce, or store electricity,
+2. electrical connections between electric power systems, where electricity is exchanged, and
+3. electrical connection Points of electric power systems, through which electricity flows in/out the power systems.</dcterms:description>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-06-06</dcterms:issued>
+        <dcterms:license rdf:resource="https://www.apache.org/licenses/LICENSE-2.0"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-08-24</dcterms:modified>
+        <dcterms:title xml:lang="en">The SEAS Electric Power System ontology</dcterms:title>
+        <vann:preferredNamespacePrefix>seas</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <owl:versionInfo>v1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/RNConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RNConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the conductance between its R and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-N conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/RNReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RNReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the reactance between its R and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-N reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/RNResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RNResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the resistance between its R and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-N resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/RNSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RNSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the susceptance between its R and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-N susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/RNVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RNVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhasePowerBus"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus or a three-phase connection point to the voltage between its R and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-N voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/RSConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RSConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the conductance between its R and its S wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-S conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/RSReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RSReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the reactance between its R and its S wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-S reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/RSResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RSResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the resistance between its R and its S wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-S resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/RSSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RSSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the susceptance between its R and its S wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-S susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/RSVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/RSVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhasePowerBus"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus or a three-phase connection point to the voltage between its R and its S wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R-to-S voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/SNConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/SNConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the conductance between its S and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S-to-N conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/SNReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/SNReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the reactance between its S and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S-to-N reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/SNResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/SNResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the resistance between its S and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-N resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/SNSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/SNSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the susceptance between its S and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S-to-N susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/SNVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/SNVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhasePowerBus"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus or a three-phase connection point to the voltage between its S and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S-to-N voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/STConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/STConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the conductance between its S and its T wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S-to-T conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/STReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/STReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the reactance between its S and its T wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S-to-T reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/STResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/STResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the resistance between its S and its T wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S-to-T resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/STSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/STSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the susceptance between its S and its T wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S-to-T susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/STVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/STVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhasePowerBus"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus or a three-phase connection point to the voltage between its S and its T wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S-to-T voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TNConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TNConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the conductance between its T and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-N conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TNReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TNReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the reactance between its T and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-N reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TNResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TNResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the resistance between its T and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-N resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TNSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TNSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the susceptance between its T and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-N susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TNVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TNVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhasePowerBus"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus or a three-phase connection point to the voltage between its T and its N wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-N voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TRConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TRConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the conductance between its T and its R wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-R conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TRReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TRReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the reactance between its T and its R wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-R reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TRResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TRResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the resistance between its T and its R wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-R resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TRSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TRSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the susceptance between its T and its R wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-R susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/TRVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/TRVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ThreePhasePowerBus"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus or a three-phase connection point to the voltage between its T and its R wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T-to-R voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/activePower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/activePower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/real"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/AlternatingCurrentPowerProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an alternating current power property to its active part (i.e., the real part of the complex value).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">active power</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/apparentPower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/apparentPower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/module"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/AlternatingCurrentPowerProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an alternating current power property to its apparent part (i.e., the module of the complex value).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">active power</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedInHot1Hot2Through -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedInHot1Hot2Through">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInHot1Hot2"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/SplitPhasePowerBus"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectedInHot1NThrough"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectedInHot2Hot1Through"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectedInHot2NThrough"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to a split-phase power bus connection with which it is connected with a hot1-to-hot2 configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connected in Hot1-to-Hot2 through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedInHot1NThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedInHot1NThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInHot1N"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/SplitPhasePowerBus"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectedInHot2Hot1Through"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectedInHot2NThrough"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to a split-phase power bus connection with which it is connected with a hot1-to-N configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connected in Hot1-to-N through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedInHot2Hot1Through -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedInHot2Hot1Through">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInHot2Hot1"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/SplitPhasePowerBus"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectedInHot2NThrough"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to a split-phase power bus connection with which it is connected with a hot2-to-hot1 configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connected in Hot2-to-Hot1 through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedInHot2NThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedInHot2NThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInHot2N"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/SplitPhasePowerBus"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to a split-phase power bus connection with which it is connected with a hot2-to-N configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connected in Hot2-to-N through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedInRNThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedInRNThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInRN"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to a three-phase power bus connection with which it is connected with a RN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connected in RN through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedInSNThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedInSNThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInSN"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to a three-phase power bus connection with which it is connected with a SN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connected in SN through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedInStarThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedInStarThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInStar"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to a three-phase power bus connection with which it is connected with a star configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connected in star through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedInTNThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedInTNThrough">
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInTN"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to a three-phase power bus connection with which it is connected with a TN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connected in TN through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedInTriangleThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedInTriangleThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInTriangle"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to a three-phase power bus connection with which it is connected with a triangle configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connected in triangle through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsPrimarilyAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsPrimarilyAt">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsAt"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerTransformer"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links an electric power transformer to its primary connection point</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects primarily at</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSecondarilyAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSecondarilyAt">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsAt"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerTransformer"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links an electric power transformer to its secondary connection point</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects secondarily at</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInHot1Hot2 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInHot1Hot2">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystem"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SplitPhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">Links a split-phase power bus to one of the electric power systems it connects with a hot1-to-hot2 configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in Hot1-to-Hot2</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInHot1N -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInHot1N">
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SplitPhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">Links a split-phase power bus to one of the electric power systems it connects with a hot1-to-N configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in Hot1-to-N</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInHot2Hot1 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInHot2Hot1">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystem"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SplitPhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">Links a split-phase power bus to one of the electric power systems it connects with a hot2-to-hot1 configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in Hot2-to-Hot1</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInHot2N -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInHot2N">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystem"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SplitPhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">Links a split-phase power bus to one of the electric power systems it connects with a hot2-to-N configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in Hot2-to-N</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInRN -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInRN">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystem"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectsSystemInSN"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectsSystemInTN"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the electric power systems it connects with a RN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in RN</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInRNAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInRNAt">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInRNThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the single phase connection points it connects with a RN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in RN at</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInRNThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInRNThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectsSystemInSNThrough"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectsSystemInTNThrough"/>
+        <rdfs:comment xml:lang="en">Links a single phase connection point to a three-phase power bus connection with which it is connected with a RN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in RN through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInSN -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInSN">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystem"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectsSystemInTN"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the electric power systems it connects with a SN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in SN</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInSNAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInSNAt">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInSNThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the single phase connection points it connects with a SN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in SN at</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInSNThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInSNThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectsSystemInTNThrough"/>
+        <rdfs:comment xml:lang="en">Links a single phase connection point to a three-phase power bus connection with which it is connected with a SN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in SN through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInStar -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInStar">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystem"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectsSystemInTriangle"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the electric power systems it connects with a star configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in star</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInStarAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInStarAt">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInStarThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the three-phase connection points it connects with a star configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in star at</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInStarThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInStarThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/seas/connectsSystemInTriangleThrough"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to a three-phase power bus connection with which it is connected with a star configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in star through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInTN -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInTN">
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the electric power systems it connects with a TN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in TN</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInTNAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInTNAt">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInTNThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the single phase connection points it connects with a TN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in TN at</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInTNThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInTNThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:comment xml:lang="en">Links a single phase connection point to a three-phase power bus connection with which it is connected with a TN configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in TN through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInTriangle -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInTriangle">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystem"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the electric power systems it connects with a triangle configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in triangle</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInTriangleAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInTriangleAt">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemInTriangleThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links a three-phase power bus to one of the three-phase connection points it connects with a triangle configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in triangle at</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemInTriangleThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemInTriangleThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ThreePhasePowerBus"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to a three-phase power bus connection with which it is connected with a triangle configuration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">connects system in triangle through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/consumedElectricEnergy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/consumedElectricEnergy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricEnergy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricEnergyProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric energy system to the consumed electric energy.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>consumed electric energy</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/consumedElectricPower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/consumedElectricPower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to the consumed electric power.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>consumed electric power</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/efficiency -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/efficiency">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/EfficiencyProperty"/>
+        <rdfs:comment xml:lang="en">The efficiency of the feature of interest.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">efficiency</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/electricConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/electricConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links an electrical connection point to one of its conductance properties.
+
+There may be many conductance properties of an electrical connection point, so this property is not functional.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>electric conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/electricCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/electricCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links an electrical connection point to one of its current properties.
+
+There may be many current properties of a connection point, so this property is not functional.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">electrical current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/electricEnergy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/electricEnergy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricEnergyProperty"/>
+        <rdfs:comment xml:lang="en">Links a feature of interest to one of its electric energy properties.
+
+There may be many energy properties for a feature of interest, so this property is not functional.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>electric energy</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/electricEnergyBalance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/electricEnergyBalance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricEnergy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricPowerSystem"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricalConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricEnergyProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric energy system, or an electrical connection point, to the balance between the incoming electric energy and the outgoing electric energy.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>electric energy balance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/electricPower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/electricPower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links a feature of interest to one of its electric power properties.
+
+There may be many power properties for a feature of interest, so this property is not functional.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>electric power</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/electricPowerBalance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/electricPowerBalance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricPowerSystem"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricalConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric power system, or an electrical connection point, to the balance between the incoming electric power and the outgoing electric power.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>electric power balance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/electricReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/electricReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links an electrical connection point to one of its reactance properties.
+
+There may be many reactance properties of an electrical connection point, so this property is not functional.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>electric reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/electricResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/electricResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links an electrical connection point to one of its resistance properties.
+
+There may be many resistance properties of an electrical connection point, so this property is not functional.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>electric resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/electricSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/electricSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links an electrical connection point to one of its susceptance properties.
+
+There may be many susceptance properties of an electrical connection point, so this property is not functional.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>electric susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/exchangesElectricityWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/exchangesElectricityWith">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedTo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to another electric power system it exchanges electricity with. 
+
+  This property can be qualified using class seas:ElectricalConnection, which connects (at least) the two electric power systems.
+  For example, for the electricity to flow between a battery and a light, then they must share an electrical connection:
+
+```
+  &lt;battery&gt; a seas:ElectricPowerSystem .
+  &lt;light&gt; a seas:ElectricPowerSystem .
+  &lt;battery&gt; seas:exchangesElectricityWith &lt;light&gt; . 
+```
+
+  If there is an electrical connection between several electric power systems, then one may infer these electric power systems can exchange electricity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">exchanges electricity with</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/failure -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/failure"/>
+    
+
+
+    <!-- https://w3id.org/seas/hasProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/hasProperty"/>
+    
+
+
+    <!-- https://w3id.org/seas/imaginary -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/imaginary"/>
+    
+
+
+    <!-- https://w3id.org/seas/importedActiveEnergy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/importedActiveEnergy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/AlternatingCurrentPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an alternating current power property to its imported active energy, often in Wh/10.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">imported active znergy</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/incomingElectricEnergy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/incomingElectricEnergy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricEnergy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricPowerSystem"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricalConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricEnergyProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric energy system, or an electrical connection point, to the incoming electric energy.
+    (a) the sum of the electric energy that enter the system from the exterior, or
+    (b) the electric energy that enters the system through this connection point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>incoming electric energy</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/incomingElectricPower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/incomingElectricPower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricPowerSystem"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricalConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric power system, or an electrical connection point, to the incoming electric power.
+    (a) the sum of the electric power that enter the system from the exterior, or
+    (b) the electric power that enters the system through this connection point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>incoming electric power</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/isPoweredBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/isPoweredBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/exchangesElectricityWith"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/powers"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">links a System to it powered system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">is powered by</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/length -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/length">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">The lenght of the feature of interest</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">length</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/midToNegativeConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/midToNegativeConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricConductance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the conductance between its mid and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">mid to negative conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/midToNegativeReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/midToNegativeReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricReactance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the reactance between its mid and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">mid to negative reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/midToNegativeResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/midToNegativeResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricResistance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the resistance between its mid and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">mid to negative resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/midToNegativeSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/midToNegativeSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricSusceptance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the susceptance between its mid and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">mid to negative susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/midToNegativeVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/midToNegativeVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/voltage"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/DirectCurrentConnection"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current power bus or a direct current connection point to the voltage between its mid and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">mid to negative voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/midWireCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/midWireCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the current in its mid-wire. By convention, the value is positive if it enters the system.
+
+  Please contact us in case this convention is incorrect.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">mid wire current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/module -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/module"/>
+    
+
+
+    <!-- https://w3id.org/seas/nCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/nCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the current in its N wire. By convention, the value is positive if it enters the system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">N Current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/negativeWireCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/negativeWireCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the current in its negative wire. By convention, the value is positive if it enters the system.
+
+  Please contact us in case this convention is incorrect.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">negative wire current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/neutralWireCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/neutralWireCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links a single phase connection point to the current in its neutral wire. By convention, the value is positive if it leaves the system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">neutral wire current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/outgoingElectricEnergy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/outgoingElectricEnergy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricEnergy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricPowerSystem"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricalConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricEnergyProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric energy system, or an electrical connection point, to the outgoing electric energy.
+    (a) the sum of the electric energy that leaves the system from the exterior, or
+    (b) the electric energy that leaves the system through this connection point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>outgoing electric energy</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/outgoingElectricPower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/outgoingElectricPower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricPowerSystem"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricalConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric power system, or an electrical connection point, to the outgoing electric power.
+    (a) the sum of the electric power that leaves the system from the exterior, or
+    (b) the electric power that leaves the system through this connection point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>outgoing electric power</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/phaseToNeutralConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/phaseToNeutralConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a single phase connection point to the conductance between its phase and neutral wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">phase to neutral conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/phaseToNeutralReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/phaseToNeutralReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a single phase connection point to the reactance between its phase and neutral wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">phase to neutral reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/phaseToNeutralResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/phaseToNeutralResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a single phase connection point to the resistance between its phase and neutral wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">phase to neutral resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/phaseToNeutralSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/phaseToNeutralSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a single phase connection point to the susceptance between its phase and neutral wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">phase to neutral susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/phaseToNeutralVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/phaseToNeutralVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/SinglePhasePowerBus"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a single phase power bus or a single phase connection point to the voltage between its phase and neutral wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">phase to neutral voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/phaseWireCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/phaseWireCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links a single phase connection point to the current in its phase wire. By convention, the value is positive if it enters the system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">phase wire current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToMidConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToMidConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricConductance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the conductance between its positive and its mid wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to mid conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToMidReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToMidReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricReactance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the reactance between its positive and its mid wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to mid reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToMidResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToMidResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricResistance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the resistance between its positive and its mid wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to mid resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToMidSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToMidSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricSusceptance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the susceptance between its positive and its mid wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to mid susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToMidVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToMidVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/voltage"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/DirectCurrentConnection"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current power bus or a direct current connection point to the voltage between its positive and its mid wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to mid voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToNegativeConductance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToNegativeConductance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricConductance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the conductance between its positive and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to negative conductance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToNegativeReactance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToNegativeReactance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricReactance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the reactance between its positive and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to negative reactance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToNegativeResistance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToNegativeResistance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricResistance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the resistance between its positive and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to negative resistance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToNegativeSusceptance -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToNegativeSusceptance">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricSusceptance"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the susceptance between its positive and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to negative susceptance</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveToNegativeVoltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveToNegativeVoltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/voltage"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/DirectCurrentConnection"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current power bus or a direct current connection point to the voltage between its positive and its negative wires.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive to negative voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/positiveWireCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/positiveWireCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links a direct current connection point to the current in its positive wire. By convention, the value is positive if it enters the system.
+
+  Please contact us in case this convention is incorrect.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">positive wire current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/powerFactor -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/powerFactor">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/AlternatingCurrentPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an alternating current power property to its power factor (i.e., the cosinus of the voltage with respect to current, unitless).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">power factor evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/powers -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/powers">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/exchangesElectricityWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">links a system to the systems its powers.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">powers</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/primarilyConnectedThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/primarilyConnectedThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerTransformer"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricalConnection"/>
+        <rdfs:comment xml:lang="en">Links an electric power transformer to its primary connection</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">primarily connected through</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/producedElectricEnergy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/producedElectricEnergy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricEnergy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricEnergyProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric energy system to the produced electric energy.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>produced electric energy</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/producedElectricPower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/producedElectricPower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to the produced electric power.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>produced electric power</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/rCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/rCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the current in its R wire. By convention, the value is positive if it enters the system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">R Current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/reactivePower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/reactivePower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/imaginary"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/AlternatingCurrentPowerProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an alternating current power property to its reactive part (i.e., the imaginary part of the complex value).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">active power</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/real -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/real"/>
+    
+
+
+    <!-- https://w3id.org/seas/sCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/sCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the current in its S wire. By convention, the value is positive if it enters the system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">S Current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/secondarilyConnectedThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/secondarilyConnectedThrough">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/connectedThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerTransformer"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricalConnection"/>
+        <rdfs:comment xml:lang="en">Links an electric power transformer to its secondary connection</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">secondarily connected through</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/storageElectricPower -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/storageElectricPower">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricPower"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to the storage electric power.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>storage electric power</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/storedElectricEnergy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/storedElectricEnergy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricEnergy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricEnergyProperty"/>
+        <rdfs:comment xml:lang="en">Links an electric energy system to the stored electric energy.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>stored electric energy</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/subElectricPowerSystemOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/subElectricPowerSystemOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/subSystemOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">Links an electric power system to its super electric power systems.
+  The electricity of a sub power system contributes to the electricity of its super electric power system. For example,
+
+- The consumed electricity of an electric power comsumer system contributes to the consumed electricity of its super electric power consumer system;
+- The produced electricity of an electric power producer system contributes to the produced electricity of its super electric power producer system;
+- the stored electricity of an electric power storage system contributes to the stored electricity of its super electric power storage system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">sub electric power system of</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/tCurrent -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/tCurrent">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/electricCurrent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+        <rdfs:comment xml:lang="en">Links a three-phase connection point to the current in its T wire. By convention, the value is positive if it enters the system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">T Current</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/tapChanger -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/tapChanger">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ElectricPowerTransformer"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">The Tap changer to change the voltage regulation of the transformer.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">tap Changer</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/temperature -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/temperature"/>
+    
+
+
+    <!-- https://w3id.org/seas/voltage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/voltage">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricalConnection"/>
+                    <rdf:Description rdf:about="https://w3id.org/seas/ElectricalConnectionPoint"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">Links an electrical connection or an electrical connection point to one of its voltage properties.
+
+There may be many voltage properties of an electrical connection or an electrical connection point, so this property is not functional.
+  </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>voltage</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/voltageAngle -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/voltageAngle">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/AngleProperty"/>
+        <rdfs:comment xml:lang="en">Link the voltage property to the angle.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>voltage angle</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/seas/AlternatingCurrentConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/AlternatingCurrentConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricalConnection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/voltage"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/PeriodicProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/seas/DirectCurrentConnection"/>
+        <rdfs:comment xml:lang="en">The class of electric power connections through which energy flows using alternating current.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Alternating Current Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/AlternatingCurrentConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/AlternatingCurrentConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/voltage"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/PeriodicProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:comment xml:lang="en">The class of electric power connection points through which energy flows using alternating current.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Alternating Current Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/AlternatingCurrentPowerProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/AlternatingCurrentPowerProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+        <rdfs:comment xml:lang="en">The class of electric power properties for alternating current.
+
+An alternating current power property cannot be directly quantified. One must quantify its individual power properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Alternating Current Power Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/AngleEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/AngleEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/AngleProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/AngleProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for angle properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Angle Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/AngleProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/AngleProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">The class of properties that are quantifiable and measure the angle property .</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Angle Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ChargingEfficiencyEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ChargingEfficiencyEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ChargingEfficiencyProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/EfficiencyEvaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ChargingEfficiencyProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for efficiency properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Charging Efficiency Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ChargingEfficiencyProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ChargingEfficiencyProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/EfficiencyProperty"/>
+        <rdfs:comment xml:lang="en">Charging Efficiency Property is a Efficiency Property which concern the charging process</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Charging Efficiency Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/CurrentEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/CurrentEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/CurrentProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for current properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Current Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/CurrentProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/CurrentProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">The class of properties that are quantifiable and use a quantity dimension of electric current.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Current Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/DigitalBallast -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/DigitalBallast">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricalBallast"/>
+        <rdfs:comment xml:lang="en">A Digital ballast is a Ballast which is Digital</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Digital ballast </rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/DirectCurrentConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/DirectCurrentConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricalConnection"/>
+        <rdfs:comment xml:lang="en">The class of electrical connections through which energy flows using direct current.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Direct Current Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/DirectCurrentConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/DirectCurrentConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+        <rdfs:comment xml:lang="en">The class of electrical connection points through which energy flows using direct current.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Direct Current Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/EfficiencyEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/EfficiencyEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/EfficiencyProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/EfficiencyProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for efficiency properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Efficiency Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/EfficiencyProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/EfficiencyProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">Efficiency signifies a level of performance that describes a process that uses the lowest amount of inputs to create the greatest 
+                amount of outputs. Efficiency relates to the use of all inputs in producing any given 
+                output, including personal time and energy. Efficiency is a measurable concept that can be 
+                determined by determining the ratio of useful output to total input. It minimizes the waste 
+                of resources such as physical materials, energy and time, while successfully achieving the 
+                desired output.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Efficiency Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricConductanceEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricConductanceEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricConductanceProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for electric conductance properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Conductance Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricConductanceProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricConductanceProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">The class of properties that are quantifiable and have a quantity kind of electric conductance.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Conductance Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricEnergyEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricEnergyEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricEnergyProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricEnergyProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for electric energy properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Energy Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricEnergyProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricEnergyProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">The class of properties that are quantifiable and have a quantity kind of electric energy.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Energy Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerConsumer -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerConsumer">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/consumedElectricPower"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An electric power consumer is an electric power system that is capable of consuming electricity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electric Power Consumer</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerDistributionNetwork -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerDistributionNetwork">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en"> Electric Power Distribution Network is a network used to distribute the electric power. 
+                      Figure below shows the taxonomy of Electric Power Distribution Network according to the installation mode of Electric Line or cable.
+                       [![ElectricPowerDistributionNetworkTaxonomy](https://w3id.org/seas/ElectricPowerDistributionNetwork-1.png)](https://w3id.org/seas/ElectricPowerDistributionNetwork-1.png)
+                      </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electric Power Distribution Network.</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricPowerProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for electric power properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Power Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerLine -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerLine">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerTransmissionSystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/electricReactance"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/electricResistance"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/electricSusceptance"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/failure"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/length"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/temperature"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An electric power line is an electric transmission system that is capable of transmitting electricity on a certain distance within an electric power network.
+
+    An electric power line must be connected to two power connections, although this requirement cannot be modeled using OWL axioms if we want to remain in a decidable fragment.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electric Power Line</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerProducer -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerProducer">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/producedElectricPower"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An electric power producer is an electric power system that is capable of producing electricity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electric Power Producer</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">The class of properties that are quantifiable and have a quantity kind of electric power.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Power Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerStorageSystem -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerStorageSystem">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/storageElectricPower"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An electric power storage system is an electric power system that is capable of storing electricity. Usually a battery, an electric vehicle, or a microgrid</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electric Power Storage System</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerSystem -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerSystem">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/System"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/seas/ElectricalConnection"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+        <rdfs:comment xml:lang="en">The class of electric power systems, i.e., systems that exchange electricity (i.e., electric power) with other systems.
+
+Electric power systems may consume, produce, or store electricity. Such systems are defined by subclasses of electric power system.
+Electric power systems that dissipate energy are thermodynamic systems (i.e., they can then dissipate heat).
+
+  Electric power systems can exchange electricity with other electric power systems. 
+  These exchange are only possible through electrical connections between electric power systems.
+
+  Electric power systems can have sub power systems:
+
+- The consumed or produced electricity of subsystems contribute to the consumed or produced electricity of the supersystem;
+- the stored electricity of subsystems contribute to the stored electricity of super systems.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electric Power System</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerTransformer -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerTransformer">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerTransmissionSystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsPrimarilyAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSecondarilyAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/primarilyConnectedThrough"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricalConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/secondarilyConnectedThrough"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricalConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An electric power transformer is an electric power system that is capable of transforming electricity within a power network, between a primary connection point and a secondary connection point.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electric Power Transformer</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerTransmissionSystem -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricPowerTransmissionSystem">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">An electric power transmission system is an electric power system that is capable of transmitting electricity. 
+  Usually to transmit electricity on a certain distance within an electric power network, or to transform it.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electric Power Transmission System</rdfs:label>
+        <rdfs:label xml:lang="pt">Sistema de Transmissão</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricReactanceEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricReactanceEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricReactanceProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for electric reactance properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Reactance Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricReactanceProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricReactanceProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">The class of properties that are quantifiable and have a quantity kind of electric reactance.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Reactance Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricResistanceEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricResistanceEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricResistanceProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for electric resistance properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Resistance Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricResistanceProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricResistanceProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">The class of properties that are quantifiable and have a quantity kind of electric resistance.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Resistance Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricSusceptanceEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricSusceptanceEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricSusceptanceProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for electric susceptance properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Susceptance Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricSusceptanceProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricSusceptanceProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">The class of properties that are quantifiable and have a quantity kind of electric susceptance.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Electric Susceptance Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricalBallast -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricalBallast">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:comment xml:lang="en">An electrical ballast is a device placed in line with the load to limit the amount of current in an electrical circuit. 
+                      It may be a fixed or variable resistor.
+                      A familiar and widely used example is the inductive ballast used in fluorescent lamps to limit the current through the tube, 
+                      which would otherwise rise to a destructive level due to the negative differential resistance artifact in the tube&apos;s voltage-current 
+                      characteristic. Ballasts vary greatly in complexity. They may be as simple as a resistor, inductor or capacitor (or a combination of these) 
+                      wired in series with the lamp; or as complex as the electronic ballasts used in compact fluorescent lamps and high-intensity discharge lamps. 
+                      (source:wikipedia)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electrical Ballast</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricalConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricalConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Connection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/voltage"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/ElectricalConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of electrical connections between electric power systems.
+  An electrical connection describes potential electricity flows between the electric power systems it connects.
+  For example, the following RDF graph states that a power bus connects two power lines and a transformer:
+
+```
+  &lt;power_bus&gt; a seas:ElectricalConnection ;
+    seas:connectsSystem &lt;power_line_1&gt; , &lt;transformer&gt; , &lt;power_line_2&gt; .
+```
+
+  Only electric power systems and electrical connection points are connected through an electrical connection.
+  A connection between electric power systems is not necessarily an electrical connection.
+
+  Any electric power system that exchanges electricity through an electrical connection is connected at least through one of its power connection points to the electrical connection:
+  if:
+
+```
+  &lt;power_system&gt; a seas:ElectricPowerSystem .
+  &lt;power_connection&gt; a seas:ElectricalConnection .
+  &lt;power_system&gt; seas:connectedThrough &lt;power_connection&gt; .
+```
+
+  then there exists `_:powerConnectionPoint` such that:
+
+```
+  _:powerConnectionPoint a seas:ElectricalConnectionPoint ;
+    seas:connectionPointOf &lt;power-system&gt; ;
+    seas:connectsSystemThrough &lt;power_connection&gt; .
+```</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electrical Connection</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectricalConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectricalConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ConnectionPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/electricCurrent"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/voltage"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/Property"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/seas/ElectricalConnection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of electrical connection points of electric power systems, at which they may be electricaly connected to other systems.
+  For example, an electric vehicle service equipment may have three electric power connection points: two different kinds of plugs that enable to charge electric vehicles, and a three-phase power bus connection point to the grid:
+
+```
+  &lt;electric_vehicle&gt; a seas:ElectricPowerSystem ;
+    seas:connectsAt &lt;plug_high_voltage&gt; , &lt;normal_plug&gt; , &lt;three_phase_connection_point&gt; .
+  &lt;plug_high_voltage&gt; a seas:ElectricalConnectionPoint .
+  &lt;normal_plug&gt; a seas:ElectricalConnectionPoint .
+  &lt;three_phase_connection_point&gt; a seas:ElectricalConnectionPoint .
+```
+
+  Any system connected through an electrical connection is connected at one of its electrical connection points to the electrical connection:
+  if:
+
+```
+  &lt;system&gt; a seas:System .
+  &lt;system&gt; seas:connectedThrough &lt;connection&gt; .
+  &lt;connection&gt; a seas:ElectricalConnection .
+```
+
+  then there exists `_:connectionPoint` such that:
+
+```
+  _:connectionPoint a seas:ElectricalConnection Point ;
+    seas:connectionPointOf &lt;system&gt; ;
+    seas:connectsSystemAt &lt;connection&gt; .
+```
+
+  An electrical connection point describes an electric signal, and the electricity that enters/leaves the electric power system.
+  An electrical connection point only belongs to an electric power system, and connects it through electrical connections.
+  A connection point of an electric power system is not necessarily an electrical connection.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electrical Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ElectronicBallast -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ElectronicBallast">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricalBallast"/>
+        <rdfs:comment xml:lang="en">An electronic ballast uses solid state electronic circuitry to provide the proper starting and operating electrical conditions to power discharge lamps.
+                      An electronic ballast can be smaller and lighter than a comparably-rated magnetic one. An electronic ballast is usually quieter than a magnetic one,
+                      which produces a line-frequency hum by vibration of the transformer laminations. 
+                      (source:wikipedia)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Electronic ballast</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ExtraHighVoltage -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ExtraHighVoltage">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">The voltage is Extra-High according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Extra-High Voltage </rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ExtraHighVoltageEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ExtraHighVoltageEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageEvaluation"/>
+        <rdfs:comment xml:lang="en">The voltage is Extra-High according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Extra-High Voltage Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ExtraLowVoltage -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ExtraLowVoltage">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">The voltage is Extra-Low according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Extra-Low Voltage </rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ExtraLowVoltageEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ExtraLowVoltageEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageEvaluation"/>
+        <rdfs:comment xml:lang="en">The voltage is Extra-Low according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Extra-Low Voltage Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/FacadeElectricPowerDistributionNetwork -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/FacadeElectricPowerDistributionNetwork">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerDistributionNetwork"/>
+        <rdfs:comment xml:lang="en">A Facade Electric Power DistributionNetwork is an ElectricPowerDistributionNetwork which is hanging along a facade.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Facade Electric Power Distribution Network</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/HighVoltage -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/HighVoltage">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">The voltage is High according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">High Voltage </rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/HighVoltageEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/HighVoltageEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageEvaluation"/>
+        <rdfs:comment xml:lang="en">The voltage is High according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">High Voltage Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/LowVoltage -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/LowVoltage">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">The voltage is Low according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Low Voltage </rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/LowVoltageEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/LowVoltageEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageEvaluation"/>
+        <rdfs:comment xml:lang="en">The voltage is Low according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Low Voltage Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/MagneticBallast -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/MagneticBallast">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricalBallast"/>
+        <rdfs:comment xml:lang="en">A Magnetic ballast is a Ballast which is Magnetic</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Magnetic ballast</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/MediumVoltage -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/MediumVoltage">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+        <rdfs:comment xml:lang="en">The voltage is Medium according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Medium Voltage </rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/MediumVoltageEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/MediumVoltageEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/VoltageEvaluation"/>
+        <rdfs:comment xml:lang="en">The voltage is Medium according to IEC 60038.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Medium Voltage Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/OverheadElectricPowerDistributionNetwork -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/OverheadElectricPowerDistributionNetwork">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerDistributionNetwork"/>
+        <rdfs:comment xml:lang="en">An Overhead Electric Power DistributionNetwork is an ElectricPowerDistributionNetwork which is suspended in the air. </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Overhead Electric Power Distribution Network</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/PeriodicProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/PeriodicProperty"/>
+    
+
+
+    <!-- https://w3id.org/seas/PowerBox -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/PowerBox">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectedTo"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ElectricPowerSystem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A power box (USA) or feeder pillar (UK) is a cabinet for electrical equipment, 
+                      mounted in the street and controlling the electrical supply to a number of houses in a neighborhood. (source:wikipedia)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Power box</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/Property -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/Property"/>
+    
+
+
+    <!-- https://w3id.org/seas/SinglePhaseConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SinglePhaseConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/AlternatingCurrentConnectionPoint"/>
+        <rdfs:comment xml:lang="en">A single phase connection point is a connection point composed of two wires (plus the protective earth): 
+
+- wire for the phase;
+- wire for the neutral.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Single Phase Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/SinglePhasePowerBus -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SinglePhasePowerBus">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/AlternatingCurrentConnection"/>
+        <rdfs:comment xml:lang="en">A single phase power bus is a connection composed of two wires (plus the protective earth): 
+     wire for the phase;
+     wire for the neutral.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Single Phase Power Bus</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/SplitPhaseConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SplitPhaseConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/AlternatingCurrentConnectionPoint"/>
+        <rdfs:comment xml:lang="en">The class of power connection points through which energy flows using split-phase alternating current.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Split Phase Current Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/SplitPhasePowerBus -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/SplitPhasePowerBus">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/AlternatingCurrentConnection"/>
+        <rdfs:comment xml:lang="en">A split-phase power bus is a connection composed of three wires (plus the protective earth): 
+
+- wire for the hot 1 phase;
+- wire for the neutral;
+- wire for the hot 2 phase.
+
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Split Phase Power Bus</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ThreePhaseConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ThreePhaseConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/AlternatingCurrentConnectionPoint"/>
+        <rdfs:comment xml:lang="en">A three-phase connection point is a connection point composed of four wires (plus the protective earth): 
+
+- wires R, S, T, for the phases;
+- wire N for the neutral.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Three-Phase Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ThreePhasePowerBus -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ThreePhasePowerBus">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/AlternatingCurrentConnection"/>
+        <rdfs:comment xml:lang="en">A three-phase power bus is a connection composed of four wires (plus the protective earth): 
+     wires R, S, T, for the phases;
+     wire N for the neutral.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Three-Phase Power Bus</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ThreeWireDirectCurrentConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ThreeWireDirectCurrentConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:comment xml:lang="en">A three-wire direct current power connection point is a connection point composed of three wires (potentialy plus the protective earth): 
+
+- wire for the positive;
+- wire for the mid-wire;
+- wire for the negative.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Three-Wire Direct Current Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ThreeWireDirectCurrentPowerBus -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ThreeWireDirectCurrentPowerBus">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/DirectCurrentConnection"/>
+        <rdfs:comment xml:lang="en">A three-wire direct current power bus is a connection composed of three wires (potentialy plus the protective earth): 
+     wire for the positive;
+     wire for the mid-wire;
+     wire for the negative.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Three-Wire Direct Current Power Bus</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/TwoWireDirectCurrentConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/TwoWireDirectCurrentConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/DirectCurrentConnectionPoint"/>
+        <rdfs:comment xml:lang="en">A two-wire direct current connection point is a connection point composed of two wires (potentialy plus the protective earth): 
+     wire for the positive;
+     wire for the negative.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Two-Wire Direct Current Connection Point</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/TwoWireDirectCurrentPowerBus -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/TwoWireDirectCurrentPowerBus">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/DirectCurrentConnection"/>
+        <rdfs:comment xml:lang="en">A two-wire direct current power bus is a connection composed of two wires (potentialy plus the protective earth): 
+     wire for the positive;
+     wire for the negative.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Two-Wire Direct Current Power Bus</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/UndergroundElectricPowerDistributionNetwork -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/UndergroundElectricPowerDistributionNetwork">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerDistributionNetwork"/>
+        <rdfs:comment xml:lang="en">An Underground Electric Power Distribution Network is an ElectricPowerDistributionNetwork which is buried underground.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label xml:lang="en">Underground Electric Power Distribution Network</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/VoltageEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/VoltageEvaluation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/evaluationOf"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/VoltageProperty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations for voltage properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Voltage Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/VoltageProperty -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/VoltageProperty">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">The class of properties that are quantifiable and use a quantity dimension of electric potential.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <rdfs:label>Voltage Property</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/ElectricPowerSystemOntology -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/seas/ElectricPowerSystemOntology">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/seas/SinglePhaseConnectionPoint"/>
+            <rdf:Description rdf:about="https://w3id.org/seas/SplitPhaseConnectionPoint"/>
+            <rdf:Description rdf:about="https://w3id.org/seas/ThreePhaseConnectionPoint"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/seas/SinglePhasePowerBus"/>
+            <rdf:Description rdf:about="https://w3id.org/seas/SplitPhasePowerBus"/>
+            <rdf:Description rdf:about="https://w3id.org/seas/ThreePhasePowerBus"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

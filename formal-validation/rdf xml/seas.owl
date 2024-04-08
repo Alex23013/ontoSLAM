@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/seas/BatteryOntology#"
+     xml:base="https://w3id.org/seas/BatteryOntology"
+     xmlns:qb="http://purl.org/linked-data/cube#"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ssn="https://www.w3.org/ns/ssn/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:qudt="http://qudt.org/1.1/schema/qudt#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:seas="https://w3id.org/seas/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:liner="https://w3id.org/liner/"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://w3id.org/seas/BatteryOntology">
+        <owl:versionIRI rdf:resource="https://w3id.org/seas/BatteryOntology-1.0"/>
+        <owl:imports rdf:resource="https://w3id.org/seas/ElectricPowerSystemOntology"/>
+        <dcterms:creator rdf:resource="http://www.maxime-lefrancois.info/me#"/>
+        <dcterms:description xml:lang="en">This ontology defines batteries and their state of charge ratio property</dcterms:description>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-10-30</dcterms:issued>
+        <dcterms:license rdf:resource="https://www.apache.org/licenses/LICENSE-2.0"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-11-03</dcterms:modified>
+        <dcterms:title xml:lang="en">The SEAS Battery ontology.</dcterms:title>
+        <vann:preferredNamespacePrefix>seas</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri rdf:resource="https://w3id.org/seas/"/>
+        <owl:versionInfo>v1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/stateOfChargeRatio -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/stateOfChargeRatio">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/Battery"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/PercentageProperty"/>
+        <rdfs:comment xml:lang="en">The state of charge of a battery, quantified by unitless values.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/BatteryOntology"/>
+        <rdfs:label xml:lang="en">state of charge ratio</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/seas/Battery -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/Battery">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/ElectricPowerStorageSystem"/>
+        <rdfs:comment xml:lang="en">The class of batteries, which are electric power storage systems.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/BatteryOntology"/>
+        <rdfs:label>Battery</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/BatteryOntology -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/seas/BatteryOntology">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

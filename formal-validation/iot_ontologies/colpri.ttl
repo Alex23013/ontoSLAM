@@ -1,0 +1,594 @@
+@prefix : <http://www.semanticweb.org/maria/ontologies/2024/3/ColPri/> .
+@prefix colpri: <http://www.semanticweb.org/maria/ontologies/2024/3/ColPri/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/maria/ontologies/2024/3/ColPri/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+
+<http://www.semanticweb.org/maria/ontologies/2024/3/ColPri> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#hasDataCategory
+:hasDataCategory a owl:ObjectProperty ;
+      rdfs:domain :Data;
+      rdfs:range :DataCategory .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:evaluates
+:evaluates a owl:ObjectProperty ;
+      rdfs:domain :Evaluation;
+      rdfs:range :PrivacyPolicy ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:givesEvaluation
+:givesEvaluation a owl:ObjectProperty ;
+      rdfs:domain :PrivacyCommunityMember;
+      rdfs:range :Evaluation;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:givesRecommendation
+:givesRecommendation a owl:ObjectProperty ;
+      rdfs:domain :PrivacyCommunityMember;
+      rdfs:range :Recommendation ;
+      rdfs:isDefinedBy colpri: .
+
+:ClassUnion a owl:Class ;
+    owl:unionOf (
+        ssn:System
+        ssn:Platform
+        sosa:Procedure
+    ) .
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:handles
+:handles a owl:ObjectProperty ;
+      rdfs:domain :ClassUnion ;
+      rdfs:range :Data ;
+      rdfs:isDefinedBy colpri: .
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:hasDataCategoryIntensity
+:hasDataCategoryIntensity a owl:ObjectProperty ;
+      rdfs:domain :DataCategory;
+      rdfs:range xsd:float ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:hasDataLifeCycleStep
+:hasDataLifeCycleStep a owl:ObjectProperty ;
+      rdfs:domain :DataLifeCycle;
+      rdfs:range :DataLifeCycleStep ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:hasDateTime
+:hasDateTime a owl:ObjectProperty ;
+      rdfs:domain :DataLifeCycle;
+      rdfs:range xsd:dateTime ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:hasId
+:hasId a owl:ObjectProperty ;
+      rdfs:domain :DataStakeholder;
+      rdfs:range xsd:string ;
+    rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:hasLocation
+:hasLocation a owl:ObjectProperty ;
+      rdfs:domain :DataLifeCycle;
+      rdfs:range xsd:string ;
+    rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:hasRecommendationAttribute
+:hasRecommendationAttribute a owl:ObjectProperty ;
+      rdfs:domain :Recommendation;
+      rdfs:range :RecommendationAttribute ;
+    rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:performs
+:performs a owl:ObjectProperty ;
+      rdfs:domain :DataStakeholder;
+      rdfs:range :DataLifeCycle ;
+    rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:recommends
+:recommends a owl:ObjectProperty ;
+      rdfs:domain :Recommendation;
+      rdfs:range :PrivacyPolicy ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:validatesEvaluation
+:validatesEvaluation a owl:ObjectProperty ;
+      rdfs:domain :Administrator;
+      rdfs:range :Evaluation ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:validatesRecommendation
+:validatesRecommendation a owl:ObjectProperty ;
+      rdfs:domain :Administrator;
+      rdfs:range :Recommendation ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#colpri:hasEvaluationAttribute
+:hasEvaluationAttribute a owl:ObjectProperty ;
+      rdfs:domain :Evaluation;
+      rdfs:range :EvaluationAttribute ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#colpri:hasPrivacyAttribute
+:hasPrivacyAttribute a owl:ObjectProperty ;
+      rdfs:domain :PrivacyPolicy;
+      rdfs:range :PrivacyAttribute ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ssn:ImplementsOnly
+ssn:ImplementsOnly a owl:ObjectProperty ;
+      rdfs:domain ssn:System;
+      rdfs:range sosa:Procedure ;
+      rdfs:isDefinedBy ssn: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ssn:hasAttachedSystemOnly
+ssn:hasAttachedSystemOnly a owl:ObjectProperty ;
+      rdfs:domain ssn:Platform;
+      rdfs:range ssn:System ;
+      rdfs:isDefinedBy ssn: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ssn:implementedByOnly
+ssn:implementedByOnly a owl:ObjectProperty ;
+      rdfs:domain sosa:Procedure;
+      rdfs:range ssn:System ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ssn:onPlatformOnly
+ssn:onPlatformOnly a owl:ObjectProperty ;
+      rdfs:domain ssn:System;
+      rdfs:range ssn:Platform .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Actor
+:Actor rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Administrator
+:Administrator rdf:type owl:Class ;
+               rdfs:subClassOf :PrivacyCommunityMember ;
+               :validatesEvaluation :Evaluation ;
+               :validatesRecommendation :Recommendation .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Advertising
+:Advertising rdf:type owl:Class ;
+             rdfs:subClassOf :Purpose .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#AnonymousData
+:AnonymousData rdf:type owl:Class ;
+               rdfs:subClassOf :DataCategory .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ApplicationFunctionning
+:ApplicationFunctionning rdf:type owl:Class ;
+                         rdfs:subClassOf :Purpose .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#AutomatedDataArchiving
+:AutomatedDataArchiving rdf:type owl:Class ;
+                        rdfs:subClassOf :DataArchiving .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#AutomatedDataDeleting
+:AutomatedDataDeleting rdf:type owl:Class ;
+                       rdfs:subClassOf :DataDeleting .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#AutomatedDataProcessing
+:AutomatedDataProcessing rdf:type owl:Class ;
+                         rdfs:subClassOf :DataProcessing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Cloud
+:Cloud rdf:type owl:Class ;
+       rdfs:subClassOf ssn:System .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Consent
+:Consent rdf:type owl:Class ;
+         rdfs:subClassOf :PrivacyAttribute;
+         rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Contributor
+:Contributor rdf:type owl:Class ;
+             rdfs:subClassOf :PrivacyCommunityMember;
+             rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#CriminalData
+:CriminalData rdf:type owl:Class ;
+              rdfs:subClassOf :SensitivePersonalData;
+              rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#CrossBorderDataStoring
+:CrossBorderDataStoring rdf:type owl:Class ;
+                        rdfs:subClassOf :DataStoring;
+                        rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#CrossBorderDataTransfer
+:CrossBorderDataTransfer rdf:type owl:Class ;
+                         rdfs:subClassOf :DataTransfer;
+                         rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Data
+:Data rdf:type owl:Class ;
+      rdfs:subClassOf :DataCategory ;
+      :hasDataCategory :DataCategory ;
+      rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataArchiving
+:DataArchiving rdf:type owl:Class ;
+               rdfs:subClassOf :DataLifeCycleStep ;
+               rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataCategory
+:DataCategory rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+              :hasDataCategoryIntensity 10.2 ;
+              rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataCollection
+:DataCollection rdf:type owl:Class ;
+                rdfs:subClassOf :DataLifeCycleStep ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataCollectionNonPersonalData
+:DataCollectionNonPersonalData rdf:type owl:Class ;
+                  rdfs:subClassOf :DataCollection ;
+                  rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataCollectionOfPersonalData
+:DataCollectionOfPersonalData rdf:type owl:Class ;
+                              rdfs:subClassOf :DataCollection ;
+                              rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataConsulting
+:DataConsulting rdf:type owl:Class ;
+                rdfs:subClassOf :DataControl ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataControl
+:DataControl rdf:type owl:Class ;
+             rdfs:subClassOf :DataLifeCycleStep ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataDeleting
+:DataDeleting rdf:type owl:Class ;
+              rdfs:subClassOf :DataLifeCycleStep ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataLifeCycle
+:DataLifeCycle rdf:type owl:Class ;
+               :hasDataLifeCycleStep :DataLifeCycle ;
+               :hasDateTime "30-10-2023" ;
+               :hasLocation "Peru" ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataLifeCycleStep
+:DataLifeCycleStep rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataProcessing
+:DataProcessing rdf:type owl:Class ;
+                rdfs:subClassOf :DataLifeCycleStep ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataRectification
+:DataRectification rdf:type owl:Class ;
+                   rdfs:subClassOf :DataControl ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataStakeholder
+:DataStakeholder rdf:type owl:Class ;
+                 rdfs:subClassOf :Actor ,
+                                 <http://www.w3.org/2004/02/skos/core#Concept> ;
+                 :hasId "DataStakeHolderID" ;
+                 :performs :DataLifeCycle ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataStoring
+:DataStoring rdf:type owl:Class ;
+             rdfs:subClassOf :DataLifeCycleStep ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DataTransfer
+:DataTransfer rdf:type owl:Class ;
+              rdfs:subClassOf :DataLifeCycleStep ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Device
+:Device rdf:type owl:Class ;
+        rdfs:subClassOf ssn:System ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Disclosure
+:Disclosure rdf:type owl:Class ;
+            rdfs:subClassOf :PrivacyAttribute ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#DisclosureToDeveloppers
+:DisclosureToDeveloppers rdf:type owl:Class ;
+                         rdfs:subClassOf :Disclosure ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Edge
+:Edge rdf:type owl:Class ;
+      rdfs:subClassOf ssn:System ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Evaluation
+:Evaluation rdf:type owl:Class ;
+            :evaluates :PrivacyPolicy ;
+            :hasEvaluationAttribute :EvaluationAttribute ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#EvaluationAttribute
+:EvaluationAttribute rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Gateway
+:Gateway rdf:type owl:Class ;
+         rdfs:subClassOf ssn:System ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#GivenConsent
+:GivenConsent rdf:type owl:Class ;
+              rdfs:subClassOf :Consent ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#HabitData
+:HabitData rdf:type owl:Class ;
+           rdfs:subClassOf :SensitivePersonalData ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#HealthData
+:HealthData rdf:type owl:Class ;
+            rdfs:subClassOf :SensitivePersonalData ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#HumanAgentDataProcessing
+:HumanAgentDataProcessing rdf:type owl:Class ;
+                          rdfs:subClassOf :DataProcessing ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#IdentityData
+:IdentityData rdf:type owl:Class ;
+              rdfs:subClassOf :SensitivePersonalData ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#LocalDataStoring
+:LocalDataStoring rdf:type owl:Class ;
+                  rdfs:subClassOf :DataStoring ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#LocalDataTransfer
+:LocalDataTransfer rdf:type owl:Class ;
+                   rdfs:subClassOf :DataTransfer ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#NoThirdPartyDisclosure
+:NoThirdPartyDisclosure rdf:type owl:Class ;
+                        rdfs:subClassOf :Disclosure ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#NonSensitivePersonalData
+:NonSensitivePersonalData rdf:type owl:Class ;
+                          rdfs:subClassOf :PersonalData ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#PersonalData
+:PersonalData rdf:type owl:Class ;
+              rdfs:subClassOf :DataCategory ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#PrivacyAttribute
+:PrivacyAttribute rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#PrivacyCommunityMember
+:PrivacyCommunityMember rdf:type owl:Class ;
+                        rdfs:subClassOf :Actor ;
+                        :givesEvaluation :Evaluation ;
+                        :givesRecommendation :Recommendation ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#PrivacyPolicy
+:PrivacyPolicy rdf:type owl:Class ;
+               :hasPrivacyAttribute :PrivacyAttribute ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#PseudoAnonymousData
+:PseudoAnonymousData rdf:type owl:Class ;
+                     rdfs:subClassOf :DataCategory ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Purpose
+:Purpose rdf:type owl:Class ;
+         rdfs:subClassOf :PrivacyAttribute ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#Recommendation
+:Recommendation rdf:type owl:Class ;
+                :hasRecommendationAttribute :RecommendationAttribute ;
+                :recommends :PrivacyPolicy ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#RecommendationAttribute
+:RecommendationAttribute rdf:type owl:Class ;
+                         rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#SensitivePersonalData
+:SensitivePersonalData rdf:type owl:Class ;
+                       rdfs:subClassOf :PersonalData ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ThirdPartyDisclosure
+:ThirdPartyDisclosure rdf:type owl:Class ;
+                      rdfs:subClassOf :Disclosure ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#UngivenConsent
+:UngivenConsent rdf:type owl:Class ;
+                rdfs:subClassOf :Consent ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#UnlawfullDataProcessing
+:UnlawfullDataProcessing rdf:type owl:Class ;
+                         rdfs:subClassOf :DataProcessing ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#UserRequestedDataArchiving
+:UserRequestedDataArchiving rdf:type owl:Class ;
+                            rdfs:subClassOf :DataArchiving ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#UserRequestedDataDeleting
+:UserRequestedDataDeleting rdf:type owl:Class ;
+                           rdfs:subClassOf :DataDeleting ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#WithinBorderDataStoring
+:WithinBorderDataStoring rdf:type owl:Class ;
+                         rdfs:subClassOf :DataStoring ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#WithinBorderDataTransfer
+:WithinBorderDataTransfer rdf:type owl:Class ;
+                          rdfs:subClassOf :DataTransfer ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#sosa:Procedure
+sosa:Procedure rdf:type owl:Class ;
+                :handles :Data ;
+                ssn:implementedByOnly ssn:System ;
+                rdfs:isDefinedBy sosa: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ssn:Actuator
+ssn:Actuator rdf:type owl:Class ;
+              rdfs:subClassOf :Device ;
+                rdfs:isDefinedBy ssn: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ssn:Platform
+ssn:Platform rdf:type owl:Class ;
+              :handles :Data ;
+              ssn:hasAttachedSystemOnly ssn:System ;
+                rdfs:isDefinedBy ssn: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ssn:Sensor
+ssn:Sensor rdf:type owl:Class ;
+            rdfs:subClassOf :Device ;
+                rdfs:isDefinedBy ssn: .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ssn:System
+ssn:System rdf:type owl:Class ;
+            :handles :Data ;
+            ssn:ImplementsOnly sosa:Procedure ;
+            ssn:onPlatformOnly ssn:Platform ;
+                rdfs:isDefinedBy ssn: .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class ;
+                                              rdfs:subClassOf owl:Thing .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

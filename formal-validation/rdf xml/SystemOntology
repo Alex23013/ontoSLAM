@@ -1,0 +1,598 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/pep/"
+     xml:base="https://w3id.org/pep/"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:pep="https://w3id.org/pep/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ssn="http://www.w3.org/ns/ssn/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:qudt="http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:seas="https://w3id.org/seas/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:saref="http://ontology.tno.nl/saref#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:qudt-unit="http://data.qudt.org/qudt/owl/1.0.0/unit.owl#">
+    <owl:Ontology rdf:about="https://w3id.org/pep/">
+        <owl:imports rdf:resource="https://w3id.org/pep/"/>
+        <owl:imports rdf:resource="https://w3id.org/seas/EvaluationOntology"/>
+        <owl:imports rdf:resource="https://w3id.org/seas/FeatureOfInterestOntology"/>
+        <dcterms:creator rdf:resource="http://www.maxime-lefrancois.info/me#"/>
+        <dcterms:description xml:lang="en">The System Ontology defines Systems, Connections between systems, and Connection Points at which systems may be connected. This ontology is then specialized for multiple domains. For example:
+
+- In electric energy: 
+    - power systems consume, produce, store, and exchange electricity;
+    - power connections are where electricity flows between systems;
+    - power connection points are plugs, sockets, or power busses.
+- In the electricity market:
+    - players and markets are systems;
+    - connections are contracts or transactions between two players, or between a player and a market;
+    - connection points include offers and bids.
+
+Figure below provides an overwiew of the concepts in this ontology:
+
+[![Overview of the System ontology](https://w3id.org/seas/system.png)](https://w3id.org/seas/system.png)
+
+</dcterms:description>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-06-06</dcterms:issued>
+        <dcterms:license rdf:resource="https://www.apache.org/licenses/LICENSE-2.0"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-09-21</dcterms:modified>
+        <dcterms:title xml:lang="en">The SEAS System ontology</dcterms:title>
+        <vann:preferredNamespacePrefix>seas</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <owl:priorVersion rdf:resource="https://w3id.org/seas/SystemOntology-1.0"/>
+        <owl:versionInfo>v1.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/connectedThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedThrough">
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystem"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/Connection"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/seas/connectsAt"/>
+            <rdf:Description rdf:about="https://w3id.org/seas/connectsSystemThrough"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Links a system to one of its connections to other systems.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">connected through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectedTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectedTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:comment xml:lang="en">Links a system to a system it is connected to.
+
+Connected systems interact in some way. The exact meaning of _interact_ is defined by sub properties of `seas:connectedTo`.
+
+For example, for the electricity to directly flow between an electric vehicle service equipment and an electric vehicle, then they must be linked by property `seas:exchangesElectricityWith`: 
+
+```
+seas:exchangesElectricityWith rdfs:subPropertyOf seas:connectedTo .
+
+&lt;electric_vehicle&gt; seas:exchangesElectricityWith &lt;electric_vehicle_service_equipment&gt; .
+```
+
+Property `seas:connectedTo` is symmetric:
+
+```
+if x seas:connectedTo y, then it is true that y seas:connectedTo x.
+```
+
+This property can be qualified using class `seas:Connection`, which connects the two systems.
+
+If there is a connection between several systems, then one may infer these systems are pairwise connected.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">connected to</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectionPointOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectionPointOf">
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsAt"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:comment xml:lang="en">Links a connection point to the one and only one system it belongs to.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">connection point to</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsAt">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links a system to one of the connection points at which it connects.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">connects at</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystem -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystem">
+        <rdfs:domain rdf:resource="https://w3id.org/seas/Connection"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/System"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/seas/connectsSystemAt"/>
+            <rdf:Description rdf:about="https://w3id.org/seas/connectionPointOf"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Links a connection to one of the systems it connects.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">connects system</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemAt -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemAt">
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/connectsSystemThrough"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/Connection"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/ConnectionPoint"/>
+        <rdfs:comment xml:lang="en">Links a connection to one of the connection points at which it connects a system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">connects system at</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/connectsSystemThrough -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/connectsSystemThrough">
+        <rdfs:domain rdf:resource="https://w3id.org/seas/ConnectionPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/Connection"/>
+        <rdfs:comment xml:lang="en">Links a connection point to one of the connections through which it connects its system.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">connects system through</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/hasSubSystem -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/hasSubSystem">
+        <owl:inverseOf rdf:resource="https://w3id.org/seas/subSystemOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:comment xml:lang="en">Links a system to one of its sub systems.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">has sub system</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/subSystemOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/subSystemOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:comment xml:lang="en">Links a system to its super system.
+
+Properties of subsystems somehow contribute to the properties of the super system. The exact meaning of _contribute_ is defined by sub properties of `seas:subSystemOf`.
+
+For example, if a fridge is a subsystem of a kitchen, then its consumption power contributes to the consumption power of the kitchen. 
+
+Property `seas:subSystemOf` is functional, and should be asymmetric:
+
+```
+if x seas:subSystemOf y1 and x seas:subSystemOf y2, then y1 and y2 refer to the same resource.
+if x seas:subSystemOf y, then it can&apos;t be the case that y seas:subSystemOf x.
+```
+
+The asymmetric aspect of property `seas:subSystemOf` would prevents a system from being its own sub-system. Unfortunately, OWL 2 DL disallow a non-simple property (e.g., a functional property) from being asymmetric, see OWL 2 Syntax section 11.
+
+If it was possible that both the fridge and the kitchen be sub systems of a common super system, say, the house, then the consumption power of the fridge would contribute twice to the consumption power of the house. The functional aspect of property `seas:subSystemOf` prevents this undesired effect. 
+
+Due to the open world assumption of RDF, it is not possible to model the closed set of sub systems of a system using property `seas:subSystemOf`.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">sub system of</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/pep/ProcedureExecutor -->
+
+    <owl:Class rdf:about="https://w3id.org/pep/ProcedureExecutor">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/System"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/BalanceEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/BalanceEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/seas/IncomingEvaluation"/>
+        <rdfs:comment xml:lang="en">Evaluation of the difference between the incoming evaluation and the outgoing evaluation.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ZoneOntology"/>
+        <rdfs:label>Balance Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/Connection -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/Connection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/FeatureOfInterest"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystem"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/System"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectsSystemAt"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/seas/ConnectionPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/seas/ConnectionPoint"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:comment xml:lang="en">The class of connections between systems.
+
+This class qualifies property `seas:connectedTo`. 
+
+A connection describes potential interactions between systems. 
+
+For example, a power connection between power systems describes the fact that these systems may exchange electricity.
+
+```
+&lt;connection&gt; seas:connectsSystem &lt;electric_vehicle&gt; , &lt;electric_vehicle_service_equipment&gt; .
+&lt;electric_vehicle&gt; seas:connectedThrough &lt;connection&gt; .
+&lt;electric_vehicle_service_equipment&gt; seas:connectedThrough &lt;connection&gt; .
+```
+
+Any two connected systems are connected through a connection. If:
+
+```
+&lt;system1&gt; a seas:System .
+&lt;system2&gt; a seas:System .
+&lt;system1&gt; seas:connectedTo &lt;system2&gt; .
+```
+
+then there exists `_:connection` such that:
+
+```
+_:connection seas:connectsSystem &lt;system1&gt; , &lt;system2&gt; .
+```
+
+A connection can connect more than two systems at the same time.
+
+
+Figure below illustrates connections of systems:
+
+[![Connections of systems](https://w3id.org/seas/system2.png)](https://w3id.org/seas/system2.png)
+
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">Connection</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/ConnectionPoint -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/ConnectionPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/FeatureOfInterest"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/connectionPointOf"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/seas/System"/>
+        <rdfs:comment xml:lang="en">The class of connection points of systems, at which they may be connected to other systems.
+
+This class qualifies properties `seas:connectsSystem` and `seas:connectedThrough`.
+
+A connection point belongs to exactly one system.
+
+
+For example, an electric vehicle service equipment may have three power connection points: two different kinds of plugs that enable to charge electric vehicles, and a three phase power bus connection point to the grid:
+
+```
+&lt;electric_vehicle&gt; seas:connectsAt &lt;plug_high_voltage&gt; , &lt;normal_plug&gt; , &lt;three_phase_connection_point&gt; .
+```
+
+
+Any system connected through a connection is connected at one of its connection points to the connection:
+  if:
+
+```
+&lt;system&gt; a seas:System .
+&lt;system&gt; seas:connectedThrough &lt;connection&gt; .
+&lt;connection&gt; a seas:Connection .
+```
+
+  then there exists `_:connectionPoint` such that:
+
+```
+&lt;system&gt; seas:connectsAt _:connectionPoint .
+
+_:connectionPoint seas:connectsSystemAt &lt;connection&gt; .
+```
+
+
+The system of a connection point that is connected through a connection is itself connected through the connection:. If:
+
+```
+&lt;connection&gt; a seas:Connection .
+&lt;system&gt; a seas:System .
+&lt;connectionPoint&gt; a seas:ConnectionPoint ;
+&lt;connectionPoint&gt; seas:connectsSystemThrough &lt;connection&gt; .
+```
+
+then it is true that:
+
+```
+&lt;connectionPoint&gt; seas:connectionPointOf &lt;system&gt; .
+```
+
+Figure below illustrates connection points of systems:
+
+[![Connection points of systems](https://w3id.org/seas/system3.png)](https://w3id.org/seas/system3.png)
+
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">Connection Point</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/FeatureOfInterest -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/FeatureOfInterest"/>
+    
+
+
+    <!-- https://w3id.org/seas/IncomingEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/IncomingEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/seas/OutgoingEvaluation"/>
+        <rdfs:comment xml:lang="en">Evaluation of how the exterior contributes to the property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ZoneOntology"/>
+        <rdfs:label xml:lang="en">Incoming evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/OutgoingEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/OutgoingEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:comment xml:lang="en">Evaluation of how the property contributes to the exterior.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/ZoneOntology"/>
+        <rdfs:label xml:lang="en">Outgoing Evaluation</rdfs:label>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/System -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/System">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/FeatureOfInterest"/>
+        <rdfs:comment xml:lang="en">The class of systems, i.e., systems virtually isolated from the environment, whose behaviour and interactions with the environment are modeled.
+
+  Systems can be connected to other systems. Connected systems interact in some ways. For example:
+
+```
+&lt;electric_vehicle&gt; seas:connectedTo &lt;electric_vehicle_service_equipment&gt; .
+```
+
+  Systems can also have subsystems. Properties of subsystems somehow contribute to the properties of the supersystem. For example:
+
+```
+&lt;battery&gt; seas:subSystemOf &lt;electric_vehicle&gt; .
+```
+
+Figure below illustrates systems and their connections:
+
+[![Systems and their connections](https://w3id.org/seas/system1.png)](https://w3id.org/seas/system1.png)
+
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/SystemOntology"/>
+        <rdfs:label xml:lang="en">System</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/SystemOntology -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/seas/SystemOntology">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

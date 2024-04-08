@@ -1,0 +1,233 @@
+@prefix : <http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot/> .
+@prefix ds4: <http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot/> .
+
+
+<http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+:ClassUnion a owl:Class ;
+    owl:unionOf (
+        :HiddenData
+        :ProtectedData
+    ) .
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#hasAccessControl
+:hasAccessControl a owl:ObjectProperty ;
+      rdfs:domain :ClassUnion ;
+      rdfs:range :AccessControl .
+
+:ClassUnion2 a owl:Class ;
+    owl:unionOf (
+        :CapabilityManager
+        :AccessControl
+        :CryptoManager
+    ) .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#hasAuthenticationProvider
+:hasAuthenticationProvider a owl:ObjectProperty ;
+      rdfs:domain :ClassUnion2;
+      rdfs:range :AuthenticationProvider .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#hasCapabilityManager
+:hasCapabilityManager a owl:ObjectProperty ;
+      rdfs:domain :DcApBAC;
+      rdfs:range :CapabilityManager .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#hasCertificate
+:hasCertificate a owl:ObjectProperty ;
+      rdfs:domain :SecureData;
+      rdfs:range :Certificate .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#hasCryptoManager
+:hasCryptoManager a owl:ObjectProperty ;
+      rdfs:domain :EncryptedData;
+      rdfs:range :CryptoManager .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#hasProvenanceProvider
+:hasProvenanceProvider rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#regulatedBy
+:regulatedBy rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#ABAC
+:ABAC rdf:type owl:Class ;
+      rdfs:subClassOf :AccessControl .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#AccessControl
+:AccessControl rdf:type owl:Class ;
+               rdfs:subClassOf owl:Thing ;
+               :hasAuthenticationProvider :AuthenticationProvider .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#Action
+:Action rdf:type owl:Class ;
+        rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#AuthenticationProvider
+:AuthenticationProvider rdf:type owl:Class ;
+                        rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#CapabilityManager
+:CapabilityManager rdf:type owl:Class ;
+                   rdfs:subClassOf owl:Thing ;
+                   :hasAuthenticationProvider :AuthenticationProvider .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#Certificate
+:Certificate rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#CryptoManager
+:CryptoManager rdf:type owl:Class ;
+               rdfs:subClassOf owl:Thing ;
+               :hasAuthenticationProvider :AuthenticationProvider .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#DcApBAC
+:DcApBAC rdf:type owl:Class ;
+         rdfs:subClassOf :ABAC ;
+         :hasCapabilityManager :CapabilityManager .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#EncryptedData
+:EncryptedData rdf:type owl:Class ;
+               rdfs:subClassOf :SecretData ;
+               :hasCryptoManager :CryptoManager .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#HiddenData
+:HiddenData rdf:type owl:Class ;
+            rdfs:subClassOf :SecretData ;
+            :hasAccessControl :AccessControl .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#IBAC
+:IBAC rdf:type owl:Class ;
+      rdfs:subClassOf :AccessControl .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#Identity
+:Identity rdf:type owl:Class ;
+          rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#Object
+:Object rdf:type owl:Class ;
+        rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#OrBAC
+:OrBAC rdf:type owl:Class ;
+       rdfs:subClassOf :AccessControl .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#Policy
+:Policy rdf:type owl:Class ;
+        rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#ProtectedData
+:ProtectedData rdf:type owl:Class ;
+               rdfs:subClassOf :SecureData ;
+               :hasAccessControl :AccessControl .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#ProvenanceProvider
+:ProvenanceProvider rdf:type owl:Class ;
+                    rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#RAC
+:RAC rdf:type owl:Class ;
+     rdfs:subClassOf :AccessControl .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#RBAC
+:RBAC rdf:type owl:Class ;
+      rdfs:subClassOf :AccessControl .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#Regulation
+:Regulation rdf:type owl:Class ;
+            rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#Role
+:Role rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#Rule
+:Rule rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#SecretData
+:SecretData rdf:type owl:Class ;
+            rdfs:subClassOf :SecureData .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#SecureData
+:SecureData rdf:type owl:Class ;
+            rdfs:subClassOf owl:Thing ;
+            :hasCertificate :Certificate ;
+            :hasProvenanceProvider :ProvenanceProvider ;
+            :regulatedBy :Regulation .
+
+
+###  http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot#Subject
+:Subject rdf:type owl:Class ;
+         rdfs:subClassOf owl:Thing .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+<http://xmlns.com/foaf/0.1/Organization> rdf:type owl:Class .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AccessControl
+                :Action
+                :AuthenticationProvider
+                :CapabilityManager
+                :Certificate
+                :CryptoManager
+                :Identity
+                :Object
+                :Policy
+                :ProvenanceProvider
+                :Regulation
+                :Role
+                :SecureData
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,570 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2006/time#"
+     xml:base="http://www.w3.org/2006/time"
+     xmlns:qb="http://purl.org/linked-data/cube#"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:cdt="http://w3id.org/lindt/custom_datatypes#"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ssn="https://www.w3.org/ns/ssn/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:seas="https://w3id.org/seas/"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:liner="https://w3id.org/liner/"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.w3.org/2006/time#">
+        <owl:imports rdf:resource="http://www.w3.org/2006/time#"/>
+        <owl:imports rdf:resource="https://w3id.org/seas/EvaluationOntology"/>
+        <dcterms:creator rdf:resource="http://www.maxime-lefrancois.info/me#"/>
+        <dcterms:description xml:lang="en">This ontology defines:
+
+- a set of subclasses of `seas:Evaluation` to better interpret evaluations of quantifiable properties.
+- a set of sub properties of `seas:hasProperty` to qualify time-related properties.
+</dcterms:description>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-07-05</dcterms:issued>
+        <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/4.0"/>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-09-26</dcterms:modified>
+        <dcterms:title xml:lang="en">The SEAS Time Ontology.</dcterms:title>
+        <vann:preferredNamespacePrefix>seas</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <owl:versionInfo>v1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#duration -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#duration"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/derivesFrom -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/derivesFrom">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://w3id.org/seas/summedProperty"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="https://w3id.org/seas/sumProperty"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/eventFrequency -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/eventFrequency">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:comment xml:lang="en">Links a feature of interest to a frequency of the events during a temporal context. Functional sub properties of `seas:eventFrequency` define the semantics of the event.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">event frequency</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/eventNumber -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/eventNumber">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:comment xml:lang="en">Links a feature of interest to a number of events during a temporal context. Functional sub properties of `seas:eventNumber` define the semantics of the event.
+
+For example, if a window was closed 5 times during last night:
+
+```
+seas:closingNumber a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:subPropertyOf seas:stateChangeNumber .
+
+&lt;window&gt; seas:closingNumber &lt;window/closingNumber&gt; .
+&lt;window/closingNumber&gt; seas:evaluation &lt;window/closingNumber/evaluation/1&gt; .
+&lt;window/closingNumber/evaluation/1&gt; seas:evaluatedValue 5 ; 
+  seas:hasTemporalContext [ 
+    time:hasBeginning [ time:asXSDDateTime &quot;2016-09-25T23:00:00Z&quot; ] ;
+    time:hasEnd [ time:asXSDDateTime &quot;2016-09-26T07:00:00Z&quot; ] ; ]
+```
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">event number</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/hasProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/hasProperty"/>
+    
+
+
+    <!-- https://w3id.org/seas/stateChangeFrequency -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/stateChangeFrequency">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:comment xml:lang="en">Links a feature of interest to the frequency of experienced property value changes during the considered temporal context. Functional sub properties of `seas:stateChangeFrequency` define the semantics of the property.
+
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">state change frequency</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/stateChangeNumber -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/stateChangeNumber">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:comment xml:lang="en">Links a feature of interest to the number of changes the value of a property experienced during the considered temporal context. Functional sub properties of `seas:stateDuration` define the semantics of the property.
+
+For example, if a window was opened and closed 5 times during last night:
+
+```
+seas:openCloseChangeNumber a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:subPropertyOf seas:stateChangeNumber .
+
+&lt;window&gt; seas:openCloseChangeNumber &lt;window/openCloseChangeNumber&gt; .
+&lt;window/openCloseChangeNumber&gt; seas:evaluation &lt;window/openCloseChangeNumber/evaluation/1&gt; .
+&lt;window/openCloseChangeNumber/evaluation/1&gt; seas:evaluatedValue 5 ; 
+  seas:hasTemporalContext [ 
+    time:hasBeginning [ time:asXSDDateTime &quot;2016-09-25T23:00:00Z&quot; ] ;
+    time:hasEnd [ time:asXSDDateTime &quot;2016-09-26T07:00:00Z&quot; ] ; ]
+```
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">state change number</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/stateDuration -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/stateDuration">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:comment xml:lang="en">Links a feature of interest to the duration during which a property has a given state during the considered temporal context. Functional sub properties of `seas:stateDuration` define the semantics of the property and the state.
+
+For example, if a window was open during 2 hours last night:
+
+```
+seas:openDuration a owl:ObjectProperty , owl:FunctionalProperty ;
+  rdfs:subPropertyOf seas:stateDuration .
+
+&lt;window&gt; seas:openDuration &lt;window/openDuration&gt; .
+&lt;window/openDuration&gt; seas:evaluation &lt;window/openDuration/evaluation/1&gt; .
+&lt;window/openDuration/evaluation/1&gt; seas:evaluatedValue &quot;PT2H&quot;^^xsd:duration ; 
+  seas:hasTemporalContext [ 
+    time:hasBeginning [ time:asXSDDateTime &quot;2016-09-25T23:00:00Z&quot; ] ;
+    time:hasEnd [ time:asXSDDateTime &quot;2016-09-26T07:00:00Z&quot; ] ; ]
+```
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">state duration</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/sumProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/sumProperty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/TimeSum"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">Links a time sum to the property that is result of a sum over a time interval.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">sum property</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/summedProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/summedProperty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/seas/TimeSum"/>
+        <rdfs:range rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:comment xml:lang="en">Links a time sum to the property that is summed over a time interval.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">summed property</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/timeDerivative -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/timeDerivative">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/derivesFrom"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment xml:lang="en">Links a time relative property to its time derivative property. For example, 
+
+```
+&lt;car/1/speed&gt; seas:timeDerivative &lt;car/1/acceleration&gt; .
+```
+
+Means that `&lt;car/1/acceleration&gt;` is the time derivative of `&lt;car/1/speed&gt;`.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">time derivative</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- https://w3id.org/seas/sumDuration -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/seas/sumDuration">
+        <rdfs:domain rdf:resource="https://w3id.org/seas/FixedDurationSum"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
+        <rdfs:comment xml:lang="en">Links a fixed duration sum to the duration of the floating time interval over which the sum is computed.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">sum duration</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/seas/sumStart -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/seas/sumStart">
+        <rdfs:domain rdf:resource="https://w3id.org/seas/FixedStartSum"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Links a fixed start sum to the start of the time interval over which the sum is computed.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">sum start</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#Instant -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Instant"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#ProperInterval -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#ProperInterval"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/seas/FixedDurationSum -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/FixedDurationSum">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/TimeSum"/>
+        <rdfs:comment xml:lang="en">Utility class to qualify the relation between a property and its sum over a time interval whose duration is fixed.
+
+For example:
+
+```
+[] a seas:FixedDurationSum ;
+   seas:summedProperty &lt;fridge/1/consumptionPower&gt; ;
+   seas:sumProperty &lt;fridge/1/consumption&gt; ;
+   seas:sumDuration &quot;PT24H&quot;^^xsd:duration .
+```
+
+means that at any time, the value of `&lt;fridge/1/consumption&gt;` is the sum of `&lt;fridge/1/consumptionPower&gt;` over the past day.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">Fixed Duration Sum</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/FixedStartSum -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/FixedStartSum">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/TimeSum"/>
+        <rdfs:comment xml:lang="en">Utility class to qualify the relation between a property and its sum over a time interval whose start is fixed.
+
+  For example:
+
+  ```
+  [] a seas:FixedStartSum ;
+     seas:summedProperty &lt;fridge/1/consumptionPower&gt; ;
+     seas:sumProperty &lt;fridge/1/consumption&gt; ;
+     seas:sumStart &quot;2014-02-24T00:00:00Z&quot;^^xsd:dateTime .
+  ```
+
+  means that at any time, the value of `&lt;fridge/1/consumption&gt;` is the sum of `&lt;fridge/1/consumptionPower&gt;` since February 24th 2014.
+
+  </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">Fixed Start Sum</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/InstantaneousEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/InstantaneousEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/hasTemporalContext"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#Instant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations that are relative to an instant</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">Instantaneous Evaluation</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/Property -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/Property"/>
+    
+
+
+    <!-- https://w3id.org/seas/TimeAverageEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/TimeAverageEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/TimeIntervalEvaluation"/>
+        <rdfs:comment xml:lang="en">The given value is the average of the quantity over the temporal context.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">Time Average Evaluation</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/TimeConstantEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/TimeConstantEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/TimeIntervalEvaluation"/>
+        <rdfs:comment xml:lang="en">The given value is the value of the quantity at any instant of the temporal context.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">Time Constant Evaluation</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/TimeIntervalEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/TimeIntervalEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Evaluation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/seas/hasTemporalContext"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">The class of evaluations that are relative to a time interval</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">Time Interval Evaluation</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/TimeMaximumEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/TimeMaximumEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/TimeIntervalEvaluation"/>
+        <rdfs:comment xml:lang="en">The given value is the maximum of the quantity over the temporal context.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">Time Maximum Evaluation</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/TimeMinimumEvaluation -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/TimeMinimumEvaluation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/TimeIntervalEvaluation"/>
+        <rdfs:comment xml:lang="en">The given value is the minimum of the quantity over the temporal context.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">Time Minimum Evaluation</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/TimeSum -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/TimeSum">
+        <rdfs:comment xml:lang="en">Utility class to qualify the relation between a property and its sum over a time interval. Two sub classes of seas:TimeSum enable to further describe the time interval over which the sum is computed: `seas:FixedStartSum`, and `seas:FixedDurationSum`.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/seas/TimeOntology"/>
+        <rdfs:label xml:lang="en">Time Sum</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/seas/TimeOntology -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/seas/TimeOntology">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
