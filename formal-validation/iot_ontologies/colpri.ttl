@@ -55,7 +55,7 @@
       rdfs:isDefinedBy colpri: .
 
 ###  http://www.semanticweb.org/maria/ontologies/2024/3/ColPri#ColPri:hasDataCategoryIntensity
-:hasDataCategoryIntensity a owl:ObjectProperty ;
+:hasDataCategoryIntensity a owl:ObjectProperty ; #TODO:?
       rdfs:domain :DataCategory;
       rdfs:range xsd:float ;
       rdfs:isDefinedBy colpri: .

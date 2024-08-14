@@ -1,0 +1,2304 @@
+@prefix : <https://github/ioto/EnhacedOntology4IoT/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <https://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ioto: <https://github/ioto/EnhacedOntology4IoT/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix seas: <https://w3id.org/seas/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix colpri: <https://github.com/alex23013/iot_ontologies/colpri/> .
+@prefix ds4iot: <http://www.semanticweb.org/maria/ontologies/2024/3/ds4iot/> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://github/ioto/EnhacedOntology4IoT/> .
+
+<https://github/ioto/EnhacedOntology4IoT#> rdf:type owl:Ontology ;
+                                            owl:versionIRI seas:EnhacedIOTOntology-1.1 ;
+                                            dcterms:description "This ontology sought to solve IoT systems problems, like security, interoperability, data privacy among others."@en ;
+                                            dcterms:rights "Copyright 2024 W3C/OGC." ;
+                                            dcterms:title "Enhaced Ontology for IoT"@en ;
+                                            owl:versionInfo "New modular version of the Enhaced Ontology for IoT" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+dcterms:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/domainIncludes
+schema:domainIncludes rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/rangeIncludes
+schema:rangeIncludes rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#cardinality
+owl:cardinality rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#minCardinality
+owl:minCardinality rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+skos:note rdf:type owl:AnnotationProperty .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/evaluates
+colpri:evaluates rdf:type owl:AnnotationProperty .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasDateTime
+colpri:hasDateTime rdf:type owl:AnnotationProperty .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasLocation
+colpri:hasLocation rdf:type owl:AnnotationProperty .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasProvenanceProvider
+colpri:hasProvenanceProvider rdf:type owl:AnnotationProperty .
+
+
+###  https://www.w3.org/ns/ssn/hasAttachedSystemOnly
+ssn:hasAttachedSystemOnly rdf:type owl:AnnotationProperty .
+
+
+###  https://www.w3.org/ns/ssn/implementedByOnly
+ssn:implementedByOnly rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/sosa/hasResult
+sosa:hasResult rdf:type owl:ObjectProperty ;
+               owl:inverseOf sosa:isResultOf ;
+               schema:domainIncludes sosa:Actuation ,
+                                     sosa:Observation ,
+                                     sosa:Sampling ;
+               schema:rangeIncludes sosa:Result ,
+                                    sosa:Sample ;
+               rdfs:comment "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en ;
+               rdfs:isDefinedBy sosa: ;
+               rdfs:label "has result"@en ;
+               skos:definition "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en .
+
+
+###  http://www.w3.org/ns/sosa/hasResultingSample
+sosa:hasResultingSample rdf:type owl:ObjectProperty ;
+                        owl:inverseOf sosa:isSamplingResultOf ;
+                        schema:domainIncludes sosa:Sampling ;
+                        schema:rangeIncludes sosa:Sample ;
+                        rdfs:comment "Relation linking an act of Sampling and the new Sample created as a result."@en ;
+                        rdfs:isDefinedBy sosa: ;
+                        rdfs:label "has resulting sample"@en ;
+                        skos:definition "Relation linking an act of Sampling and the new Sample created as a result."@en .
+
+
+###  http://www.w3.org/ns/sosa/hasSample
+sosa:hasSample rdf:type owl:ObjectProperty ;
+               owl:inverseOf sosa:isSampleOf ;
+               rdf:type owl:InverseFunctionalProperty ;
+               schema:domainIncludes sosa:FeatureOfInterest ;
+               schema:rangeIncludes sosa:Sample ;
+               rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
+               rdfs:isDefinedBy sosa: ;
+               rdfs:label "has sample"@en ;
+               skos:definition "Relation between a FeatureOfInterest and the Sample used to represent it."@en .
+
+
+###  http://www.w3.org/ns/sosa/isObservedBy
+sosa:isObservedBy rdf:type owl:ObjectProperty ;
+                  owl:inverseOf sosa:observes ;
+                  schema:domainIncludes sosa:ObservableProperty ;
+                  schema:rangeIncludes sosa:Sensor ;
+                  rdfs:comment "Relation between an ObservableProperty and the Sensor able to observe it."@en ;
+                  rdfs:isDefinedBy sosa: ;
+                  rdfs:label "is observed by"@en ;
+                  skos:definition "Relation between an ObservableProperty and the Sensor able to observe it."@en .
+
+
+###  http://www.w3.org/ns/sosa/isResultOf
+sosa:isResultOf rdf:type owl:ObjectProperty ;
+                schema:domainIncludes sosa:Result ,
+                                      sosa:Sample ;
+                schema:rangeIncludes sosa:Actuation ,
+                                     sosa:Observation ,
+                                     sosa:Sampling ;
+                rdfs:comment "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en ;
+                rdfs:isDefinedBy sosa: ;
+                rdfs:label "is result of"@en ;
+                skos:definition "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en .
+
+
+###  http://www.w3.org/ns/sosa/isSampleOf
+sosa:isSampleOf rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                schema:domainIncludes sosa:Sample ;
+                schema:rangeIncludes sosa:FeatureOfInterest ;
+                rdfs:comment "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
+                rdfs:isDefinedBy sosa: ;
+                rdfs:label "is sample of"@en ;
+                skos:definition "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en .
+
+
+###  http://www.w3.org/ns/sosa/isSamplingResultOf
+sosa:isSamplingResultOf rdf:type owl:ObjectProperty ;
+                        schema:domainIncludes sosa:Sample ;
+                        schema:rangeIncludes sosa:Sampling ;
+                        rdfs:comment "Relation linking a Sample to the act of Sampling that created or caused it."@en ;
+                        rdfs:isDefinedBy sosa: ;
+                        rdfs:label "is sampling result of"@en ;
+                        skos:definition "Relation linking a Sample to the act of Sampling that created or caused it."@en .
+
+
+###  http://www.w3.org/ns/sosa/madeActuation
+sosa:madeActuation rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/madeBySensor
+sosa:madeBySensor rdf:type owl:ObjectProperty ;
+                  owl:inverseOf sosa:madeObservation ;
+                  schema:domainIncludes sosa:Observation ;
+                  schema:rangeIncludes sosa:Sensor ;
+                  rdfs:comment "Relation between an Observation and the Sensor which made the Observation."@en ;
+                  rdfs:isDefinedBy sosa: ;
+                  rdfs:label "made by sensor"@en ;
+                  skos:definition "Relation between an Observation and the Sensor which made the Observation."@en .
+
+
+###  http://www.w3.org/ns/sosa/madeObservation
+sosa:madeObservation rdf:type owl:ObjectProperty ;
+                     schema:domainIncludes sosa:Sensor ;
+                     schema:rangeIncludes sosa:Observation ;
+                     rdfs:comment "Relation between a Sensor and an Observation made by the Sensor."@en ;
+                     rdfs:isDefinedBy sosa: ;
+                     rdfs:label "made observation"@en ;
+                     skos:definition "Relation between a Sensor and an Observation made by the Sensor."@en .
+
+
+###  http://www.w3.org/ns/sosa/madeSampling
+sosa:madeSampling rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/sosa/observedProperty
+sosa:observedProperty rdf:type owl:ObjectProperty ;
+                      schema:domainIncludes sosa:Observation ;
+                      schema:rangeIncludes sosa:ObservableProperty ;
+                      rdfs:comment "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en ;
+                      rdfs:isDefinedBy sosa: ;
+                      rdfs:label "observed property"@en ;
+                      skos:definition "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en .
+
+
+###  http://www.w3.org/ns/sosa/observes
+sosa:observes rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf ssn:forProperty ;
+              schema:domainIncludes sosa:Sensor ;
+              schema:rangeIncludes sosa:ObservableProperty ;
+              rdfs:comment "Relation between a Sensor and an ObservableProperty that it is capable of sensing."@en ;
+              rdfs:isDefinedBy sosa: ;
+              rdfs:label "observes"@en ;
+              skos:definition "Relation between a Sensor and an ObservableProperty that it is capable of sensing."@en .
+
+
+###  http://www.w3.org/ns/sosa/phenomenonTime
+sosa:phenomenonTime rdf:type owl:ObjectProperty ;
+                    schema:domainIncludes sosa:Actuation ,
+                                          sosa:Observation ,
+                                          sosa:Sampling ;
+                    schema:rangeIncludes time:TemporalEntity ;
+                    rdfs:comment "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en ;
+                    rdfs:isDefinedBy sosa: ;
+                    rdfs:label "phenomenon time"@en ;
+                    skos:definition "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/canBeTreatedAs
+ioto:canBeTreatedAs rdf:type owl:ObjectProperty ;
+                    rdfs:domain colpri:NonSensitivePersonalData ;
+                    rdfs:range ds4iot:ProtectedData ;
+                    rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/definesPurpose
+ioto:definesPurpose rdf:type owl:ObjectProperty ;
+                    rdfs:domain ioto:DataController ;
+                    rdfs:range colpri:Purpose ;
+                    rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/givesPrivacyPolicyEvaluation
+ioto:givesPrivacyPolicyEvaluation rdf:type owl:ObjectProperty ;
+                                  rdfs:domain colpri:PrivacyCommunityMember ;
+                                  rdfs:range ioto:PrivacyPolicyEvaluation ;
+                                  rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/givesRecommendation
+colpri:givesRecommendation rdf:type owl:ObjectProperty ;
+                         rdfs:domain colpri:PrivacyCommunityMember ;
+                         rdfs:range colpri:Recommendation ;
+                         rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/handles
+colpri:handles rdf:type owl:ObjectProperty ;
+             rdfs:domain ioto:HandledData ;
+             rdfs:range colpri:Data ;
+             rdfs:isDefinedBy sosa: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasAccessControl
+ds4iot:hasAccessControl rdf:type owl:ObjectProperty ;
+                      rdfs:domain ioto:DataDomain ;
+                      rdfs:range ds4iot:AccessControl ;
+                      rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasAuthenticationProvider
+ds4iot:hasAuthenticationProvider rdf:type owl:ObjectProperty ;
+                               rdfs:domain ioto:AuthenticationProviderDomain ;
+                               rdfs:range ds4iot:AuthenticationProvider ;
+                               rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasCapabilityManager
+ds4iot:hasCapabilityManager rdf:type owl:ObjectProperty ;
+                          rdfs:domain ds4iot:DcApBAC ;
+                          rdfs:range ds4iot:CapabilityManager ;
+                          rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasCertificate
+ds4iot:hasCertificate rdf:type owl:ObjectProperty ;
+                    rdfs:domain ds4iot:SecureData ;
+                    rdfs:range ds4iot:Certificate ;
+                    rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasCryptoManager
+ds4iot:hasCryptoManager rdf:type owl:ObjectProperty ;
+                      rdfs:domain ds4iot:EncryptedData ;
+                      rdfs:range ds4iot:CryptoManager ;
+                      rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasDataCategory
+ds4iot:hasDataCategory rdf:type owl:ObjectProperty ;
+                     rdfs:domain colpri:Data ;
+                     rdfs:range colpri:DataCategory ;
+                     rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasDataLifeCycleStep
+colpri:hasDataLifeCycleStep rdf:type owl:ObjectProperty ;
+                          rdfs:domain colpri:DataLifeCycle ;
+                          rdfs:range colpri:DataLifeCycleStep ;
+                          rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasEthicCategory
+ioto:hasEthicCategory rdf:type owl:ObjectProperty ;
+                      rdfs:domain ioto:DataController ;
+                      rdfs:range ioto:EthicCategory ;
+                      rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasPrivacyAttribute
+colpri:hasPrivacyAttribute rdf:type owl:ObjectProperty ;
+                         rdfs:domain colpri:PrivacyPolicy ;
+                         rdfs:range colpri:PrivacyAttribute ;
+                         rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasPrivacyPolicyEvaluationAttribute
+ioto:hasPrivacyPolicyEvaluationAttribute rdf:type owl:ObjectProperty ;
+                                         rdfs:domain ioto:PrivacyPolicyEvaluation ;
+                                         rdfs:range ioto:PrivacyPolicyEvaluationAttribute ;
+                                         rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/hasRecommendationAttribute
+colpri:hasRecommendationAttribute rdf:type owl:ObjectProperty ;
+                                rdfs:domain colpri:Recommendation ;
+                                rdfs:range colpri:RecommendationAttribute ;
+                                rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/makesConsent
+ioto:makesConsent rdf:type owl:ObjectProperty ;
+                  rdfs:domain colpri:PrivacyCommunityMember ;
+                  rdfs:range colpri:Consent ;
+                  rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/makesDisclosure
+ioto:makesDisclosure rdf:type owl:ObjectProperty ;
+                     rdfs:domain colpri:PrivacyCommunityMember ;
+                     rdfs:range colpri:Disclosure ;
+                     rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/mustBeTreatedAs
+ioto:mustBeTreatedAs rdf:type owl:ObjectProperty .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/recommends
+colpri:recommends rdf:type owl:ObjectProperty ;
+                rdfs:domain colpri:Recommendation ;
+                rdfs:range colpri:PrivacyPolicy ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/takesResposabilityForStep
+ioto:takesResposabilityForStep rdf:type owl:ObjectProperty ;
+                               rdfs:domain ioto:DataController ;
+                               rdfs:range ioto:stepToTakeResponsabilityFor ;
+                               rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/takesResposabilityForThing
+ioto:takesResposabilityForThing rdf:type owl:ObjectProperty ;
+                                rdfs:domain ioto:DataController ;
+                                rdfs:range ioto:thingToTakeResponsabilityFor ;
+                                rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/validatesPrivacyPolicyEvaluation
+ioto:validatesPrivacyPolicyEvaluation rdf:type owl:ObjectProperty ;
+                                      rdfs:domain colpri:Administrator ;
+                                      rdfs:range ioto:PrivacyPolicyEvaluation ;
+                                      rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/validatesRecommendation
+colpri:validatesRecommendation rdf:type owl:ObjectProperty ;
+                             rdfs:domain colpri:Administrator ;
+                             rdfs:range colpri:Recommendation ;
+                             rdfs:isDefinedBy colpri: .
+
+
+###  https://w3id.org/seas/connectedThrough
+seas:connectedThrough rdf:type owl:ObjectProperty ;
+                      owl:inverseOf seas:connectsSystem ;
+                      rdfs:domain ssn:System ;
+                      rdfs:range seas:Connection ;
+                      owl:propertyChainAxiom ( seas:connectsAt
+                                               seas:connectsSystemThrough
+                                             ) ;
+                      rdfs:comment "Links a system to one of its connections to other systems."@en ;
+                      rdfs:isDefinedBy seas:SystemOntology ;
+                      rdfs:label "connected through"@en .
+
+
+###  https://w3id.org/seas/connectedTo
+seas:connectedTo rdf:type owl:ObjectProperty ,
+                          owl:SymmetricProperty ;
+                 rdfs:domain ssn:System ;
+                 rdfs:range ssn:System ;
+                 rdfs:isDefinedBy seas:SystemOntology ;
+                 rdfs:label "connected to"@en .
+
+
+###  https://w3id.org/seas/connectionPointOf
+seas:connectionPointOf rdf:type owl:ObjectProperty ;
+                       owl:inverseOf seas:connectsAt ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain seas:ConnectionPoint ;
+                       rdfs:range ssn:System ;
+                       rdfs:comment "Links a connection point to the one and only one system it belongs to."@en ;
+                       rdfs:isDefinedBy seas:SystemOntology ;
+                       rdfs:label "connection point to"@en .
+
+
+###  https://w3id.org/seas/connectsAt
+seas:connectsAt rdf:type owl:ObjectProperty ,
+                         owl:InverseFunctionalProperty ;
+                rdfs:domain ssn:System ;
+                rdfs:range seas:ConnectionPoint ;
+                rdfs:comment "Links a system to one of the connection points at which it connects."@en ;
+                rdfs:isDefinedBy seas:SystemOntology ;
+                rdfs:label "connects at"@en .
+
+
+###  https://w3id.org/seas/connectsSystem
+seas:connectsSystem rdf:type owl:ObjectProperty ;
+                    rdfs:domain seas:Connection ;
+                    rdfs:range ssn:System ;
+                    owl:propertyChainAxiom ( seas:connectsSystemAt
+                                             seas:connectionPointOf
+                                           ) ;
+                    rdfs:comment "Links a connection to one of the systems it connects."@en ;
+                    rdfs:isDefinedBy seas:SystemOntology ;
+                    rdfs:label "connects system"@en .
+
+
+###  https://w3id.org/seas/connectsSystemAt
+seas:connectsSystemAt rdf:type owl:ObjectProperty ;
+                      owl:inverseOf seas:connectsSystemThrough ;
+                      rdfs:domain seas:Connection ;
+                      rdfs:range seas:ConnectionPoint ;
+                      rdfs:comment "Links a connection to one of the connection points at which it connects a system."@en ;
+                      rdfs:isDefinedBy seas:SystemOntology ;
+                      rdfs:label "connects system at"@en .
+
+
+###  https://w3id.org/seas/connectsSystemThrough
+seas:connectsSystemThrough rdf:type owl:ObjectProperty ;
+                           rdfs:domain seas:ConnectionPoint ;
+                           rdfs:range seas:Connection ;
+                           rdfs:comment "Links a connection point to one of the connections through which it connects its system."@en ;
+                           rdfs:isDefinedBy seas:SystemOntology ;
+                           rdfs:label "connects system through"@en .
+
+
+###  https://w3id.org/seas/electricCurrent
+seas:electricCurrent rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/seas/evaluatedValue
+seas:evaluatedValue rdf:type owl:ObjectProperty ;
+                    rdfs:domain seas:Evaluation ;
+                    rdfs:comment "Links an evaluation to the literal that qualifies some aspect of the property, modeled as a RDF IRI or blank node."@en ;
+                    rdfs:isDefinedBy seas:EvaluationOntology .
+
+
+###  https://w3id.org/seas/evaluation
+seas:evaluation rdf:type owl:ObjectProperty ;
+                owl:inverseOf seas:evaluationOf ;
+                rdf:type owl:InverseFunctionalProperty ;
+                rdfs:domain ssn:Property ;
+                rdfs:range seas:Evaluation ;
+                rdfs:comment "Links a property to one of its evaluations."@en ;
+                rdfs:isDefinedBy seas:EvaluationOntology ;
+                rdfs:label "evaluation"@en .
+
+
+###  https://w3id.org/seas/evaluationOf
+seas:evaluationOf rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain seas:Evaluation ;
+                  rdfs:range ssn:Property ;
+                  rdfs:comment "Links an evaluation to the one and only property it evaluates."@en ;
+                  rdfs:isDefinedBy seas:EvaluationOntology ;
+                  rdfs:label "evaluation of"@en .
+
+
+###  https://w3id.org/seas/voltage
+seas:voltage rdf:type owl:ObjectProperty .
+
+
+###  https://www.w3.org/ns/ssn/detects
+ssn:detects rdf:type owl:ObjectProperty ;
+            rdfs:comment "A relation from a Sensor to the Stimulus that the Sensor detects. The Stimulus itself will be serving as a proxy for some ObservableProperty."@en ;
+            rdfs:isDefinedBy ssn: ;
+            rdfs:label "detects"@en ;
+            skos:definition "A relation from a Sensor to the Stimulus that the Sensor detects. The Stimulus itself will be serving as a proxy for some ObservableProperty."@en .
+
+
+###  https://www.w3.org/ns/ssn/forProperty
+ssn:forProperty rdf:type owl:ObjectProperty .
+
+
+###  https://www.w3.org/ns/ssn/hasOperatingProperty
+ssn:hasOperatingProperty rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf ssn:hasProperty ;
+                         rdfs:comment "Relation from an OperatingRange of a System to a OperatingPropery describing the operating range of the System."@en ;
+                         rdfs:isDefinedBy ssn: ;
+                         rdfs:label "has operating property"@en ;
+                         skos:definition "Relation from an OperatingRange of a System to a OperatingPropery describing the operating range of the System."@en .
+
+
+###  https://www.w3.org/ns/ssn/hasOperatingRange
+ssn:hasOperatingRange rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf ssn:hasProperty ;
+                      rdfs:comment "Relation from a System to an OperatingRange describing the normal operating environment of the System."@en ;
+                      rdfs:isDefinedBy ssn: ;
+                      rdfs:label "has operating range"@en ;
+                      skos:definition "Relation from a System to an OperatingRange describing the normal operating environment of the System."@en .
+
+
+###  https://www.w3.org/ns/ssn/hasProperty
+ssn:hasProperty rdf:type owl:ObjectProperty ;
+                owl:inverseOf ssn:isPropertyOf ;
+                rdfs:comment "Relation between an entity and a Property of that entity."@en ;
+                rdfs:isDefinedBy ssn: ;
+                rdfs:label "has property"@en ;
+                skos:definition "Relation between an entity and a Property of that entity."@en .
+
+
+###  https://www.w3.org/ns/ssn/hasSurvivalProperty
+ssn:hasSurvivalProperty rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf ssn:hasProperty ;
+                        rdfs:comment "Relation from a SurvivalRange of a System to a SurvivalProperty describing the survival range of the System."@en ;
+                        rdfs:isDefinedBy ssn: ;
+                        rdfs:label "has survival property"@en ;
+                        skos:definition "Relation from a SurvivalRange of a System to a SurvivalProperty describing the survival range of the System."@en .
+
+
+###  https://www.w3.org/ns/ssn/hasSurvivalRange
+ssn:hasSurvivalRange rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf ssn:hasProperty ;
+                     rdfs:comment "Relation from a System to a SurvivalRange."@en ;
+                     rdfs:isDefinedBy ssn: ;
+                     rdfs:label "has survival range"@en ;
+                     skos:definition "Relation from a System to a SurvivalRange."@en .
+
+
+###  https://www.w3.org/ns/ssn/hasSystemCapability
+ssn:hasSystemCapability rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf ssn:hasProperty ;
+                        rdfs:comment "Relation from a System to a SystemCapability describing the capabilities of the System under certain Conditions."@en ;
+                        rdfs:isDefinedBy ssn: ;
+                        rdfs:label "has system capability"@en ;
+                        skos:definition "Relation from a System to a SystemCapability describing the capabilities of the System under certain Conditions."@en .
+
+
+###  https://www.w3.org/ns/ssn/hasSystemProperty
+ssn:hasSystemProperty rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf ssn:hasProperty ;
+                      rdfs:comment "Relation from an SystemCapability of a System to a SystemProperty describing the capabilities of the System."@en ;
+                      rdfs:isDefinedBy ssn: ;
+                      rdfs:label "has system property"@en ;
+                      skos:definition "Relation from an SystemCapability of a System to a SystemProperty describing the capabilities of the System."@en .
+
+
+###  https://www.w3.org/ns/ssn/inCondition
+ssn:inCondition rdf:type owl:ObjectProperty .
+
+
+###  https://www.w3.org/ns/ssn/isPropertyOf
+ssn:isPropertyOf rdf:type owl:ObjectProperty ;
+                 rdfs:comment "Relation between a Property and the entity it belongs to."@en ;
+                 rdfs:isDefinedBy ssn: ;
+                 rdfs:label "is property of"@en ;
+                 skos:definition "Relation between a Property and the entity it belongs to."@en .
+
+
+###  https://www.w3.org/ns/ssn/isProxyFor
+ssn:isProxyFor rdf:type owl:ObjectProperty .
+
+
+###  https://www.w3.org/ns/ssn/wasOriginatedBy
+ssn:wasOriginatedBy rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:comment "Relation between an Observation and the Stimulus that originated it."@en ;
+                    rdfs:isDefinedBy ssn: ;
+                    rdfs:label "was originated by"@en ;
+                    skos:definition "Relation between an Observation and the Stimulus that originated it."@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3.org/ns/sosa/hasSimpleResult
+sosa:hasSimpleResult rdf:type owl:DatatypeProperty ;
+                     schema:domainIncludes sosa:Actuation ,
+                                           sosa:Observation ,
+                                           sosa:Sampling ;
+                     rdfs:comment "The simple value of an Observation or Actuation or act of Sampling."@en ;
+                     rdfs:isDefinedBy sosa: ;
+                     rdfs:label "has simple result"@en ;
+                     skos:definition "The simple value of an Observation or Actuation or act of Sampling."@en ;
+                     skos:example "For instance, the values 23 or true."@en .
+
+
+###  http://www.w3.org/ns/sosa/resultTime
+sosa:resultTime rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:dateTime ;
+                schema:domainIncludes sosa:Actuation ,
+                                      sosa:Observation ,
+                                      sosa:Sampling ;
+                rdfs:comment "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en ;
+                rdfs:isDefinedBy sosa: ;
+                rdfs:label "result time"@en ;
+                skos:definition "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en .
+
+
+###  https://w3id.org/seas/evaluatedSimpleValue
+seas:evaluatedSimpleValue rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain seas:Evaluation ;
+                          rdfs:comment "Links an evaluation to the literal that qualifies some aspect of the property, modeled as a RDF Literal."@en ;
+                          rdfs:isDefinedBy seas:EvaluationOntology ;
+                          rdfs:label "evaluated simple value"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/vocommons/voaf#Vocabulary
+voaf:Vocabulary rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Actor
+skos:Actor rdf:type owl:Class ;
+           rdfs:subClassOf skos:Concept ;
+           rdfs:isDefinedBy colpri: .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing ;
+             rdfs:isDefinedBy skos: .
+
+
+###  http://www.w3.org/ns/sosa/ActuatableProperty
+sosa:ActuatableProperty rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Actuation
+sosa:Actuation rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Actuator
+sosa:Actuator rdf:type owl:Class ;
+              rdfs:subClassOf ssn:System ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty sosa:madeActuation ;
+                                owl:allValuesFrom sosa:Actuation
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty ssn:forProperty ;
+                                owl:allValuesFrom sosa:ActuatableProperty
+                              ] ;
+              rdfs:comment "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world."@en ;
+              rdfs:isDefinedBy sosa: ;
+              rdfs:label "Actuator"@en ;
+              skos:definition "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world."@en ;
+              skos:example "A window actuator for automatic window control, i.e., opening or closing the window."@en .
+
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+sosa:FeatureOfInterest rdf:type owl:Class ;
+                       rdfs:subClassOf owl:Thing ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty sosa:hasSample ;
+                                         owl:allValuesFrom sosa:Sample
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty ssn:hasProperty ;
+                                         owl:allValuesFrom ssn:Property
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty ssn:hasProperty ;
+                                         owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ;
+                       owl:disjointWith seas:Evaluation ;
+                       rdfs:comment "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling."@en ;
+                       rdfs:isDefinedBy sosa: ;
+                       rdfs:label "Feature Of Interest"@en ;
+                       skos:definition "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling."@en ;
+                       skos:example "When measuring the height of a tree, the height is the observed ObservableProperty, 20m may be the Result of the Observation, and the tree is the FeatureOfInterest. A window is a FeatureOfInterest for an automatic window control Actuator."@en .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+sosa:ObservableProperty rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing ;
+             rdfs:isDefinedBy sosa: .
+
+
+###  http://www.w3.org/ns/sosa/Procedure
+sosa:Procedure rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Result
+sosa:Result rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isResultOf ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ;
+            rdfs:comment "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
+            rdfs:isDefinedBy sosa: ;
+            rdfs:label "Result"@en ;
+            skos:definition "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
+            skos:example "The value 20 as the height of a certain tree together with the unit, e.g., Meter."@en .
+
+
+###  http://www.w3.org/ns/sosa/Sample
+sosa:Sample rdf:type owl:Class ;
+            rdfs:subClassOf sosa:Result ,
+                            sosa:FeatureOfInterest ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isResultOf ;
+                              owl:allValuesFrom sosa:Sampling
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isSampleOf ;
+                              owl:allValuesFrom sosa:FeatureOfInterest
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isResultOf ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:isSampleOf ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ;
+            rdfs:comment "A Sample is the result from an act of Sampling."@en ,
+                         "Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made."@en ,
+                         "Physical samples are sometimes known as 'specimens'."@en ,
+                         """Samples are artifacts of an observational strategy, and have no significant function outside of their role in the observation process. The characteristics of the samples themselves are of little interest, except perhaps to the manager of a sampling campaign.
+
+  A Sample is intended to sample some FatureOfInterest, so there is an expectation of at least one isSampleOf property. However, in some cases the identity, and even the exact type, of the sampled feature may not be known when observations are made using the sampling features."""@en ;
+            rdfs:isDefinedBy sosa: ;
+            rdfs:label "Sample"@en ;
+            skos:definition "Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made."@en ;
+            skos:example "A 'station' is essentially an identifiable locality where a sensor system or Procedure may be deployed and an observation made. In the context of the observation model, it connotes the 'world in the vicinity of the station', so the observed properties relate to the physical medium at the station, and not to any physical artifact such as a mooring, buoy, benchmark, monument, well, etc."@en ,
+                         "A statistical sample is often designed to be characteristic of an entire population, so that observations can be made regarding the sample that provide a good estimate of the properties of the population."@en ;
+            skos:note "A transient sample, such as a ships-track or flight-line, might be identified and described, but is unlikely to be revisited exactly."@en .
+
+
+###  http://www.w3.org/ns/sosa/Sampler
+sosa:Sampler rdf:type owl:Class ;
+             rdfs:subClassOf ssn:System ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty sosa:madeSampling ;
+                               owl:allValuesFrom sosa:Sampling
+                             ] ;
+             rdfs:comment "A device that is used by, or implements, a Sampling Procedure to create or transform one or more samples."@en ;
+             rdfs:isDefinedBy sosa: ;
+             rdfs:label "Sampler"@en ;
+             skos:definition "A device that is used by, or implements, a Sampling Procedure to create or transform one or more samples."@en ;
+             skos:example "A ball mill, diamond drill, hammer, hypodermic syringe and needle, image Sensor or a soil auger can all act as sampling devices (i.e., be Samplers). However, sometimes the distinction between the Sampler and the Sensor is not evident, as they are packaged as a unit. A Sampler need not be a physical device."@en .
+
+
+###  http://www.w3.org/ns/sosa/Sampling
+sosa:Sampling rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Sensor
+sosa:Sensor rdf:type owl:Class ;
+            rdfs:subClassOf ssn:System ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:madeObservation ;
+                              owl:allValuesFrom sosa:Observation
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty sosa:observes ;
+                              owl:allValuesFrom sosa:ObservableProperty
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty ssn:detects ;
+                              owl:allValuesFrom ssn:Stimulus
+                            ] ;
+            rdfs:comment "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms."@en ;
+            rdfs:isDefinedBy sosa: ;
+            rdfs:label "Sensor"@en ;
+            skos:definition "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms."@en ;
+            skos:example "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes."@en .
+
+
+###  http://www.w3.org/ns/sosa/#FeatureOfInterest
+sosa:FeatureOfInterest rdf:type owl:Class .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/ABAC
+ds4iot:ABAC rdf:type owl:Class ;
+          rdfs:subClassOf ds4iot:AccessControl ;
+          rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/AccessControl
+ds4iot:AccessControl rdf:type owl:Class ;
+                   rdfs:subClassOf owl:Thing ;
+                   rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Administrator
+colpri:Administrator rdf:type owl:Class ;
+                   rdfs:subClassOf colpri:PrivacyCommunityMember .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Advertising
+colpri:Advertising rdf:type owl:Class ;
+                 rdfs:subClassOf colpri:Purpose ;
+                 rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/AnonymousData
+colpri:AnonymousData rdf:type owl:Class ;
+                   rdfs:subClassOf colpri:DataCategory ;
+                   rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/ApplicationFunctionning
+colpri:ApplicationFunctionning rdf:type owl:Class ;
+                             rdfs:subClassOf colpri:Purpose ;
+                             rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/AuthenticationProvider
+ds4iot:AuthenticationProvider rdf:type owl:Class ;
+                            rdfs:subClassOf ioto:SecurityCommunityMember ;
+                            rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/AuthenticationProviderDomain
+ioto:AuthenticationProviderDomain rdf:type owl:Class ;
+                                  owl:equivalentClass [ rdf:type owl:Class ;
+                                                        owl:unionOf ( ds4iot:AccessControl
+                                                                      ds4iot:CapabilityManager
+                                                                      ds4iot:CryptoManager
+                                                                    )
+                                                      ] .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/AutomatedDataArchiving
+colpri:AutomatedDataArchiving rdf:type owl:Class ;
+                            rdfs:subClassOf colpri:DataArchiving ;
+                            rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/CapabilityManager
+ds4iot:CapabilityManager rdf:type owl:Class ;
+                       rdfs:subClassOf ioto:SecurityCommunityMember .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Certificate
+ds4iot:Certificate rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Consent
+colpri:Consent rdf:type owl:Class ;
+             rdfs:subClassOf colpri:PrivacyAttribute ;
+             rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Contributor
+colpri:Contributor rdf:type owl:Class ;
+                 rdfs:subClassOf colpri:PrivacyCommunityMember .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/CriminalData
+colpri:CriminalData rdf:type owl:Class ;
+                  rdfs:subClassOf colpri:SensitivePersonalData ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ioto:mustBeTreatedAs ;
+                                    owl:someValuesFrom ds4iot:HiddenData
+                                  ] ;
+                  rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/CryptoManager
+ds4iot:CryptoManager rdf:type owl:Class ;
+                   rdfs:subClassOf ioto:SecurityCommunityMember .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Data
+colpri:Data rdf:type owl:Class ;
+          rdfs:subClassOf owl:Thing .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataArchiving
+colpri:DataArchiving rdf:type owl:Class ;
+                   rdfs:subClassOf colpri:DataLifeCycleStep ;
+                   rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataCategory
+colpri:DataCategory rdf:type owl:Class ;
+                  rdfs:subClassOf skos:Concept .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataCollection
+colpri:DataCollection rdf:type owl:Class ;
+                    rdfs:subClassOf colpri:DataLifeCycleStep ;
+                    rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataControl
+colpri:DataControl rdf:type owl:Class ;
+                 rdfs:subClassOf colpri:DataLifeCycleStep ;
+                 rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataController
+ioto:DataController rdf:type owl:Class ;
+                    rdfs:subClassOf colpri:PrivacyCommunityMember ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty ioto:definesPurpose ;
+                                      owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ;
+                    rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataDeleting
+colpri:DataDeleting rdf:type owl:Class ;
+                  rdfs:subClassOf colpri:DataLifeCycleStep ;
+                  rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataDomain
+ioto:DataDomain rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:unionOf ( ds4iot:HiddenData
+                                                    ds4iot:ProtectedData
+                                                  )
+                                    ] ;
+                rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataLifeCycle
+colpri:DataLifeCycle rdf:type owl:Class ;
+                   rdfs:subClassOf owl:Thing .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataLifeCycleStep
+colpri:DataLifeCycleStep rdf:type owl:Class ;
+                       rdfs:subClassOf owl:Thing ;
+                       rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataProcessing
+colpri:DataProcessing rdf:type owl:Class ;
+                    rdfs:subClassOf colpri:DataLifeCycleStep ;
+                    rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataStoring
+colpri:DataStoring rdf:type owl:Class ;
+                 rdfs:subClassOf colpri:DataLifeCycleStep ;
+                 rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataTransfer
+colpri:DataTransfer rdf:type owl:Class ;
+                  rdfs:subClassOf colpri:DataLifeCycleStep ;
+                  rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DcApBAC
+ds4iot:DcApBAC rdf:type owl:Class ;
+             rdfs:subClassOf ds4iot:ABAC .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Default
+ioto:Default rdf:type owl:Class ;
+             rdfs:subClassOf ioto:EthicMode ;
+             rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Disclosure
+colpri:Disclosure rdf:type owl:Class ;
+                rdfs:subClassOf colpri:PrivacyAttribute ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DisclosureToDevelopers
+colpri:DisclosureToDevelopers rdf:type owl:Class ;
+                            rdfs:subClassOf colpri:Disclosure ;
+                            rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Disliked
+ioto:Disliked rdf:type owl:Class ;
+              rdfs:subClassOf ioto:EthicCategory ;
+              rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/EncryptedData
+ds4iot:EncryptedData rdf:type owl:Class ;
+                   rdfs:subClassOf ds4iot:SecretData .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/EthicCategory
+ioto:EthicCategory rdf:type owl:Class ;
+                   rdfs:subClassOf skos:Concept ;
+                   rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/EthicMode
+ioto:EthicMode rdf:type owl:Class ;
+               rdfs:subClassOf skos:Concept ;
+               rdfs:isDefinedBy ioto: .
+
+##### regulation and legislation
+
+ioto:LegalRight rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing ;
+      rdfs:isDefinedBy ioto: .
+
+ioto:Country rdf:type owl:Class ;
+      rdfs:subClassOf owl:Thing ;
+      :hasName xsd:string ;
+      rdfs:isDefinedBy ioto: .
+
+ioto:isProtectedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain ioto:LegalRight ;
+    rdfs:range ioto:Country ;
+    rdfs:isDefinedBy ioto: .
+
+##### EXAMPLE of USE
+
+:iotoChile rdf:type ioto:Country ;
+    :hasName "Chile" ;
+    rdfs:isDefinedBy ioto: .
+
+:cancellation rdf:type ioto:LegalRight ;
+    ioto:isProtectedIn :iotoChile ;
+    rdfs:isDefinedBy ioto: .
+
+:access rdf:type ioto:LegalRight ;
+    ioto:isProtectedIn :iotoChile ;
+    rdfs:isDefinedBy ioto: .
+
+:rectification rdf:type ioto:LegalRight ;
+    ioto:isProtectedIn :iotoChile ;
+    rdfs:isDefinedBy ioto: .
+
+:opposition rdf:type ioto:LegalRight ;
+    ioto:isProtectedIn :iotoChile ;
+    rdfs:isDefinedBy ioto: .
+
+:portability rdf:type ioto:LegalRight ;
+    ioto:isProtectedIn :iotoChile ;
+    rdfs:isDefinedBy ioto: .
+
+######
+
+:hasEthicMode rdf:type owl:ObjectProperty ;
+    rdfs:domain ssn:System ;
+    rdfs:range :EthicMode ;
+    rdfs:isDefinedBy ioto: .
+
+:RecommendedSystem rdf:type owl:Class ;
+    owl:intersectionOf (
+        ssn:System
+        [ rdf:type owl:Restriction ;
+          owl:onProperty :hasEthicCategory ;
+          owl:hasValue :Recommended
+        ]
+    ) ;
+    rdfs:isDefinedBy ioto: .
+
+[ rdf:type owl:Class ;
+  owl:intersectionOf (
+    :RecommendedSystem
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :hasEthicMode ;
+      owl:someValuesFrom ioto:Mild
+    ]
+  )
+] rdfs:subClassOf :RecommendedSystem .
+
+###  https://github/ioto/EnhacedOntology4IoT/Forbidden
+ioto:Forbidden rdf:type owl:Class ;
+               rdfs:subClassOf ioto:EthicCategory ;
+               rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/GivenConsent
+colpri:GivenConsent rdf:type owl:Class ;
+                  rdfs:subClassOf colpri:Consent ;
+                  rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/HabitData
+colpri:HabitData rdf:type owl:Class ;
+               rdfs:subClassOf colpri:SensitivePersonalData ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty ioto:mustBeTreatedAs ;
+                                 owl:someValuesFrom ds4iot:EncryptedData
+                               ] ;
+               rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/HandledData
+ioto:HandledData rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:unionOf ( sosa:Procedure
+                                                     ssn:Platform
+                                                     ssn:System
+                                                   )
+                                     ] .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/HealthData
+colpri:HealthData rdf:type owl:Class ;
+                rdfs:subClassOf colpri:SensitivePersonalData ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty ioto:mustBeTreatedAs ;
+                                  owl:someValuesFrom ds4iot:HiddenData
+                                ] ;
+                rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/HiddenData
+ds4iot:HiddenData rdf:type owl:Class ;
+                rdfs:subClassOf ds4iot:SecretData ;
+                rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/IBAC
+ds4iot:IBAC rdf:type owl:Class ;
+          rdfs:subClassOf ds4iot:AccessControl ;
+          rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/IdentityData
+colpri:IdentityData rdf:type owl:Class ;
+                  rdfs:subClassOf colpri:SensitivePersonalData ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ioto:mustBeTreatedAs ;
+                                    owl:someValuesFrom ds4iot:EncryptedData
+                                  ] ;
+                  rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Mandatory
+ioto:Mandatory rdf:type owl:Class ;
+               rdfs:subClassOf ioto:EthicCategory .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Mild
+ioto:Mild rdf:type owl:Class ;
+          rdfs:subClassOf ioto:EthicMode ;
+          rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/NoThirdPartyDisclosure
+colpri:NoThirdPartyDisclosure rdf:type owl:Class ;
+                            rdfs:subClassOf colpri:Disclosure ;
+                            rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/NonSensitivePersonalData
+colpri:NonSensitivePersonalData rdf:type owl:Class ;
+                              rdfs:subClassOf colpri:PersonalData ;
+                              rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/OrBAC
+ds4iot:OrBAC rdf:type owl:Class ;
+           rdfs:subClassOf ds4iot:AccessControl ;
+           rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Permissible
+ioto:Permissible rdf:type owl:Class ;
+                 rdfs:subClassOf ioto:EthicCategory ;
+                 rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PersonalData
+colpri:PersonalData rdf:type owl:Class ;
+                  rdfs:subClassOf colpri:DataCategory ;
+                  rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Policy
+ds4iot:Policy rdf:type owl:Class ;
+            rdfs:subClassOf owl:Thing ;
+            rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PrivacyAttribute
+colpri:PrivacyAttribute rdf:type owl:Class ;
+                      rdfs:subClassOf owl:Thing .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PrivacyCommunityMember
+colpri:PrivacyCommunityMember rdf:type owl:Class ;
+                            rdfs:subClassOf skos:Actor .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PrivacyPolicy
+colpri:PrivacyPolicy rdf:type owl:Class ;
+                   rdfs:subClassOf ds4iot:Policy .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PrivacyPolicyEvaluation
+ioto:PrivacyPolicyEvaluation rdf:type owl:Class ;
+                             rdfs:subClassOf seas:Evaluation .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PrivacyPolicyEvaluationAttribute
+ioto:PrivacyPolicyEvaluationAttribute rdf:type owl:Class ;
+                                      rdfs:subClassOf skos:Concept ;
+                                      rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/ProtectedData
+ds4iot:ProtectedData rdf:type owl:Class ;
+                   rdfs:subClassOf ds4iot:SecureData ;
+                   rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PseudoAnonymousData
+colpri:PseudoAnonymousData rdf:type owl:Class ;
+                         rdfs:subClassOf colpri:DataCategory ;
+                         rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Purpose
+colpri:Purpose rdf:type owl:Class ;
+             rdfs:subClassOf skos:Concept ,
+                             colpri:PrivacyAttribute ;
+             rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/RAC
+ds4iot:RAC rdf:type owl:Class ;
+         rdfs:subClassOf ds4iot:AccessControl ;
+         rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/RBAC
+ds4iot:RBAC rdf:type owl:Class ;
+          rdfs:subClassOf ds4iot:AccessControl ;
+          rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Recommendation
+colpri:Recommendation rdf:type owl:Class .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/RecommendationAttribute
+colpri:RecommendationAttribute rdf:type owl:Class ;
+                             rdfs:subClassOf skos:Concept .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Recommended
+ioto:Recommended rdf:type owl:Class ;
+                 rdfs:subClassOf ioto:EthicCategory ;
+                 rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/SecretData
+ds4iot:SecretData rdf:type owl:Class ;
+                rdfs:subClassOf ds4iot:SecureData ;
+                rdfs:isDefinedBy ds4iot: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/SecureData
+ds4iot:SecureData rdf:type owl:Class ;
+                rdfs:subClassOf colpri:DataCategory .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/SecurityCommunityMember
+ioto:SecurityCommunityMember rdf:type owl:Class ;
+                             rdfs:subClassOf skos:Actor ;
+                             rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/SensitivePersonalData
+colpri:SensitivePersonalData rdf:type owl:Class ;
+                           rdfs:subClassOf colpri:PersonalData ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty ioto:mustBeTreatedAs ;
+                                             owl:someValuesFrom colpri:AnonymousData
+                                           ] ;
+                           rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Stringent
+ioto:Stringent rdf:type owl:Class ;
+               rdfs:subClassOf ioto:EthicMode ;
+               rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Strong
+ioto:Strong rdf:type owl:Class ;
+            rdfs:subClassOf ioto:EthicMode ;
+            rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/ThirdPartyDisclosure
+colpri:ThirdPartyDisclosure rdf:type owl:Class ;
+                          rdfs:subClassOf colpri:Disclosure ;
+                          rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/UngivenConsent
+colpri:UngivenConsent rdf:type owl:Class ;
+                    rdfs:subClassOf colpri:Consent ;
+                    rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/UserRequestedDataArchiving
+colpri:UserRequestedDataArchiving rdf:type owl:Class ;
+                                rdfs:subClassOf colpri:DataArchiving ;
+                                rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/UserRequestedDataDeleting
+colpri:UserRequestedDataDeleting rdf:type owl:Class ;
+                               rdfs:subClassOf colpri:DataDeleting ;
+                               rdfs:isDefinedBy colpri: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/stepToTakeResponsabilityFor
+ioto:stepToTakeResponsabilityFor rdf:type owl:Class ;
+                                 owl:equivalentClass [ rdf:type owl:Class ;
+                                                       owl:unionOf ( colpri:DataArchiving
+                                                                     colpri:DataCollection
+                                                                     colpri:DataControl
+                                                                     colpri:DataDeleting
+                                                                     colpri:DataProcessing
+                                                                     colpri:DataStoring
+                                                                     colpri:DataTransfer
+                                                                   )
+                                                     ] ;
+                                 rdfs:subClassOf skos:Concept ;
+                                 rdfs:isDefinedBy ioto: .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/thingToTakeResponsabilityFor
+ioto:thingToTakeResponsabilityFor rdf:type owl:Class ;
+                                  owl:equivalentClass [ rdf:type owl:Class ;
+                                                        owl:unionOf ( colpri:Consent
+                                                                      colpri:Disclosure
+                                                                      ioto:PrivacyPolicyEvaluation
+                                                                      colpri:Recommendation
+                                                                    )
+                                                      ] ;
+                                  rdfs:subClassOf owl:Thing ;
+                                  rdfs:isDefinedBy ioto: .
+
+
+###  https://w3id.org/seas/ChemicalEnergy
+seas:ChemicalEnergy rdf:type owl:Class ;
+                    rdfs:subClassOf seas:EnergyForm ;
+                    rdfs:comment "The energy that is contained in molecules."@en ;
+                    rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/Connection
+seas:Connection rdf:type owl:Class ;
+                rdfs:subClassOf sosa:FeatureOfInterest ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty seas:connectsSystem ;
+                                  owl:someValuesFrom ssn:System
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty seas:connectsSystemAt ;
+                                  owl:someValuesFrom seas:ConnectionPoint
+                                ] ;
+                owl:disjointWith seas:ConnectionPoint ,
+                                 ssn:System .
+
+
+###  https://w3id.org/seas/ConnectionPoint
+seas:ConnectionPoint rdf:type owl:Class ;
+                     rdfs:subClassOf sosa:FeatureOfInterest ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty seas:connectionPointOf ;
+                                       owl:cardinality "1"^^xsd:nonNegativeInteger
+                                     ] ;
+                     owl:disjointWith ssn:System .
+
+
+###  https://w3id.org/seas/EfficiencyEvaluation
+seas:EfficiencyEvaluation rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                owl:onProperty seas:evaluationOf ;
+                                                owl:someValuesFrom seas:EfficiencyProperty
+                                              ] ;
+                          rdfs:subClassOf seas:Evaluation ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty seas:evaluationOf ;
+                                            owl:someValuesFrom seas:EfficiencyProperty
+                                          ] ;
+                          rdfs:comment "The class of evaluations for efficiency properties."@en ;
+                          rdfs:isDefinedBy seas: ;
+                          rdfs:label "Efficiency Evaluation" .
+
+
+###  https://w3id.org/seas/EfficiencyProperty
+seas:EfficiencyProperty rdf:type owl:Class ;
+                        rdfs:subClassOf ssn:Property ;
+                        rdfs:comment """Efficiency signifies a level of performance that describes a process that uses the lowest amount of inputs to create the greatest 
+                amount of outputs. Efficiency relates to the use of all inputs in producing any given 
+                output, including personal time and energy. Efficiency is a measurable concept that can be 
+                determined by determining the ratio of useful output to total input. It minimizes the waste 
+                of resources such as physical materials, energy and time, while successfully achieving the 
+                desired output."""@en ;
+                        rdfs:isDefinedBy seas: ;
+                        rdfs:label "Efficiency Property" .
+
+
+###  https://w3id.org/seas/ElasticEnergy
+seas:ElasticEnergy rdf:type owl:Class ;
+                   rdfs:subClassOf seas:EnergyForm ;
+                   rdfs:comment " potential energy that is stored when a body is deformed (as in a coiled spring)."@en ;
+                   rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/ElectricConductanceEvaluation
+seas:ElectricConductanceEvaluation rdf:type owl:Class ;
+                                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                         owl:onProperty seas:evaluationOf ;
+                                                         owl:someValuesFrom seas:ElectricConductanceProperty
+                                                       ] ;
+                                   rdfs:subClassOf seas:Evaluation ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty seas:evaluationOf ;
+                                                     owl:someValuesFrom seas:ElectricConductanceProperty
+                                                   ] ;
+                                   rdfs:comment "The class of evaluations for electric conductance properties."@en ;
+                                   rdfs:isDefinedBy seas: ;
+                                   rdfs:label "Electric Conductance Evaluation" .
+
+
+###  https://w3id.org/seas/ElectricConductanceProperty
+seas:ElectricConductanceProperty rdf:type owl:Class ;
+                                 rdfs:subClassOf ssn:Property ;
+                                 rdfs:comment "The class of properties that are quantifiable and have a quantity kind of electric conductance."@en ;
+                                 rdfs:isDefinedBy seas: ;
+                                 rdfs:label "Electric Conductance Property" .
+
+
+###  https://w3id.org/seas/ElectricEnergy
+seas:ElectricEnergy rdf:type owl:Class ;
+                    rdfs:subClassOf seas:EnergyForm ;
+                    rdfs:comment "The energy that is from electric fields."@en ;
+                    rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/ElectricEnergyEvaluation
+seas:ElectricEnergyEvaluation rdf:type owl:Class ;
+                              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                    owl:onProperty seas:evaluationOf ;
+                                                    owl:someValuesFrom seas:ElectricEnergyProperty
+                                                  ] ;
+                              rdfs:subClassOf seas:Evaluation ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty seas:evaluationOf ;
+                                                owl:someValuesFrom seas:ElectricEnergyProperty
+                                              ] ;
+                              rdfs:comment "The class of evaluations for electric energy properties."@en ;
+                              rdfs:isDefinedBy seas: ;
+                              rdfs:label "Electric Energy Evaluation" .
+
+
+###  https://w3id.org/seas/ElectricEnergyProperty
+seas:ElectricEnergyProperty rdf:type owl:Class ;
+                            rdfs:subClassOf ssn:Property ;
+                            rdfs:comment "The class of properties that are quantifiable and have a quantity kind of electric energy."@en ;
+                            rdfs:isDefinedBy seas: ;
+                            rdfs:label "Electric Energy Property" .
+
+
+###  https://w3id.org/seas/ElectricPowerEvaluation
+seas:ElectricPowerEvaluation rdf:type owl:Class ;
+                             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                   owl:onProperty seas:evaluationOf ;
+                                                   owl:someValuesFrom seas:ElectricPowerProperty
+                                                 ] ;
+                             rdfs:subClassOf seas:Evaluation ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty seas:evaluationOf ;
+                                               owl:someValuesFrom seas:ElectricPowerProperty
+                                             ] ;
+                             rdfs:comment "The class of evaluations for electric power properties."@en ;
+                             rdfs:isDefinedBy seas: ;
+                             rdfs:label "Electric Power Evaluation" .
+
+
+###  https://w3id.org/seas/ElectricPowerProperty
+seas:ElectricPowerProperty rdf:type owl:Class ;
+                           rdfs:subClassOf ssn:Property ;
+                           rdfs:comment "The class of properties that are quantifiable and have a quantity kind of electric power."@en ;
+                           rdfs:isDefinedBy seas: ;
+                           rdfs:label "Electric Power Property" .
+
+
+###  https://w3id.org/seas/ElectricPowerSystem
+seas:ElectricPowerSystem rdf:type owl:Class ;
+                         rdfs:subClassOf ssn:System ;
+                         rdfs:isDefinedBy seas: ;
+                         rdfs:label "Electric Power System"@en .
+
+
+###  https://w3id.org/seas/ElectricResistanceEvaluation
+seas:ElectricResistanceEvaluation rdf:type owl:Class ;
+                                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                        owl:onProperty seas:evaluationOf ;
+                                                        owl:someValuesFrom seas:ElectricResistanceProperty
+                                                      ] ;
+                                  rdfs:subClassOf seas:Evaluation ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty seas:evaluationOf ;
+                                                    owl:someValuesFrom seas:ElectricResistanceProperty
+                                                  ] ;
+                                  rdfs:comment "The class of evaluations for electric resistance properties."@en ;
+                                  rdfs:isDefinedBy seas: ;
+                                  rdfs:label "Electric Resistance Evaluation" .
+
+
+###  https://w3id.org/seas/ElectricResistanceProperty
+seas:ElectricResistanceProperty rdf:type owl:Class ;
+                                rdfs:subClassOf ssn:Property ;
+                                rdfs:comment "The class of properties that are quantifiable and have a quantity kind of electric resistance."@en ;
+                                rdfs:isDefinedBy seas: ;
+                                rdfs:label "Electric Resistance Property" .
+
+
+###  https://w3id.org/seas/ElectricSusceptanceEvaluation
+seas:ElectricSusceptanceEvaluation rdf:type owl:Class ;
+                                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                         owl:onProperty seas:evaluationOf ;
+                                                         owl:someValuesFrom seas:ElectricSusceptanceProperty
+                                                       ] ;
+                                   rdfs:subClassOf seas:Evaluation ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty seas:evaluationOf ;
+                                                     owl:someValuesFrom seas:ElectricSusceptanceProperty
+                                                   ] ;
+                                   rdfs:comment "The class of evaluations for electric susceptance properties."@en ;
+                                   rdfs:isDefinedBy seas: ;
+                                   rdfs:label "Electric Susceptance Evaluation" .
+
+
+###  https://w3id.org/seas/ElectricSusceptanceProperty
+seas:ElectricSusceptanceProperty rdf:type owl:Class ;
+                                 rdfs:subClassOf ssn:Property ;
+                                 rdfs:comment "The class of properties that are quantifiable and have a quantity kind of electric susceptance."@en ;
+                                 rdfs:isDefinedBy seas: ;
+                                 rdfs:label "Electric Susceptance Property" .
+
+
+###  https://w3id.org/seas/ElectricalConnection
+seas:ElectricalConnection rdf:type owl:Class ;
+                          rdfs:subClassOf seas:Connection ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty seas:voltage ;
+                                            owl:someValuesFrom ssn:Property
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty seas:connectsSystem ;
+                                            owl:allValuesFrom seas:ElectricPowerSystem
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty seas:connectsSystemAt ;
+                                            owl:allValuesFrom seas:ElectricalConnectionPoint
+                                          ] ;
+                          rdfs:isDefinedBy seas: ;
+                          rdfs:label "Electrical Connection"@en .
+
+
+###  https://w3id.org/seas/ElectricalConnectionPoint
+seas:ElectricalConnectionPoint rdf:type owl:Class ;
+                               rdfs:subClassOf seas:ConnectionPoint ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty seas:electricCurrent ;
+                                                 owl:someValuesFrom ssn:Property
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty seas:voltage ;
+                                                 owl:someValuesFrom ssn:Property
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty seas:connectionPointOf ;
+                                                 owl:allValuesFrom seas:ElectricPowerSystem
+                                               ] ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty seas:connectsSystemThrough ;
+                                                 owl:allValuesFrom seas:ElectricalConnection
+                                               ] ;
+                               rdfs:isDefinedBy seas: ;
+                               rdfs:label "Electrical Connection Point"@en .
+
+
+###  https://w3id.org/seas/EnergyForm
+seas:EnergyForm rdf:type owl:Class ;
+                rdfs:subClassOf owl:Thing ;
+                rdfs:comment "The class of energy forms."@en ;
+                rdfs:isDefinedBy seas: ;
+                rdfs:label "Energy Form"@en .
+
+
+###  https://w3id.org/seas/Evaluation
+seas:Evaluation rdf:type owl:Class ;
+                rdfs:subClassOf owl:Thing ;
+                rdfs:comment """Evaluations qualify the link [`seas:value`](https://w3id.org/seas/value). In particular, they may hold metadata about:
+
+    1. the type of evaluation;
+    2. the context of validity of the evaluation;
+    3. provenance information or any other data.
+    """@en ;
+                rdfs:isDefinedBy seas:EvaluationOntology .
+
+
+###  https://w3id.org/seas/GravitationalEnergy
+seas:GravitationalEnergy rdf:type owl:Class ;
+                         rdfs:subClassOf seas:EnergyForm ;
+                         rdfs:comment "The gravitational potential energy is energy an object possesses because of its position in a gravitational field."@en ;
+                         rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/HeatEnergy
+seas:HeatEnergy rdf:type owl:Class ;
+                rdfs:subClassOf seas:EnergyForm ;
+                rdfs:comment "The transfer of energy from one thing to another by kinetic energy, usually causing a higher temperature."@en ;
+                rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/IncomingEvaluation
+seas:IncomingEvaluation rdf:type owl:Class ;
+                        rdfs:subClassOf seas:Evaluation ;
+                        owl:disjointWith seas:OutgoingEvaluation ;
+                        rdfs:comment "Evaluation of how the exterior contributes to the property."@en ;
+                        rdfs:isDefinedBy seas:ZoneOntology ;
+                        rdfs:label "Incoming evaluation"@en .
+
+
+###  https://w3id.org/seas/IonizationEnergy
+seas:IonizationEnergy rdf:type owl:Class ;
+                      rdfs:subClassOf seas:EnergyForm ;
+                      rdfs:comment "The amount of energy required to remove an electron from an atom to form a cation; also called ionization potential."@en ;
+                      rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/KineticEnergy
+seas:KineticEnergy rdf:type owl:Class ;
+                   rdfs:subClassOf seas:EnergyForm ;
+                   rdfs:comment "The energy of a body or a system with respect to the motion of the body or of the particles in the system."@en ;
+                   rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/MagneticEnergy
+seas:MagneticEnergy rdf:type owl:Class ;
+                    rdfs:subClassOf seas:EnergyForm ;
+                    rdfs:comment "The energy that is from magnetic fields."@en ;
+                    rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/MechanicalEnergy
+seas:MechanicalEnergy rdf:type owl:Class ;
+                      rdfs:subClassOf seas:EnergyForm ;
+                      rdfs:comment "The power that an object gets from its position and motion."@en ;
+                      rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/MechanicalWaveEnergy
+seas:MechanicalWaveEnergy rdf:type owl:Class ;
+                          rdfs:subClassOf seas:EnergyForm ;
+                          rdfs:comment "The power that an object gets from energy propagated by a material's oscillations."@en ;
+                          rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/NuclearEnergy
+seas:NuclearEnergy rdf:type owl:Class ;
+                   rdfs:subClassOf seas:EnergyForm ;
+                   rdfs:comment "The energy released by reactions within atomic nuclei, as in nuclear fission or fusion."@en ;
+                   rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/OutgoingEvaluation
+seas:OutgoingEvaluation rdf:type owl:Class ;
+                        rdfs:subClassOf seas:Evaluation ;
+                        rdfs:comment "Evaluation of how the property contributes to the exterior."@en ;
+                        rdfs:isDefinedBy seas:ZoneOntology ;
+                        rdfs:label "Outgoing Evaluation"@en .
+
+
+###  https://w3id.org/seas/PotentialEnergy
+seas:PotentialEnergy rdf:type owl:Class ;
+                     rdfs:subClassOf seas:EnergyForm ;
+                     rdfs:comment "The energy of a body or a system with respect to the position of the body or the arrangement of the particles of the system."@en ;
+                     rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/RadiantEnergy
+seas:RadiantEnergy rdf:type owl:Class ;
+                   rdfs:subClassOf seas:EnergyForm ;
+                   rdfs:comment "The energy transmitted in wave motion, especially electromagnetic wave motion."@en ;
+                   rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/RenewableEnergyForm
+seas:RenewableEnergyForm rdf:type owl:Class ;
+                         rdfs:subClassOf seas:EnergyForm ;
+                         rdfs:comment "The class of renewable energy forms."@en ;
+                         rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/RestEnergy
+seas:RestEnergy rdf:type owl:Class ;
+                rdfs:subClassOf seas:EnergyForm ;
+                rdfs:comment "The energy equivalent to the mass of a particle at rest in an inertial frame of reference, equal to the rest mass times the square of the speed of light."@en ;
+                rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/ThermalEnergy
+seas:ThermalEnergy rdf:type owl:Class ;
+                   rdfs:subClassOf seas:EnergyForm ;
+                   rdfs:comment "Thermal energy is the energy that is generated and measured by heat."@en ;
+                   rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/UnrenewableEnergyForm
+seas:UnrenewableEnergyForm rdf:type owl:Class ;
+                           rdfs:subClassOf seas:EnergyForm ;
+                           rdfs:comment "The class of unrenewable energy forms."@en ;
+                           rdfs:isDefinedBy seas: .
+
+
+###  https://w3id.org/seas/VoltageEvaluation
+seas:VoltageEvaluation rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty seas:evaluationOf ;
+                                             owl:someValuesFrom seas:VoltageProperty
+                                           ] ;
+                       rdfs:subClassOf seas:Evaluation ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty seas:evaluationOf ;
+                                         owl:someValuesFrom seas:VoltageProperty
+                                       ] ;
+                       rdfs:comment "The class of evaluations for voltage properties."@en ;
+                       rdfs:isDefinedBy seas: ;
+                       rdfs:label "Voltage Evaluation" .
+
+
+###  https://w3id.org/seas/VoltageProperty
+seas:VoltageProperty rdf:type owl:Class ;
+                     rdfs:subClassOf ssn:Property ;
+                     rdfs:comment "The class of properties that are quantifiable and use a quantity dimension of electric potential."@en ;
+                     rdfs:isDefinedBy seas: ;
+                     rdfs:label "Voltage Property" .
+
+
+###  https://www.w3.org/ns/ssn/Accuracy
+ssn:Accuracy rdf:type owl:Class ;
+             rdfs:subClassOf ssn:SystemProperty ;
+             rdfs:comment "The closeness of agreement between the Result of an Observation (resp. the command of an Actuation) and the true value of the observed ObservableProperty (resp. of the acted on ActuatableProperty) under the defined Conditions."@en ;
+             rdfs:isDefinedBy ssn: ;
+             rdfs:label "Accuracy"@en ;
+             skos:definition "The closeness of agreement between the Result of an Observation (resp. the command of an Actuation) and the true value of the observed ObservableProperty (resp. of the acted on ActuatableProperty) under the defined Conditions."@en .
+
+
+###  https://www.w3.org/ns/ssn/ActuationRange
+ssn:ActuationRange rdf:type owl:Class ;
+                   rdfs:subClassOf ssn:SystemProperty ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty [ owl:inverseOf ssn:hasSystemProperty
+                                                    ] ;
+                                     owl:allValuesFrom [ rdf:type owl:Restriction ;
+                                                         owl:onProperty [ owl:inverseOf ssn:hasSystemCapability
+                                                                        ] ;
+                                                         owl:allValuesFrom sosa:Actuator
+                                                       ]
+                                   ] ;
+                   rdfs:comment "The set of values that the Actuator can return as the Result of an Actuation under the defined Conditions with the defined system properties."@en ;
+                   rdfs:isDefinedBy ssn: ;
+                   rdfs:label "Actuation Range"@en ;
+                   skos:definition "The set of values that the Actuator can return as the Result of an Actuation under the defined Conditions with the defined system properties."@en .
+
+
+###  https://www.w3.org/ns/ssn/BatteryLifetime
+ssn:BatteryLifetime rdf:type owl:Class ;
+                    rdfs:subClassOf ssn:SurvivalProperty ;
+                    rdfs:comment "Total useful life of a System's battery in the specified Conditions."@en ;
+                    rdfs:isDefinedBy ssn: ;
+                    rdfs:label "Battery Lifetime"@en ;
+                    skos:definition "Total useful life of a System's battery in the specified Conditions."@en .
+
+
+###  https://www.w3.org/ns/ssn/Condition
+ssn:Condition rdf:type owl:Class .
+
+
+###  https://www.w3.org/ns/ssn/DetectionLimit
+ssn:DetectionLimit rdf:type owl:Class ;
+                   rdfs:subClassOf ssn:SystemProperty ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty [ owl:inverseOf ssn:hasSystemProperty
+                                                    ] ;
+                                     owl:allValuesFrom [ rdf:type owl:Restriction ;
+                                                         owl:onProperty [ owl:inverseOf ssn:hasSystemCapability
+                                                                        ] ;
+                                                         owl:allValuesFrom sosa:Sensor
+                                                       ]
+                                   ] ;
+                   rdfs:comment "An observed value for which the probability of falsely claiming the absence of a component in a material is beta, given a probability alpha of falsely claiming its presence."@en ;
+                   rdfs:isDefinedBy ssn: ;
+                   rdfs:label "Detection Limit"@en ;
+                   skos:definition "An observed value for which the probability of falsely claiming the absence of a component in a material is beta, given a probability alpha of falsely claiming its presence."@en .
+
+
+###  https://www.w3.org/ns/ssn/MaintenanceSchedule
+ssn:MaintenanceSchedule rdf:type owl:Class ;
+                        rdfs:subClassOf ssn:OperatingProperty ;
+                        rdfs:comment "Schedule of maintenance for a System in the specified Conditions."@en ;
+                        rdfs:isDefinedBy ssn: ;
+                        rdfs:label "Maintenance Schedule"@en ;
+                        skos:definition "Schedule of maintenance for a System in the specified Conditions."@en .
+
+
+###  https://www.w3.org/ns/ssn/MeasurementRange
+ssn:MeasurementRange rdf:type owl:Class ;
+                     rdfs:subClassOf ssn:SystemProperty ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty [ owl:inverseOf ssn:hasSystemProperty
+                                                      ] ;
+                                       owl:allValuesFrom [ rdf:type owl:Restriction ;
+                                                           owl:onProperty [ owl:inverseOf ssn:hasSystemCapability
+                                                                          ] ;
+                                                           owl:allValuesFrom sosa:Sensor
+                                                         ]
+                                     ] ;
+                     rdfs:comment "The set of values that the Sensor can return as the Result of an Observation under the defined Conditions."@en ;
+                     rdfs:isDefinedBy ssn: ;
+                     rdfs:label "Measurement Range"@en ;
+                     skos:definition "The set of values that the Sensor can return as the Result of an Observation under the defined Conditions."@en .
+
+
+###  https://www.w3.org/ns/ssn/OperatingPowerRange
+ssn:OperatingPowerRange rdf:type owl:Class ;
+                        rdfs:subClassOf ssn:OperatingProperty ;
+                        rdfs:comment "Power range in which a System is expected to operate in the specified Conditions."@en ;
+                        rdfs:isDefinedBy ssn: ;
+                        rdfs:label "Operating Power Range"@en ;
+                        skos:definition "Power range in which a System is expected to operate in the specified Conditions."@en .
+
+
+###  https://www.w3.org/ns/ssn/OperatingProperty
+ssn:OperatingProperty rdf:type owl:Class ;
+                      rdfs:subClassOf ssn:Property ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty [ owl:inverseOf ssn:hasOperatingProperty
+                                                       ] ;
+                                        owl:allValuesFrom ssn:OperatingRange
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty [ owl:inverseOf ssn:hasOperatingProperty
+                                                       ] ;
+                                        owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                      ] ;
+                      rdfs:comment "An identifiable characteristic that represents how the System operates under the specified Conditions. May describe power ranges, power sources, standard configurations, attachments and the like."@en ;
+                      rdfs:isDefinedBy ssn: ;
+                      rdfs:label "Operating Property"@en ;
+                      skos:definition "An identifiable characteristic that represents how the System operates under the specified Conditions. May describe power ranges, power sources, standard configurations, attachments and the like."@en .
+
+
+###  https://www.w3.org/ns/ssn/OperatingRange
+ssn:OperatingRange rdf:type owl:Class ;
+                   rdfs:subClassOf owl:Thing ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ssn:hasOperatingProperty ;
+                                     owl:allValuesFrom ssn:OperatingProperty
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty ssn:inCondition ;
+                                     owl:allValuesFrom ssn:Condition
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty [ owl:inverseOf ssn:hasOperatingRange
+                                                    ] ;
+                                     owl:allValuesFrom ssn:System
+                                   ] ;
+                   rdfs:comment """Describes normal OperatingProperties of a System under some specified Conditions. For example, to the power requirement or maintenance schedule of a System under a specified temperature range.
+
+    In the absence of OperatingProperties, simply describes the Conditions in which a System is expected to operate.
+
+    The System continues to operate as defined using SystemCapability. If, however, the SurvivalRange is violated, the System is 'damaged' and SystemCapability specifications may no longer hold."""@en ;
+                   rdfs:isDefinedBy ssn: ;
+                   rdfs:label "Operating Range"@en ;
+                   skos:definition """Describes normal OperatingProperties of a System under some specified Conditions. For example, to the power requirement or maintenance schedule of a System under a specified temperature range.
+
+    In the absence of OperatingProperties, it simply describes the Conditions in which a System is expected to operate.
+
+    The System continues to operate as defined using SystemCapability. If, however, the SurvivalRange is violated, the System is 'damaged' and SystemCapability specifications may no longer hold."""@en .
+
+
+###  https://www.w3.org/ns/ssn/Platform
+ssn:Platform rdf:type owl:Class .
+
+
+###  https://www.w3.org/ns/ssn/Property
+ssn:Property rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing ;
+             rdfs:isDefinedBy ssn: ;
+             rdfs:label "Property"@en ;
+             skos:definition "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity."@en .
+
+
+###  https://www.w3.org/ns/ssn/Stimulus
+ssn:Stimulus rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty ssn:isProxyFor ;
+                               owl:allValuesFrom sosa:ObservableProperty
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty [ owl:inverseOf ssn:detects
+                                              ] ;
+                               owl:allValuesFrom sosa:Sensor
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty [ owl:inverseOf ssn:wasOriginatedBy
+                                              ] ;
+                               owl:allValuesFrom sosa:Observation
+                             ] ;
+             rdfs:comment "An event in the real world that 'triggers' the Sensor. The properties associated to the Stimulus may be different to the eventual observed ObservableProperty. It is the event, not the object, that triggers the Sensor."@en ;
+             rdfs:isDefinedBy ssn: ;
+             rdfs:label "Stimulus"@en ;
+             skos:definition "An event in the real world that 'triggers' the Sensor. The properties associated to the Stimulus may be different to the eventual observed ObservableProperty. It is the event, not the object, that triggers the Sensor."@en .
+
+
+###  https://www.w3.org/ns/ssn/SurvivalProperty
+ssn:SurvivalProperty rdf:type owl:Class ;
+                     rdfs:subClassOf ssn:Property ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty [ owl:inverseOf ssn:hasSurvivalProperty
+                                                      ] ;
+                                       owl:allValuesFrom ssn:SurvivalRange
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty [ owl:inverseOf ssn:hasSurvivalProperty
+                                                      ] ;
+                                       owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                     ] ;
+                     rdfs:comment "An identifiable characteristic that represents the extent of the System's useful life under the specified Conditions. May describe for example total battery life or number of recharges, or, for Sensors that are used only a fixed number of times, the number of observations that can be made before the sensing capability is depleted."@en ;
+                     rdfs:isDefinedBy ssn: ;
+                     rdfs:label "Survival Property"@en ;
+                     skos:definition "An identifiable characteristic that represents the extent of the System's useful life under the specified Conditions. May describe for example total battery life or number of recharges, or, for Sensors that are used only a fixed number of times, the number of observations that can be made before the sensing capability is depleted."@en .
+
+
+###  https://www.w3.org/ns/ssn/SurvivalRange
+ssn:SurvivalRange rdf:type owl:Class ;
+                  rdfs:subClassOf ssn:Property ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ssn:hasSurvivalProperty ;
+                                    owl:allValuesFrom ssn:SurvivalProperty
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty ssn:inCondition ;
+                                    owl:allValuesFrom ssn:Condition
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty [ owl:inverseOf ssn:hasSurvivalRange
+                                                   ] ;
+                                    owl:allValuesFrom ssn:System
+                                  ] ;
+                  rdfs:comment """Describes survival capabilities of a System under some specified Conditions. For example, to the lifetime of a System under a specified temperature range.
+
+    In the absence of SurvivalProperties, simply describes the Conditions a System can be exposed to without damage. For example, the temperature range a System can withstand before being considered damaged.
+
+    The System continues to operate as defined using SystemCapability. If, however, the OperatingProperty is violated, the System is operating 'out of operating range' and SystemCapability specifications may no longer hold."""@en ;
+                  rdfs:isDefinedBy ssn: ;
+                  rdfs:label "Survival Range"@en ;
+                  skos:definition """Describes SurvivalProperties of a System under some specified Conditions. For example, the lifetime of a System under a specified temperature range.
+
+    In the absence of SurvivalProperties, simply describes the Conditions a System can be exposed to without damage. For example, the temperature range a System can withstand before being considered damaged.
+
+    The System continues to operate as defined using SystemCapability. If, however, the SurvivalRange is violated, the System is 'damaged' and SystemCapability specifications may no longer hold."""@en .
+
+
+###  https://www.w3.org/ns/ssn/System
+ssn:System rdf:type owl:Class ;
+           rdfs:subClassOf owl:Thing ,
+                           sosa:FeatureOfInterest ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty ssn:hasOperatingRange ;
+                             owl:allValuesFrom ssn:OperatingRange
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty ssn:hasSurvivalRange ;
+                             owl:allValuesFrom ssn:SurvivalRange
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty ssn:hasSystemCapability ;
+                             owl:allValuesFrom ssn:SystemCapability
+                           ] .
+
+
+###  https://www.w3.org/ns/ssn/SystemCapability
+ssn:SystemCapability rdf:type owl:Class ;
+                     rdfs:subClassOf owl:Thing ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty ssn:forProperty ;
+                                       owl:allValuesFrom ssn:Property
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty ssn:hasSystemProperty ;
+                                       owl:allValuesFrom ssn:SystemProperty
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty ssn:inCondition ;
+                                       owl:allValuesFrom ssn:Condition
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty [ owl:inverseOf ssn:hasSystemCapability
+                                                      ] ;
+                                       owl:allValuesFrom ssn:System
+                                     ] ;
+                     rdfs:isDefinedBy ssn: ;
+                     rdfs:label "System Capability"@en ;
+                     skos:definition """Describes normal measurement, actuation, sampling properties such as accuracy, range, precision, etc. of a System under some specified Conditions such as a temperature range.
+    The capabilities specified here are those that affect the primary purpose of the System, while those in OperatingRange represent the system's normal operating environment, including conditions that don't affect the observations or the actuations."""@en .
+
+
+###  https://www.w3.org/ns/ssn/SystemLifetime
+ssn:SystemLifetime rdf:type owl:Class ;
+                   rdfs:subClassOf ssn:SurvivalProperty ;
+                   rdfs:comment "Total useful life of a System (expressed as total life since manufacture, time in use, number of operations, etc.) in the specified Conditions."@en ;
+                   rdfs:isDefinedBy ssn: ;
+                   rdfs:label "System Lifetime"@en ;
+                   skos:definition "Total useful life of a System (expressed as total life since manufacture, time in use, number of operations, etc.) in the specified Conditions."@en .
+
+
+###  https://www.w3.org/ns/ssn/SystemProperty
+ssn:SystemProperty rdf:type owl:Class ;
+                   rdfs:subClassOf ssn:Property ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty [ owl:inverseOf ssn:hasSystemProperty
+                                                    ] ;
+                                     owl:allValuesFrom ssn:SystemCapability
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty [ owl:inverseOf ssn:hasSystemProperty
+                                                    ] ;
+                                     owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                   ] ;
+                   rdfs:isDefinedBy ssn: ;
+                   rdfs:label "System Property"@en ;
+                   skos:definition "An identifiable and observable characteristic that represents the System's ability to operate its primary purpose: a Sensor to make Observations, an Actuator to make Actuations, or a Sampler to make Samplings."@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.w3.org/ns/sosa/Procedure
+sosa:Procedure rdf:type owl:NamedIndividual ;
+               colpri:handles colpri:Data .
+
+
+###  https://github.com/alex23013/iot_ontologies/colpri/PrivacyPolicyEvaluationAttribute
+colpri:PrivacyPolicyEvaluationAttribute rdf:type owl:NamedIndividual .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Administrator
+colpri:Administrator rdf:type owl:NamedIndividual ;
+                   ioto:givesPrivacyPolicyEvaluation ioto:PrivacyPolicyEvaluation ;
+                   colpri:givesRecommendation colpri:Recommendation ;
+                   ioto:validatesPrivacyPolicyEvaluation ioto:PrivacyPolicyEvaluation ;
+                   colpri:validatesRecommendation colpri:Recommendation .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/CapabilityManager
+ioto:CapabilityManager rdf:type owl:NamedIndividual .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Certificate
+ds4iot:Certificate rdf:type owl:NamedIndividual .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Contributor
+colpri:Contributor rdf:type owl:NamedIndividual ;
+                 ioto:givesPrivacyPolicyEvaluation ioto:PrivacyPolicyEvaluation ;
+                 colpri:givesRecommendation colpri:Recommendation .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/CryptoManager
+ds4iot:CryptoManager rdf:type owl:NamedIndividual .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Data
+colpri:Data rdf:type owl:NamedIndividual ;
+          colpri:hasDataCategory colpri:DataCategory .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataCategory
+colpri:DataCategory rdf:type owl:NamedIndividual .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DataLifeCycle
+colpri:DataLifeCycle rdf:type owl:NamedIndividual ;
+                   colpri:hasDataLifeCycleStep colpri:DataLifeCycle .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/DcApBAC
+ds4iot:DcApBAC rdf:type owl:NamedIndividual ;
+             ds4iot:hasCapabilityManager ds4iot:CapabilityManager .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/EncryptedData
+ds4iot:EncryptedData rdf:type owl:NamedIndividual ;
+                   ds4iot:hasCryptoManager ds4iot:CryptoManager .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Mandatory
+ioto:Mandatory rdf:type owl:NamedIndividual .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PrivacyAttribute
+colpri:PrivacyAttribute rdf:type owl:NamedIndividual .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PrivacyCommunityMember
+colpri:PrivacyCommunityMember rdf:type owl:NamedIndividual ;
+                            ioto:givesPrivacyPolicyEvaluation ioto:PrivacyPolicyEvaluation ;
+                            colpri:givesRecommendation colpri:Recommendation .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PrivacyPolicy
+colpri:PrivacyPolicy rdf:type owl:NamedIndividual ;
+                   colpri:hasPrivacyAttribute colpri:PrivacyAttribute .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/PrivacyPolicyEvaluation
+ioto:PrivacyPolicyEvaluation rdf:type owl:NamedIndividual ;
+                             ioto:hasPrivacyPolicyEvaluationAttribute colpri:PrivacyPolicyEvaluationAttribute .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/Recommendation
+colpri:Recommendation rdf:type owl:NamedIndividual ;
+                    colpri:hasRecommendationAttribute colpri:RecommendationAttribute ;
+                    colpri:recommends colpri:PrivacyPolicy .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/RecommendationAttribute
+colpri:RecommendationAttribute rdf:type owl:NamedIndividual .
+
+
+###  https://github/ioto/EnhacedOntology4IoT/SecureData
+ds4iot:SecureData rdf:type owl:NamedIndividual ;
+                ds4iot:hasCertificate ds4iot:Certificate .
+
+
+###  https://www.w3.org/ns/ssn/Platform
+ssn:Platform rdf:type owl:NamedIndividual ;
+             colpri:handles colpri:Data .
+
+
+[ owl:minCardinality "1"^^xsd:nonNegativeInteger
+] .
+
+[ owl:minCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+[ owl:minCardinality "1"^^xsd:nonNegativeInteger
+ ] .
+
+#################################################################
+#    Annotations
+#################################################################
+
+sosa:Procedure rdfs:isDefinedBy sosa: ;
+                ssn:implementedByOnly ssn:System .
+
+
+colpri:Administrator rdfs:isDefinedBy colpri: .
+
+
+ds4iot:CapabilityManager rdfs:isDefinedBy ds4iot: .
+
+
+ds4iot:Certificate rdfs:isDefinedBy ds4iot: .
+
+
+colpri:Contributor rdfs:isDefinedBy colpri: .
+
+
+ds4iot:CryptoManager rdfs:isDefinedBy ds4iot: .
+
+
+colpri:Data rdfs:isDefinedBy colpri: .
+
+
+colpri:DataCategory rdfs:isDefinedBy colpri: .
+
+
+colpri:DataLifeCycle rdfs:isDefinedBy colpri: ;
+                   colpri:hasDateTime xsd:dateTime ;
+                   colpri:hasLocation xsd:string .
+
+
+ds4iot:DcApBAC rdfs:isDefinedBy ds4iot: .
+
+
+ds4iot:EncryptedData rdfs:isDefinedBy ds4iot: .
+
+
+ioto:Mandatory rdfs:isDefinedBy ioto: .
+
+
+colpri:PrivacyAttribute rdfs:isDefinedBy colpri: .
+
+
+colpri:PrivacyCommunityMember rdfs:isDefinedBy colpri: .
+
+
+colpri:PrivacyPolicy rdfs:isDefinedBy colpri: .
+
+
+ioto:PrivacyPolicyEvaluation rdfs:isDefinedBy ioto: ;
+                             colpri:evaluates colpri:PrivacyPolicy .
+
+
+colpri:Recommendation rdfs:isDefinedBy colpri: ;
+                    rdfs:subClassOf owl:Thing .
+
+
+colpri:RecommendationAttribute rdfs:isDefinedBy colpri: .
+
+ds4iot:SecureData rdfs:isDefinedBy ds4iot: ;
+                ds4iot:hasProvenanceProvider ds4iot:ProvenanceProvider ;
+                ds4iot:regulatedBy ds4iot:Regulation .
+
+
+ssn:Platform rdfs:isDefinedBy ssn: ;
+             ssn:hasAttachedSystemOnly ssn:System .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ owl:intersectionOf ( ioto:DataController
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty ioto:definesPurpose ;
+                         owl:someValuesFrom colpri:Purpose
+                       ]
+                     ) ;
+  rdf:type owl:Class ;
+  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                    owl:onProperty ioto:hasEthicCategory ;
+                    owl:hasValue ioto:Mandatory
+                  ]
+] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

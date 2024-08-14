@@ -190,6 +190,12 @@ class Metricas:
         #Return Sum Length of path from leaves to Thing and Total Path
         #Auxiliar function to LCOMOnto y WMCOnto
         #Sum Length of path from leaves to Thing
+        '''
+        print("self.level_dic")
+        print(self.level_dic)
+        print("self.leaves")
+        print(self.leaves)
+        '''
         sum_len_path = 0
         total_path = -1 # discount thing
         for i in self.leaves:
@@ -458,7 +464,7 @@ class ScaledMetrics:
 if __name__ == "__main__":
 
     #replace this path for other ontologies in Turtle format
-    nameOntology = "ds4iot"
+    nameOntology = "ioto-protege"
     M = Metricas("../iot_ontologies/"+nameOntology+".ttl")
     
     raw_metrics = {
