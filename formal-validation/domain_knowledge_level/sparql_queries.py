@@ -141,7 +141,7 @@ def cat4_b1(g): #[0,1,1]
     return pro
 
 
-def eval_ontology(nameOntology, test_runs = 10):
+def eval_ontology(nameOntology, test_runs = 10, show_first_run_triplets=False):
     print("evaluating ", nameOntology)
     g = Graph()
     g.parse(nameOntology, format="turtle")
@@ -154,8 +154,8 @@ def eval_ontology(nameOntology, test_runs = 10):
     for i in range(test_runs):
         start = time()
         #replace the next line to run differents sparql queries
-        #pro = cat1_b1(g)
-        pro = cat2_a1(g)
+        pro = cat1_b1(g)
+        #pro = cat2_a1(g)
         end = time()
         times.append(end - start)
         if i == 0:
@@ -166,12 +166,11 @@ def eval_ontology(nameOntology, test_runs = 10):
     print('Average execution time over', test_runs, 'runs:', avg_time)
     print("triplets found: ")
     print(triplet_count)
-    '''
-    print("Triplets from the first run:")
-    for row in first_result:
-        print(row)
-        print("-----------------------------")
-    '''
+    if show_first_run_triplets:
+        print("Triplets from the first run:")
+        for row in first_result:
+            print(row)
+            print("-----------------------------")
 
 eval_ontology(nameOntology1)
 eval_ontology(nameOntology2)
