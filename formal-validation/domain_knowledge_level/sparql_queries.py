@@ -141,29 +141,37 @@ def cat4_b1(g): #[0,1,1]
     return pro
 
 
-def eval_ontology(nameOntology):
+def eval_ontology(nameOntology, test_runs = 10):
     print("evaluating ", nameOntology)
     g = Graph()
     g.parse(nameOntology, format="turtle")
 
     classes = [i for i in g.subjects(RDF.type, OWL.Class)]
     print("classes: ", len(classes))
-    tiempo_inicial = time() 
-    #replace the next line to run differents sparql queries
-    pro = cat1_a3(g)
-
-    tiempo_final = time() 
-    tiempo_ejecucion = tiempo_final - tiempo_inicial
- 
-    print( 'execution time :',tiempo_ejecucion) #in seconds
+    times = []
+    triplet_count = None
+    first_result = None
+    for i in range(test_runs):
+        start = time()
+        #replace the next line to run differents sparql queries
+        #pro = cat1_b1(g)
+        pro = cat2_a1(g)
+        end = time()
+        times.append(end - start)
+        if i == 0:
+            first_result = list(pro)
+        if triplet_count is None:
+            triplet_count = len(pro)
+    avg_time = sum(times) / len(times)
+    print('Average execution time over', test_runs, 'runs:', avg_time)
+    print("triplets found: ")
+    print(triplet_count)
     '''
-    #if you want to see the rows of result
-    for row in pro:
-            print (row)
-            print("-----------------------------")
+    print("Triplets from the first run:")
+    for row in first_result:
+        print(row)
+        print("-----------------------------")
     '''
-    print("triplets found: " )
-    print( len(pro))
 
 eval_ontology(nameOntology1)
 eval_ontology(nameOntology2)
